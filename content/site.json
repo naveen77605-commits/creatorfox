@@ -1,0 +1,38 @@
+{
+  "brand": "CreatorFox",
+  "hero": {
+    "eyebrow": "GROWTH STUDIO / CREATOR MARKETPLACE / AI",
+    "title": "Make the market notice.",
+    "description": "CreatorFox combines brand, digital, performance, creators and AI into one sharp growth system for ambitious companies.",
+    "primaryCta": "Start a growth conversation",
+    "secondaryCta": "Explore creators"
+  },
+  "stats": [
+    {"value":"10+","label":"years in digital"},
+    {"value":"250+","label":"projects shipped"},
+    {"value":"India-first","label":"creator network"},
+    {"value":"24/7","label":"AI-ready systems"}
+  ],
+  "services": [
+    {"slug":"brand-identity","title":"Brand Identity","short":"Positioning, identity systems and launch-ready brand assets.","icon":"Sparkles"},
+    {"slug":"website-development","title":"Website Development","short":"Premium websites engineered for speed, trust and conversion.","icon":"Globe2"},
+    {"slug":"content-strategy","title":"Content Strategy","short":"A repeatable content engine built around audience, offers and outcomes.","icon":"PenTool"},
+    {"slug":"performance-marketing","title":"Performance Marketing","short":"Google, Meta and LinkedIn campaigns built around profitable growth.","icon":"ChartNoAxesCombined"},
+    {"slug":"creator-marketing","title":"Creator Marketing","short":"Indian creator discovery, campaign strategy, negotiation and execution.","icon":"Users"},
+    {"slug":"ai-automation","title":"AI & Automation","short":"Agents and workflows that remove repetitive work and accelerate response.","icon":"Bot"},
+    {"slug":"ai-workshops","title":"Executive AI Workshops","short":"Practical AI training for founders, marketing teams and leadership.","icon":"BrainCircuit"}
+  ],
+  "creators": [
+    {"slug":"riya-mehta","name":"Riya Mehta","handle":"@riyamehta.style","city":"Mumbai","niche":"Fashion","followers":"184K","engagement":"4.8%","rate":"₹35K+","image":"https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=85","verified":true},
+    {"slug":"aarav-kapoor","name":"Aarav Kapoor","handle":"@aaravbuilds","city":"Bengaluru","niche":"Tech","followers":"92K","engagement":"6.2%","rate":"₹28K+","image":"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85","verified":true},
+    {"slug":"simran-kaur","name":"Simran Kaur","handle":"@simranmoves","city":"Delhi","niche":"Fitness","followers":"276K","engagement":"5.1%","rate":"₹45K+","image":"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85","verified":true},
+    {"slug":"kabir-shah","name":"Kabir Shah","handle":"@kabir.eats","city":"Pune","niche":"Food","followers":"121K","engagement":"7.4%","rate":"₹24K+","image":"https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=85","verified":true},
+    {"slug":"anaya-iyer","name":"Anaya Iyer","handle":"@anaya.skin","city":"Chennai","niche":"Beauty","followers":"318K","engagement":"3.9%","rate":"₹55K+","image":"https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=85","verified":true},
+    {"slug":"dev-malhotra","name":"Dev Malhotra","handle":"@devtravels","city":"Hyderabad","niche":"Lifestyle","followers":"68K","engagement":"8.1%","rate":"₹18K+","image":"https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?auto=format&fit=crop&w=900&q=85","verified":true}
+  ],
+  "work": [
+    {"title":"NDS Eco Motors","category":"Performance / Web","metric":"3.4×","label":"ROAS improvement","image":"https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1400&q=85"},
+    {"title":"Baggage Transporter","category":"Brand / Website","metric":"+61%","label":"qualified enquiries","image":"https://images.unsplash.com/photo-1565026057447-bc90a3dceb87?auto=format&fit=crop&w=1400&q=85"},
+    {"title":"D2C Growth Sprint","category":"Content / Paid Media","metric":"2.7×","label":"blended ROAS","image":"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=85"}
+  ]
+}
