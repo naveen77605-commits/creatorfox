@@ -1,0 +1,1 @@
+export default function Logo({dark=false}:{dark?:boolean}){return <span className="font-semibold tracking-[.02em] text-xl"><span className={dark?'text-paper':'text-charcoal'}>Creator</span><span className="text-gold">Fox</span></span>}
