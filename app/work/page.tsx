@@ -1,0 +1,6 @@
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { Footer, Navbar, PageHero, Reveal, WorkCard } from "../../components/SiteUI";
+import site from "../../content/site.json";
+
+export default function WorkPage(){return <main><Navbar/><PageHero eyebrow="Selected work" title="Proof over promises." description="A selection of brand, website, performance and growth work. Metrics shown here are representative portfolio placeholders until your final case-study data is loaded."/><section className="bg-[#f0f0ed] py-20 sm:py-28"><div className="mx-auto max-w-[1440px] px-5 sm:px-8"><div className="grid gap-5 lg:grid-cols-3">{site.work.map((w,i)=><Reveal key={w.title} delay={i*.06}><WorkCard work={w}/></Reveal>)}</div><Reveal className="mt-16 rounded-[28px] bg-white p-8 sm:p-12"><div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end"><div><p className="eyebrow text-[#BB7C1D]">Want your category here?</p><h2 className="mt-4 text-4xl font-bold tracking-[-.05em] sm:text-6xl">Let&apos;s build the next case study.</h2></div><Link href="/contact" className="inline-flex items-center gap-3 rounded-full bg-[#2B2B2B] px-5 py-3 text-[11px] font-bold uppercase tracking-[.14em] text-white">Start a project <ArrowUpRight size={15}/></Link></div></Reveal></div></section><Footer/></main>}
