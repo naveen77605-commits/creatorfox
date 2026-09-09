@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1870 841" role="img" aria-labelledby="title desc">
+<title id="title">CreatorFox</title><desc id="desc">CreatorFox wordmark with dark Creator lettering and gold Fox lettering with fox emblem.</desc>
+<rect width="1870" height="841" fill="none"/>
+<g font-family="Arial, Helvetica, sans-serif" font-weight="400" letter-spacing="-10">
+  <text x="78" y="548" font-size="365" fill="#2B2B2B">Creator</text>
+  <text x="1220" y="548" font-size="365" fill="#BB7C1D">F</text>
+  <circle cx="1500" cy="430" r="112" fill="none" stroke="#BB7C1D" stroke-width="16"/>
+  <path d="M1432 447l18-83 50 35 50-35 18 83-68 57z" fill="#BB7C1D"/>
+  <path d="M1471 490l29-57 29 57-29 25z" fill="#fff" opacity=".98"/>
+  <path d="M1488 485l12-23 12 23-12 13z" fill="#BB7C1D"/>
+  <text x="1622" y="548" font-size="365" fill="#BB7C1D">x</text>
+</g>
+</svg>
