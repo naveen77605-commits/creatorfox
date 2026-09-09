@@ -29,7 +29,7 @@ function CameraRig({ progress }: { progress: ProgressRef }) {
 }
 
 function Figure({ progress }: { progress: ProgressRef }) {
-  const mesh = useRef<THREE.InstancedMesh>(null);
+  const mesh = useRef<THREE.InstancedMesh | null>(null);
   const count = 18000;
   const geometry = useMemo(() => new THREE.SphereGeometry(0.5, 6, 5), []);
   const data = useMemo(() => {
@@ -54,7 +54,8 @@ function Figure({ progress }: { progress: ProgressRef }) {
   }, []);
   const dummy = useMemo(() => new THREE.Object3D(), []);
   useFrame(() => {
-    if (!mesh.current) return;
+    const instance = mesh.current;
+    if (!instance) return;
     const travel = clamp(progress.current / 0.82);
     const visible = smooth(1 - Math.abs(travel - 0.1) / 0.2);
     const dissolve = 1 - smooth((travel - 0.3) / 0.3);
@@ -64,30 +65,32 @@ function Figure({ progress }: { progress: ProgressRef }) {
       dummy.position.set(x * scale, y * scale + 2, z * scale);
       dummy.rotation.set(Math.sin(travel * Math.PI * 2) * 0.04, travel * 0.15, 0);
       dummy.scale.setScalar((0.45 + 0.2 * visible) * Math.max(0.12, dissolve));
-      mesh.current.setMatrixAt(i, dummy.matrix);
+      dummy.updateMatrix();
+      instance.setMatrixAt(i, dummy.matrix);
     }
-    mesh.current.instanceMatrix.needsUpdate = true;
-    mesh.current.visible = visible > 0.01;
+    instance.instanceMatrix.needsUpdate = true;
+    instance.visible = visible > 0.01;
   });
   return <instancedMesh ref={mesh} args={[geometry, undefined, count]} frustumCulled={false}><meshStandardMaterial color={palette.scarlet} roughness={0.28} metalness={0.12} emissive={palette.scarlet} emissiveIntensity={0.25} /></instancedMesh>;
 }
 
 function WireRoom({ progress }: { progress: ProgressRef }) {
-  const group = useRef<THREE.Group>(null);
+  const group = useRef<THREE.Group | null>(null);
   const radii = [9, 14, 20];
   const geometries = useMemo(() => radii.map((r) => new THREE.CylinderGeometry(r, r, 58, 72, 1, true)), []);
   useFrame(() => {
-    if (!group.current) return;
+    const room = group.current;
+    if (!room) return;
     const p = progress.current;
-    group.current.visible = p > 0.23 && p < 0.92;
-    group.current.rotation.z = p * 0.16;
-    group.current.children.forEach((child, i) => { child.rotation.y += [0.0008, -0.00045, 0.0002][i]; });
+    room.visible = p > 0.23 && p < 0.92;
+    room.rotation.z = p * 0.16;
+    room.children.forEach((child, i) => { child.rotation.y += [0.0008, -0.00045, 0.0002][i] ?? 0; });
   });
   return <group ref={group} rotation-x={Math.PI / 2}>{geometries.map((geometry, i) => <mesh key={i} geometry={geometry}><meshBasicMaterial color={palette.cobalt} wireframe transparent opacity={0.16} depthWrite={false} /></mesh>)}</group>;
 }
 
 function Strands({ progress }: { progress: ProgressRef }) {
-  const lines = useRef<THREE.Line[]>([]);
+  const lines = useRef<Array<THREE.Line | null>>([]);
   const points = useMemo(() => Array.from({ length: 6 }, () => Array.from({ length: 28 }, () => new THREE.Vector3())), []);
   useFrame(() => {
     const p = clamp(progress.current / 0.82);
@@ -113,7 +116,7 @@ function Strands({ progress }: { progress: ProgressRef }) {
       }
     }
   });
-  return <>{Array.from({ length: 6 }, (_, i) => <line key={i} ref={(el) => { if (el) lines.current[i] = el; }}><bufferGeometry /><lineBasicMaterial transparent color={palette.bone} linewidth={2} /></line>)}</>;
+  return <>{Array.from({ length: 6 }, (_, i) => <line key={i} ref={(el) => { lines.current[i] = el; }}><bufferGeometry /><lineBasicMaterial transparent color={palette.bone} linewidth={2} /></line>)}</>;
 }
 
 function Scene({ progress }: { progress: ProgressRef }) {
