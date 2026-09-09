@@ -90,7 +90,7 @@ function WireRoom({ progress }: { progress: ProgressRef }) {
 }
 
 function Strands({ progress }: { progress: ProgressRef }) {
-  const lines = useRef<Array<THREE.Line | null>>([]);
+  const lines = useMemo(() => Array.from({ length: 6 }, () => new THREE.Line(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ transparent: true, color: palette.bone, linewidth: 2 }))), []);
   const points = useMemo(() => Array.from({ length: 6 }, () => Array.from({ length: 28 }, () => new THREE.Vector3())), []);
   useFrame(() => {
     const p = clamp(progress.current / 0.82);
@@ -106,17 +106,14 @@ function Strands({ progress }: { progress: ProgressRef }) {
         points[i][j].copy(base).lerp(anchor, t);
         points[i][j].y += Math.sin(t * Math.PI) * Math.sin(life * Math.PI * 4) * 0.8;
       }
-      const line = lines.current[i];
-      if (line) {
-        line.geometry.setFromPoints(points[i]);
-        line.visible = active > 0.01;
-        const material = line.material as THREE.LineBasicMaterial;
-        material.opacity = 0.72 * active;
-        material.color.set(life < 0.18 ? palette.scarletHi : palette.bone);
-      }
+      lines[i].geometry.setFromPoints(points[i]);
+      lines[i].visible = active > 0.01;
+      const material = lines[i].material as THREE.LineBasicMaterial;
+      material.opacity = 0.72 * active;
+      material.color.set(life < 0.18 ? palette.scarletHi : palette.bone);
     }
   });
-  return <>{Array.from({ length: 6 }, (_, i) => <line key={i} ref={(el) => { lines.current[i] = el; }}><bufferGeometry /><lineBasicMaterial transparent color={palette.bone} linewidth={2} /></line>)}</>;
+  return <>{lines.map((line, i) => <primitive key={i} object={line} />)}</>;
 }
 
 function Scene({ progress }: { progress: ProgressRef }) {
