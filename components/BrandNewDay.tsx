@@ -4,11 +4,12 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { useEffect, useMemo, useRef } from "react";
 
+type ProgressRef = { current: number };
 const clamp = (v: number) => Math.max(0, Math.min(1, v));
 const smooth = (v: number) => { const x = clamp(v); return x * x * (3 - 2 * x); };
 const palette = { ink: "#150406", scarlet: "#E0202B", scarletHi: "#FF5D64", cobalt: "#2B4FD0", bone: "#F2F3F5" };
 
-function CameraRig({ progress }: { progress: React.MutableRefObject<number> }) {
+function CameraRig({ progress }: { progress: ProgressRef }) {
   const { camera } = useThree();
   const target = useMemo(() => new THREE.Vector3(), []);
   const position = useMemo(() => new THREE.Vector3(), []);
@@ -27,7 +28,7 @@ function CameraRig({ progress }: { progress: React.MutableRefObject<number> }) {
   return null;
 }
 
-function Figure({ progress }: { progress: React.MutableRefObject<number> }) {
+function Figure({ progress }: { progress: ProgressRef }) {
   const mesh = useRef<THREE.InstancedMesh>(null);
   const count = 18000;
   const geometry = useMemo(() => new THREE.SphereGeometry(0.5, 6, 5), []);
@@ -71,7 +72,7 @@ function Figure({ progress }: { progress: React.MutableRefObject<number> }) {
   return <instancedMesh ref={mesh} args={[geometry, undefined, count]} frustumCulled={false}><meshStandardMaterial color={palette.scarlet} roughness={0.28} metalness={0.12} emissive={palette.scarlet} emissiveIntensity={0.25} /></instancedMesh>;
 }
 
-function WireRoom({ progress }: { progress: React.MutableRefObject<number> }) {
+function WireRoom({ progress }: { progress: ProgressRef }) {
   const group = useRef<THREE.Group>(null);
   const radii = [9, 14, 20];
   const geometries = useMemo(() => radii.map((r) => new THREE.CylinderGeometry(r, r, 58, 72, 1, true)), []);
@@ -85,7 +86,7 @@ function WireRoom({ progress }: { progress: React.MutableRefObject<number> }) {
   return <group ref={group} rotation-x={Math.PI / 2}>{geometries.map((geometry, i) => <mesh key={i} geometry={geometry}><meshBasicMaterial color={palette.cobalt} wireframe transparent opacity={0.16} depthWrite={false} /></mesh>)}</group>;
 }
 
-function Strands({ progress }: { progress: React.MutableRefObject<number> }) {
+function Strands({ progress }: { progress: ProgressRef }) {
   const lines = useRef<THREE.Line[]>([]);
   const points = useMemo(() => Array.from({ length: 6 }, () => Array.from({ length: 28 }, () => new THREE.Vector3())), []);
   useFrame(() => {
@@ -115,7 +116,7 @@ function Strands({ progress }: { progress: React.MutableRefObject<number> }) {
   return <>{Array.from({ length: 6 }, (_, i) => <line key={i} ref={(el) => { if (el) lines.current[i] = el; }}><bufferGeometry /><lineBasicMaterial transparent color={palette.bone} linewidth={2} /></line>)}</>;
 }
 
-function Scene({ progress }: { progress: React.MutableRefObject<number> }) {
+function Scene({ progress }: { progress: ProgressRef }) {
   return <><color attach="background" args={[palette.ink]} /><fog attach="fog" args={[palette.ink, 24, 72]} /><ambientLight intensity={0.5} /><pointLight position={[0, 8, 10]} intensity={4} color={palette.scarlet} /><pointLight position={[0, 0, -28]} intensity={3} color={palette.cobalt} /><CameraRig progress={progress} /><Figure progress={progress} /><WireRoom progress={progress} /><Strands progress={progress} /></>;
 }
 
