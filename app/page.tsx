@@ -1,4 +1,5 @@
 import BrandNewDay from "../components/BrandNewDay";
+import ScrollCopy from "../components/ScrollCopy";
 
 export const metadata = {
   title: "CreatorFox — Digital Marketing, Creators & AI",
@@ -7,5 +8,5 @@ export const metadata = {
 };
 
 export default function Home(){
-  return <main><BrandNewDay/></main>;
+  return <main><BrandNewDay/><ScrollCopy/></main>;
 }
