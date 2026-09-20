@@ -1,94 +1,45 @@
-# CreatorFox — Premium Agency Website
+# CreatorFox AI agency website
 
-A complete redesign of creatorfox.com: a futuristic, award-grade agency site built on **Next.js 14, Tailwind CSS, GSAP (ScrollTrigger + SplitText), Lenis smooth scroll, and React Three Fiber**.
+A pre-rendered 19-page agency site with eight service pages, industry coverage, illustrative case studies, contact and privacy pages. Uses the supplied CreatorFox logo and imagery. Lightweight HTML/CSS/JS keeps the content accessible without a client-side framework.
 
-Brand system: **#F3BC09 gold** on warm-black "carbon" with bone-white editorial sections, Clash Display + Satoshi typography, and a signature 3D golden particle galaxy ("the fox eye") in the hero.
+## Run
 
----
-
-## Quick start
-
-```bash
-npm install
-npm run dev        # http://localhost:3000
-npm run build      # production build
-npm start          # serve production build
-```
-
-Requires Node 18.17+.
-
-## Deployment
-
-**Vercel (recommended):** push to GitHub → import at vercel.com → deploy. Zero config needed.
-
-**Any Node host:** `npm run build && npm start` behind a reverse proxy.
-
-Set the production domain in `src/data/site.ts` (`url`) — it drives canonical URLs, sitemap and JSON-LD.
-
-## Project structure
+Requires Node 22+.
 
 ```
-src/
-├── app/                    # routes (App Router)
-│   ├── layout.tsx          # fonts, providers, Organization schema
-│   ├── page.tsx            # Home
-│   ├── template.tsx        # page-transition animation
-│   ├── about/ services/ services/[slug]/ case-studies/
-│   ├── portfolio/ industries/ blog/ careers/ contact/
-│   ├── thank-you/ privacy-policy/ terms/ not-found.tsx
-│   ├── sitemap.ts robots.ts icon.svg
-├── components/
-│   ├── layout/             # Header (mega menu), Footer, Preloader, PageHero…
-│   ├── home/               # homepage sections
-│   ├── ui/                 # Reveal/SplitReveal/ScentLine, Magnetic, Cursor,
-│   │                       # Marquee, Counter, Accordion, CtaButton
-│   ├── three/HeroScene.tsx # R3F particle galaxy
-│   └── providers/SmoothScroll.tsx
-├── data/                   # ALL content lives here — edit copy without touching UI
-│   ├── site.ts             # contact info, offices, stats, FAQs, testimonials
-│   ├── services.ts         # all 14 service pages' content
-│   ├── case-studies.ts     # case study entries
-│   └── content.ts          # blog, careers, values, timeline
-└── lib/                    # gsap registration, utils
+npm ci
+npm run build
+npm run dev
+npm test
 ```
 
-**All 14 service pages** (SEO, Google Ads, Meta Ads, Social, GBP, Website/WordPress/Shopify dev, AI Automation, Branding, Graphic Design, Video, Content, Email) are generated from `src/data/services.ts` through one template at `app/services/[slug]/page.tsx` — statically rendered at build time, each with hero, problem, solution, benefits, process, results, tools, FAQs (with FAQ schema) and related services.
+## Deploy to Vercel
 
-## How to customise
+Import the `ai-agency-website` branch from the CreatorFox repository. Build command: `npm run build`. Output: `dist`. Framework: Other. Node functions are in `api/`. Set production branch to `ai-agency-website` for this separate project, or deploy that branch explicitly. Existing main-branch site is preserved.
 
-| Change | Where |
-|---|---|
-| Brand colors | `tailwind.config.ts` → `colors` (single source of truth) |
-| Logo | `src/components/layout/Logo.tsx` (swap the SVG path) + `src/app/icon.svg` |
-| Contact info / offices | `src/data/site.ts` |
-| Service copy | `src/data/services.ts` |
-| Add a service | Add an entry to `services.ts` — page, sitemap, menus, footer all update automatically |
-| Contact form backend | `src/components/contact/ContactForm.tsx` → set `FORM_ENDPOINT` (Formspree/webhook) |
-| Calendly | `src/data/site.ts` → `calendly` |
+Set SITE_URL to the actual production origin and rebuild for correct canonicals, sitemap and origin checks. The build also uses VERCEL_PROJECT_PRODUCTION_URL when SITE_URL is absent. The contact API requires an explicit SITE_URL.
 
-## Content to verify before launch ⚠️
+## Enable proposal email
 
-Placeholders styled on real patterns that need your confirmation or replacement:
+Set all values listed in `.env.example` in the Vercel project, then redeploy:
 
-1. **Case study clients & numbers** (`data/case-studies.ts`) — anonymised; replace with approved client names, logos and verified metrics.
-2. **Stats** (250+ clients, 640+ projects, 93% retention, founding year 2018, timeline years) — verify every figure (`data/site.ts`, `data/content.ts`).
-3. **Testimonials** — replace with real, permissioned quotes.
-4. **Social URLs** in `data/site.ts`.
-5. **Calendly URL** and **form endpoint**.
-6. **Blog posts** are teaser data only — connect a CMS (see below) for real articles.
-7. **Logo** — a placeholder fox mark was drawn; swap in the official SVG.
+- Resend API key and a verified sender address (domain verification required).
+- Cloudflare Turnstile site key and secret for the deployed hostname.
+- Upstash Redis REST URL and token for distributed rate limits and deduplication.
+- A random FORM_SIGNING_SECRET (at least 32 bytes).
+- SITE_URL: exact public origin without trailing slash.
+- LEAD_NOTIFICATION_EMAIL defaults to make.creatorfox@gmail.com.
 
-## Performance & accessibility built in
+Until these are present, submission is disabled and the page offers direct email. It never claims an email was sent. A successful API response means Resend accepted the message, not proof of inbox delivery.
 
-- Static generation for every page; the only heavy client bundle (Three.js) is code-split via `next/dynamic` and never blocks first paint.
-- Fonts preconnected + `display=swap`; no layout-shifting assets; no stock images (generative gradient art).
-- `prefers-reduced-motion` disables smooth scroll, cursor, preloader, 3D auto-rotation and all reveals.
-- Semantic HTML, skip link, ARIA on accordion/menus/testimonial tabs, keyboard-focus styles, WCAG-conscious contrast.
-- SEO: per-page metadata + canonicals, OG/Twitter cards, `sitemap.xml`, `robots.txt`, Organization + Service + FAQPage + BreadcrumbList JSON-LD.
+Proposals are service-specific initial scope outlines with the user's brief, budget preference, indicative timeline and next steps. Prices are intentionally not invented; the final priced quote requires scope review. Generated PDFs currently use standard Latin PDF fonts; non-Latin characters are transliterated where possible and otherwise omitted. The original brief is preserved in the email body. Embed a suitable Unicode font before using this with predominantly non-Latin briefs.
 
-## Optional next steps
+The enquiry inbox receives a BCC of the same email and PDF. Spam defences: honeypot, signed time window, exact-origin check, field and payload validation, server-side Turnstile with hostname/action validation, distributed per-IP and per-email limits, short-lived lock and provider idempotency. No system guarantees zero spam. Do not substitute test CAPTCHA keys in production.
 
-- **Blog CMS**: pair `app/blog` with MDX or a headless CMS (Sanity/Contentlayer) — card components are ready.
-- **OG images**: add `opengraph-image.tsx` per route for branded share cards.
-- **Exit-intent modal**: a `mouseleave` listener on `document` gating a CTA dialog — hook into `FloatingCta`.
-- **Analytics**: add GA4/Umami snippet in `app/layout.tsx`.
+## Content integrity
+
+No major global company is represented as a client. Case-study scenarios are prominently labelled illustrative. Nike, Spotify and Shopify are independent brand observations, not client relationships. Replace them with approved, evidenced client work when available. Famous influencer videos are omitted pending verified official embed links; no invented endorsement or copied video is used.
+
+## Validation
+
+`npm test` checks all eight PDF variants, long input, malicious email input, service and consent validation, signed timestamps and the unconfigured fail-closed response. Final delivery and live mobile/browser testing must be completed once hosting and email services are connected.

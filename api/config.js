@@ -1,0 +1,2 @@
+import {configured,sign} from '../lib/security.mjs';
+export default function handler(req,res){res.setHeader('Cache-Control','no-store');if(req.method!=='GET')return res.status(405).json({error:'Method not allowed'});if(!configured())return res.status(200).json({enabled:false});const issuedAt=Date.now();return res.json({enabled:true,siteKey:process.env.TURNSTILE_SITE_KEY,issuedAt,signature:sign(issuedAt)});}
