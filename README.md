@@ -32,7 +32,7 @@ Set all values listed in `.env.example` in the Vercel project, then redeploy:
 
 Until these are present, submission is disabled and the page offers direct email. It never claims an email was sent. A successful API response means Resend accepted the message, not proof of inbox delivery.
 
-Proposals are service-specific initial scope outlines with the user's brief, budget preference, indicative timeline and next steps. Prices are intentionally not invented; the final priced quote requires scope review. Generated PDFs currently use standard Latin PDF fonts; non-Latin characters are transliterated where possible and otherwise omitted. The original brief is preserved in the email body. Embed a suitable Unicode font before using this with predominantly non-Latin briefs.
+Proposals are service-specific initial scope outlines with the user's brief, budget preference, indicative timeline and next steps. Prices are intentionally not invented; the final priced quote requires scope review. Generated PDFs currently use embedded Latin PDF fonts; non-Latin characters are transliterated where possible and otherwise omitted. The original brief is preserved in the email body. Embed a suitable Unicode font before using this with predominantly non-Latin briefs.
 
 The enquiry inbox receives a BCC of the same email and PDF. Spam defences: honeypot, signed time window, exact-origin check, field and payload validation, server-side Turnstile with hostname/action validation, distributed per-IP and per-email limits, short-lived lock and provider idempotency. No system guarantees zero spam. Do not substitute test CAPTCHA keys in production.
 
