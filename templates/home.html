@@ -1,0 +1,3350 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080706">
+  <meta name="description" content="CreatorFox builds distinctive brands, high-performance websites, measurable marketing and practical AI automation for growing businesses.">
+  <title>CreatorFox — Make your next move matter</title>
+  
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --cf-ink:#f2ede4;
+  --cf-ink-dim:rgba(242,237,228,.66);
+  --cf-black:#080706;
+  --cf-black-2:#0e0b08;
+  --cf-panel:#17110c;
+  --cf-amber:#bb7c1d;
+  --cf-amber-light:#e1a141;
+  --cf-line:rgba(242,237,228,.14);
+  --cf-font:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+
+html{scroll-behavior:smooth;scroll-snap-type:y proximity;background:var(--cf-black);}
+body{margin:0;background:var(--cf-black);color:var(--cf-ink);font-family:var(--cf-font);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+#creatorfox-home,#creatorfox-home *{box-sizing:border-box;font-family:var(--cf-font);}
+#creatorfox-home{background:var(--cf-black);color:var(--cf-ink);isolation:isolate;overflow:clip;}
+#creatorfox-home a{color:inherit;}
+#creatorfox-home button,#creatorfox-home input,#creatorfox-home select,#creatorfox-home textarea{font:inherit;}
+#creatorfox-home main > .cf-swap-section{scroll-snap-align:start;scroll-margin-top:0;}
+
+.cf-ambient{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 70% 14%,rgba(187,124,29,.12),transparent 28%),radial-gradient(circle at 14% 72%,rgba(135,67,22,.1),transparent 30%);}
+.cf-smoke-divider{position:relative;height:18vh;min-height:142px;overflow:hidden;background:var(--cf-black);isolation:isolate;}
+.cf-smoke-divider::before,.cf-smoke-divider::after{content:"";position:absolute;inset:-55% -18%;pointer-events:none;filter:blur(42px);opacity:.7;mix-blend-mode:screen;transform:translate3d(0,0,0);}
+.cf-smoke-divider::before{background:radial-gradient(ellipse at 22% 56%,rgba(255,255,255,.1),transparent 31%),radial-gradient(ellipse at 78% 42%,rgba(187,124,29,.2),transparent 28%),radial-gradient(ellipse at 52% 70%,rgba(255,255,255,.07),transparent 24%);animation:cf-smoke-drift 15s ease-in-out infinite alternate;}
+.cf-smoke-divider::after{background:radial-gradient(ellipse at 48% 50%,rgba(225,161,65,.18),transparent 28%),radial-gradient(ellipse at 8% 40%,rgba(255,255,255,.08),transparent 22%);animation:cf-smoke-drift 20s ease-in-out -4s infinite alternate-reverse;}
+@keyframes cf-smoke-drift{0%{transform:translate3d(-4%,4%,0) scale(1.05) rotate(-2deg);}50%{transform:translate3d(3%,-2%,0) scale(1.16) rotate(2deg);}100%{transform:translate3d(7%,4%,0) scale(1.08) rotate(-1deg);}}
+
+.cf-reveal{opacity:0;transform:translateY(32px) scale(.985);transition:opacity .9s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+.cf-reveal.is-visible{opacity:1;transform:none;}
+.cf-section-shell{position:relative;min-height:100svh;display:flex;align-items:center;padding:clamp(92px,11vw,170px) clamp(20px,6vw,96px);background:var(--cf-black);overflow:hidden;}
+.cf-section-shell::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.025),transparent 22%,transparent 78%,rgba(187,124,29,.035));}
+.cf-container{position:relative;z-index:1;max-width:1240px;margin:0 auto;}
+.cf-section-kicker{display:flex;align-items:center;gap:10px;margin:0 0 18px;color:var(--cf-amber-light);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;}
+.cf-section-kicker::before{content:"";width:30px;height:1px;background:var(--cf-amber);}
+.cf-section-title{max-width:780px;margin:0;color:#f4efe7;font-size:clamp(2.4rem,6vw,6.1rem);line-height:.97;letter-spacing:-.065em;font-weight:500;}
+.cf-section-copy{max-width:620px;margin:24px 0 0;color:var(--cf-ink-dim);font-size:1rem;line-height:1.8;}
+.cf-inline-link{display:inline-flex;align-items:center;gap:10px;margin-top:30px;color:#fff;text-decoration:none;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;border-bottom:1px solid rgba(225,161,65,.5);padding-bottom:9px;transition:gap .25s ease,color .25s ease;}
+.cf-inline-link:hover,.cf-inline-link:focus-visible{gap:17px;color:var(--cf-amber-light);}
+
+/* Supporting content after the supplied hero/services/contact modules. */
+.cf-case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:64px;}
+.cf-case-card{position:relative;min-height:470px;overflow:hidden;border:1px solid var(--cf-line);border-radius:22px;background:#120e0b;isolation:isolate;}
+.cf-case-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02) 18%,rgba(0,0,0,.84) 88%);z-index:1;}
+.cf-case-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.68) contrast(1.05);transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .8s ease;}
+.cf-case-card:hover img{transform:scale(1.07);filter:saturate(.95) contrast(1.08);}
+.cf-case-card-content{position:absolute;right:24px;bottom:24px;left:24px;z-index:2;}
+.cf-case-card .cf-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--cf-amber-light);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;}
+.cf-case-card h3{margin:14px 0 10px;font-size:clamp(1.65rem,2.8vw,2.55rem);line-height:1;letter-spacing:-.045em;font-weight:500;}
+.cf-case-card p{margin:0;color:rgba(242,237,228,.72);font-size:.85rem;line-height:1.6;}
+
+.cf-client-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start;margin-top:64px;padding-top:26px;border-top:1px solid var(--cf-line);}
+.cf-client-statement{font-size:clamp(1.5rem,3vw,3rem);line-height:1.06;letter-spacing:-.04em;color:#f4efe7;font-weight:500;}
+.cf-client-statement span{color:var(--cf-amber-light);}
+.cf-client-cloud{display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start;}
+.cf-client-chip{display:inline-flex;align-items:center;min-height:52px;padding:0 18px;border:1px solid rgba(242,237,228,.15);border-radius:999px;color:rgba(242,237,228,.76);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;transition:border-color .25s ease,color .25s ease,background .25s ease,transform .25s ease;}
+.cf-client-chip:hover{border-color:var(--cf-amber);background:rgba(187,124,29,.1);color:#fff;transform:translateY(-2px);}
+
+.cf-workshop{background:#100b08;}
+.cf-workshop-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(34px,6vw,96px);align-items:center;margin-top:62px;}
+.cf-workshop-art{position:relative;min-height:570px;overflow:hidden;border-radius:24px;border:1px solid rgba(242,237,228,.14);background:#1b120c;}
+.cf-workshop-art::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.15),rgba(0,0,0,.72));}
+.cf-workshop-art img{width:100%;height:100%;min-height:570px;object-fit:cover;filter:saturate(.72) sepia(.12);}
+.cf-workshop-stamp{position:absolute;left:28px;bottom:28px;z-index:2;padding:14px 16px;border:1px solid rgba(225,161,65,.6);border-radius:999px;background:rgba(8,7,6,.5);backdrop-filter:blur(12px);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;}
+.cf-workshop-list{display:grid;gap:12px;margin:34px 0 0;padding:0;list-style:none;}
+.cf-workshop-list li{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start;padding:18px 0;border-top:1px solid var(--cf-line);color:rgba(242,237,228,.7);font-size:.9rem;line-height:1.6;}
+.cf-workshop-list li:last-child{border-bottom:1px solid var(--cf-line);}
+.cf-workshop-list b{color:var(--cf-amber-light);font-weight:500;}
+
+.cf-faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;margin-top:64px;}
+.cf-faq-list{border-top:1px solid var(--cf-line);}
+.cf-faq-list details{border-bottom:1px solid var(--cf-line);}
+.cf-faq-list summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 0;cursor:pointer;color:#f4efe7;font-size:1rem;line-height:1.45;list-style:none;}
+.cf-faq-list summary::-webkit-details-marker{display:none;}
+.cf-faq-list summary::after{content:"+";color:var(--cf-amber-light);font-size:1.4rem;font-weight:300;transition:transform .25s ease;}
+.cf-faq-list details[open] summary::after{transform:rotate(45deg);}
+.cf-faq-list details p{max-width:670px;margin:0;padding:0 40px 24px 0;color:var(--cf-ink-dim);font-size:.9rem;line-height:1.8;}
+
+/* Keep the supplied modules coherent inside the full page. */
+#cf-glass-hero,#cf-services-root,#cfTalk{font-family:var(--cf-font) !important;}
+#cf-glass-hero *,#cf-services-root *,#cfTalk *{font-family:inherit;}
+#cf-glass-hero{margin:0;}
+#cf-services-root{margin:0;}
+#cfTalk{margin:0;}
+#hero,#services,#contact,#testimonials{min-height:100svh;}
+#cfTalk{min-height:100svh;}
+.cf-talk{scroll-margin-top:80px;}
+
+@media (max-width:900px){
+  .cf-case-grid{grid-template-columns:1fr;}
+  .cf-case-card{min-height:420px;}
+  .cf-client-wrap,.cf-workshop-grid,.cf-faq-grid{grid-template-columns:1fr;gap:36px;}
+  .cf-workshop-art,.cf-workshop-art img{min-height:420px;}
+}
+@media (max-width:560px){
+  .cf-smoke-divider{height:13vh;min-height:100px;}
+  .cf-section-shell{padding:78px 18px;}
+  .cf-section-title{font-size:clamp(2.35rem,13vw,4.2rem);}
+  .cf-case-card{min-height:390px;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .cf-smoke-divider::before,.cf-smoke-divider::after{animation:none;}
+  .cf-reveal{opacity:1;transform:none;transition:none;}
+  .cf-case-card img{transition:none;}
+}
+</style>
+
+  
+<style>
+/* Cinematic section choreography and new supporting modules. */
+.cf-swap-section{position:relative;will-change:opacity,transform;isolation:isolate;}
+.cf-swap-section > *{position:relative;z-index:1;}
+
+.cf-about-section{background:radial-gradient(circle at 84% 18%,rgba(187,124,29,.12),transparent 30%),linear-gradient(135deg,#0a0807 0%,#100c09 54%,#080706 100%);}
+.cf-about-section::after{content:"";position:absolute;right:-16%;bottom:-22%;width:58vw;height:58vw;border:1px solid rgba(225,161,65,.16);border-radius:50%;box-shadow:0 0 0 42px rgba(225,161,65,.035),0 0 0 84px rgba(225,161,65,.02);transform:rotate(-22deg);pointer-events:none;}
+.cf-about-container{width:100%;}
+.cf-about-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(330px,.78fr);gap:clamp(34px,7vw,110px);align-items:center;margin-top:clamp(36px,5vw,72px);}
+.cf-about-intro .cf-section-title{max-width:720px;}
+.cf-about-intro .cf-section-title em{color:var(--cf-amber-light);font-style:normal;}
+.cf-about-copy{max-width:610px;margin:28px 0 0;color:rgba(242,237,228,.7);font-size:1rem;line-height:1.8;}
+.cf-about-kicker{display:flex;align-items:center;gap:10px;margin:32px 0 0;color:rgba(242,237,228,.46);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;}
+.cf-about-kicker::before{content:"";width:34px;height:1px;background:var(--cf-amber);}
+.cf-about-panel{position:relative;min-height:520px;padding:clamp(22px,3vw,38px);overflow:hidden;border:1px solid rgba(242,237,228,.18);border-radius:30px;background:linear-gradient(145deg,rgba(31,22,15,.78),rgba(10,8,7,.42));box-shadow:0 28px 90px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(24px) saturate(130%);-webkit-backdrop-filter:blur(24px) saturate(130%);isolation:isolate;}
+.cf-about-panel::before{content:"";position:absolute;right:-22%;top:-18%;z-index:-1;width:78%;aspect-ratio:1;border:1px solid rgba(225,161,65,.28);border-radius:50%;box-shadow:0 0 0 24px rgba(225,161,65,.05),0 0 0 48px rgba(225,161,65,.025);transform:rotate(24deg);}
+.cf-about-panel::after{content:"";position:absolute;left:-22%;bottom:-30%;z-index:-1;width:78%;aspect-ratio:1;background:radial-gradient(circle,rgba(187,124,29,.24),transparent 65%);filter:blur(22px);pointer-events:none;}
+.cf-about-logo-card{display:flex;align-items:center;justify-content:center;width:min(100%,300px);min-height:88px;padding:14px 20px;border:1px solid rgba(225,161,65,.36);border-radius:18px;background:rgba(242,237,228,.94);box-shadow:0 16px 34px rgba(0,0,0,.22);}
+.cf-about-logo-card img{display:block;width:100%;height:auto;max-height:62px;object-fit:contain;}
+.cf-about-statement{max-width:360px;margin:46px 0 0;color:#f6f0e6;font-size:clamp(1.6rem,3vw,2.7rem);line-height:1.02;letter-spacing:-.06em;font-weight:500;}
+.cf-about-statement span{color:var(--cf-amber-light);}
+.cf-about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:42px;padding-top:20px;border-top:1px solid rgba(242,237,228,.14);}
+.cf-about-stat strong{display:block;color:var(--cf-amber-light);font-size:clamp(1.45rem,2.5vw,2.2rem);font-weight:500;letter-spacing:-.05em;}
+.cf-about-stat span{display:block;margin-top:6px;color:rgba(242,237,228,.52);font-size:.65rem;line-height:1.45;letter-spacing:.08em;text-transform:uppercase;}
+.cf-about-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:clamp(36px,5vw,70px);}
+.cf-about-principle{padding:22px 20px;border-top:1px solid rgba(242,237,228,.18);background:linear-gradient(180deg,rgba(255,255,255,.025),transparent);}
+.cf-about-principle b{display:block;margin-bottom:24px;color:var(--cf-amber-light);font-size:.68rem;letter-spacing:.16em;font-weight:700;}
+.cf-about-principle h3{margin:0 0 10px;color:#f4efe7;font-size:1.15rem;line-height:1.05;letter-spacing:-.03em;font-weight:600;}
+.cf-about-principle p{margin:0;color:rgba(242,237,228,.58);font-size:.82rem;line-height:1.7;}
+
+.cf-case-section{overflow:clip;}
+.cf-case-scroll{position:relative;height:720vh;margin-top:clamp(44px,7vw,86px);}
+.cf-case-sticky{position:sticky;top:0;height:100svh;min-height:100svh;display:grid;grid-template-columns:minmax(260px,.78fr) minmax(0,1.22fr);gap:clamp(26px,6vw,94px);align-items:center;}
+.cf-case-copy{position:relative;z-index:3;padding:clamp(24px,3.6vw,50px);border:1px solid rgba(242,237,228,.16);border-radius:28px;background:linear-gradient(145deg,rgba(31,22,15,.9),rgba(10,8,7,.68));box-shadow:0 26px 80px rgba(0,0,0,.28);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);}
+.cf-case-index{margin:0 0 22px;color:var(--cf-amber-light);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;}
+.cf-case-client{margin:0;color:rgba(242,237,228,.54);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;}
+.cf-case-copy h3{max-width:500px;margin:16px 0 16px;color:#f6f0e6;font-size:clamp(2.25rem,5vw,5.6rem);line-height:.91;letter-spacing:-.07em;font-weight:500;}
+.cf-case-copy > p:not(.cf-case-index):not(.cf-case-client){max-width:490px;margin:0;color:rgba(242,237,228,.68);font-size:.95rem;line-height:1.8;}
+.cf-case-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;}
+.cf-case-tag{padding:8px 11px;border:1px solid rgba(225,161,65,.34);border-radius:999px;color:rgba(242,237,228,.8);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;}
+.cf-case-metric{display:flex;align-items:baseline;gap:10px;margin-top:30px;padding-top:18px;border-top:1px solid rgba(242,237,228,.14);}
+.cf-case-metric strong{color:var(--cf-amber-light);font-size:clamp(1.6rem,3vw,2.6rem);font-weight:500;letter-spacing:-.05em;}
+.cf-case-metric span{color:rgba(242,237,228,.55);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;}
+.cf-case-visual{position:relative;min-width:0;min-height:380px;height:min(68svh,690px);overflow:hidden;border:1px solid rgba(242,237,228,.18);border-radius:34px;background:#1a120d;box-shadow:0 35px 110px rgba(0,0,0,.42);isolation:isolate;}
+.cf-case-visual::before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(135deg,rgba(225,161,65,.12),transparent 30%,transparent 62%,rgba(0,0,0,.34));pointer-events:none;mix-blend-mode:screen;}
+.cf-case-visual::after{content:"";position:absolute;inset:0;z-index:3;background:linear-gradient(180deg,rgba(7,6,5,.02) 32%,rgba(7,6,5,.68) 100%);pointer-events:none;}
+.cf-case-image-wrap{position:absolute;inset:0;overflow:hidden;}
+.cf-case-image{width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.72) contrast(1.1);transform:scale(1.08);transition:filter .55s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+.cf-case-visual:hover .cf-case-image{filter:saturate(.95) contrast(1.12);transform:scale(1.13);}
+.cf-case-overlay{position:absolute;right:24px;bottom:22px;left:24px;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;color:rgba(255,255,255,.74);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;}
+.cf-case-brand{position:absolute;left:24px;top:24px;z-index:5;display:flex;align-items:center;gap:10px;max-width:calc(100% - 48px);padding:10px 13px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(8,7,6,.48);color:#fff;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.cf-case-brand img{width:20px;height:20px;object-fit:contain;filter:brightness(0) invert(1);}
+.cf-case-brand span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.cf-case-play{display:inline-flex;align-items:center;gap:8px;color:#fff;}
+.cf-case-play b{display:grid;place-items:center;width:30px;height:30px;border:1px solid rgba(225,161,65,.65);border-radius:50%;color:var(--cf-amber-light);font-size:.9rem;font-weight:400;}
+.cf-case-orbit{position:absolute;right:-10%;top:13%;z-index:4;width:190px;height:190px;border:1px solid rgba(225,161,65,.35);border-radius:50%;transform:rotate(-18deg);pointer-events:none;}
+.cf-case-orbit::before,.cf-case-orbit::after{content:"";position:absolute;display:block;border-radius:50%;background:var(--cf-amber-light);box-shadow:0 0 20px rgba(225,161,65,.9);}
+.cf-case-orbit::before{top:15px;left:32px;width:7px;height:7px;}
+.cf-case-orbit::after{right:21px;bottom:28px;width:4px;height:4px;}
+
+.cf-client-section{overflow:hidden;}
+.cf-client-carousel{display:grid;gap:14px;margin-top:10px;min-width:0;overflow:hidden;}
+.cf-client-label{margin-top:8px;color:rgba(242,237,228,.42);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;}
+.cf-client-marquee{position:relative;overflow:hidden;margin-inline:-4px;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);}
+.cf-client-row{display:flex;width:max-content;align-items:center;gap:clamp(24px,4vw,64px);padding:18px 4px;animation:cf-client-marquee 30s linear infinite;}
+.cf-client-row.cf-reverse{animation-duration:36s;animation-direction:reverse;}
+.cf-client-row:hover{animation-play-state:paused;}
+.cf-client-name{display:inline-flex;align-items:center;gap:clamp(20px,3vw,50px);color:rgba(242,237,228,.82);font-size:clamp(1.35rem,3.2vw,3.8rem);line-height:1;letter-spacing:-.06em;white-space:nowrap;font-weight:500;}
+.cf-client-name::after{content:"✦";color:var(--cf-amber-light);font-size:.55em;letter-spacing:0;}
+.cf-client-note{margin:20px 0 0;color:rgba(242,237,228,.4);font-size:.67rem;line-height:1.6;letter-spacing:.06em;}
+@keyframes cf-client-marquee{to{transform:translate3d(-50%,0,0);}}
+
+.cf-partner-block{margin-top:clamp(54px,7vw,92px);padding:clamp(24px,3vw,38px) 0 0;border-top:1px solid var(--cf-line);}
+.cf-partner-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px;}
+.cf-partner-kicker{margin:0;color:var(--cf-amber-light);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;}
+.cf-partner-copy{margin:8px 0 0;color:rgba(242,237,228,.56);font-size:.9rem;line-height:1.6;}
+.cf-partner-rule{width:clamp(80px,18vw,240px);height:1px;background:linear-gradient(90deg,var(--cf-amber),transparent);}
+.cf-logo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;}
+.cf-logo-card{display:flex;align-items:center;gap:12px;min-height:72px;padding:16px;border:1px solid rgba(242,237,228,.12);border-radius:16px;background:rgba(255,255,255,.025);color:rgba(242,237,228,.82);transition:border-color .25s ease,background .25s ease,transform .25s ease;}
+.cf-logo-card:hover{border-color:rgba(225,161,65,.58);background:rgba(187,124,29,.08);transform:translateY(-2px);}
+.cf-logo-card img{width:26px;height:26px;object-fit:contain;flex:0 0 auto;}
+.cf-logo-card span{font-size:.76rem;line-height:1.2;letter-spacing:.03em;font-weight:700;}
+.cf-client-logo-marquee{position:relative;overflow:hidden;margin-inline:-4px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+.cf-client-logo-row{display:flex;width:max-content;align-items:center;gap:clamp(22px,4vw,58px);padding:16px 4px;animation:cf-client-marquee 34s linear infinite reverse;}
+.cf-client-logo-row:hover{animation-play-state:paused;}
+.cf-client-logo-item{display:inline-flex;align-items:center;gap:11px;color:rgba(242,237,228,.84);font-size:clamp(1rem,1.8vw,1.55rem);font-weight:700;letter-spacing:-.04em;white-space:nowrap;}
+.cf-client-logo-item > span{display:flex;flex-direction:column;gap:3px;}
+.cf-client-logo-item small{color:rgba(242,237,228,.42);font-size:.43em;font-weight:600;letter-spacing:.14em;line-height:1;text-transform:uppercase;}
+.cf-client-logo-item img{width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);opacity:.82;}
+.cf-reference-note{max-width:760px;margin:24px 0 0;color:rgba(242,237,228,.43);font-size:.72rem;line-height:1.7;}
+.cf-case-disclaimer{max-width:790px;margin:22px 0 0;color:rgba(242,237,228,.43);font-size:.72rem;line-height:1.7;}
+
+#testimonials{background:var(--cf-black);}
+#cfx-testimonials,#cfx-testimonials *{font-family:var(--cf-font) !important;}
+#cfx-testimonials{margin:0 !important;}
+#cfx-testimonials .cfx-card{background:rgba(19,14,11,.76);}
+#cfx-testimonials .cfx-chip{border-color:rgba(225,161,65,.5);color:var(--cf-amber-light);}
+#cfx-testimonials .cfx-arrow{color:var(--cf-amber-light);}
+
+.cf-workshop-art{box-shadow:0 25px 80px rgba(0,0,0,.35);}
+.cf-workshop-art img{object-position:center center;}
+
+@media (max-width:900px){
+  .cf-about-grid{grid-template-columns:1fr;gap:30px;}
+  .cf-about-panel{min-height:430px;}
+  .cf-about-principles{grid-template-columns:1fr;gap:0;}
+  .cf-about-principle{padding:20px 0;}
+  .cf-case-scroll{height:760vh;}
+  .cf-case-sticky{grid-template-columns:1fr;grid-template-rows:minmax(0,.9fr) minmax(0,1.1fr);gap:18px;min-height:100svh;height:100svh;align-content:center;}
+  .cf-case-copy{padding:24px;}
+  .cf-case-copy h3{font-size:clamp(2.4rem,10vw,4.5rem);}
+  .cf-case-visual{height:auto;min-height:0;}
+  .cf-case-overlay{right:16px;bottom:16px;left:16px;}
+  .cf-case-orbit{width:130px;height:130px;right:-12%;top:8%;}
+  .cf-logo-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .cf-partner-head{align-items:flex-start;}
+  .cf-partner-rule{display:none;}
+}
+@media (max-width:560px){
+  .cf-about-grid{margin-top:34px;}
+  .cf-about-copy{font-size:.92rem;line-height:1.7;}
+  .cf-about-panel{min-height:400px;padding:20px;border-radius:22px;}
+  .cf-about-statement{margin-top:34px;font-size:clamp(1.7rem,9vw,2.5rem);}
+  .cf-about-stats{margin-top:30px;}
+  .cf-about-stat span{font-size:.59rem;}
+  .cf-case-scroll{height:820vh;margin-top:42px;}
+  .cf-case-sticky{grid-template-rows:minmax(0,1fr) minmax(240px,.72fr);gap:14px;min-height:100svh;}
+  .cf-case-copy{padding:21px;border-radius:22px;}
+  .cf-case-index{margin-bottom:14px;}
+  .cf-case-copy h3{margin:11px 0 12px;font-size:clamp(2.3rem,12vw,4rem);}
+  .cf-case-copy > p:not(.cf-case-index):not(.cf-case-client){font-size:.8rem;line-height:1.55;}
+  .cf-case-tags{margin-top:16px;}
+  .cf-case-tag{padding:6px 8px;font-size:.57rem;}
+  .cf-case-metric{margin-top:17px;padding-top:12px;}
+  .cf-case-visual{border-radius:23px;}
+  .cf-case-brand{left:16px;top:16px;max-width:calc(100% - 32px);font-size:.54rem;}
+  .cf-case-image{transform:scale(1.02);}
+  .cf-case-overlay{font-size:.54rem;}
+  .cf-case-play b{width:25px;height:25px;font-size:.75rem;}
+  .cf-client-name{font-size:1.45rem;}
+  .cf-logo-grid{gap:8px;}
+  .cf-logo-card{min-height:64px;padding:12px;gap:9px;}
+  .cf-logo-card img{width:22px;height:22px;}
+  .cf-logo-card span{font-size:.66rem;}
+  .cf-client-logo-item{font-size:1rem;}
+}
+@media (prefers-reduced-motion:reduce){
+  .cf-client-row{animation:none;}
+  .cf-case-image{transition:none;transform:none;}
+  .cf-client-logo-row{animation:none;}
+}
+</style>
+
+  <style>
+.cf-glass-hero {
+    --cf-reveal-x: 50%;
+    --cf-reveal-y: 50%;
+    --cf-reveal-radius: 0px;
+
+    --cf-ink: #f2ede4;
+    --cf-ink-dim: rgba(242, 237, 228, 0.62);
+    --cf-ink-faint: rgba(242, 237, 228, 0.34);
+    --cf-line: rgba(242, 237, 228, 0.14);
+    --cf-line-faint: rgba(242, 237, 228, 0.07);
+    --cf-amber: #d97a2f;
+    --cf-amber-soft: rgba(217, 122, 47, 0.5);
+    --cf-black: #0a0806;
+
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    height: 100vh;
+    max-height: 1200px;
+    overflow: hidden;
+    background: var(--cf-black);
+    color: var(--cf-ink);
+    font-family: "Manrope", "Helvetica Neue", Helvetica, Arial, -apple-system, BlinkMacSystemFont, sans-serif;
+    box-sizing: border-box;
+    isolation: isolate;
+    touch-action: pan-y pinch-zoom;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.cf-glass-hero .cf-hero-content {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+.cf-glass-hero *,
+.cf-glass-hero *::before,
+.cf-glass-hero *::after {
+    box-sizing: border-box;
+}
+
+/* ---------------------------------- */
+/* IMAGE LAYERS                        */
+/* ---------------------------------- */
+
+.cf-glass-hero .cf-hero-base,
+.cf-glass-hero .cf-hero-reveal {
+    position: absolute;
+    inset: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    will-change: opacity, transform;
+    touch-action: pan-y pinch-zoom;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.cf-glass-hero .cf-hero-base {
+    background-image: url("/assets/home/15d2a4339ef45665.jpeg");
+    opacity: 0;
+    transform: scale(1.035);
+    animation: cf-base-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cf-glass-hero .cf-hero-base::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 8, 6, 0.35) 0%, rgba(10, 8, 6, 0.05) 28%, rgba(10, 8, 6, 0.15) 62%, rgba(10, 8, 6, 0.72) 100%);
+    pointer-events: none;
+}
+
+.cf-glass-hero .cf-hero-reveal {
+    background-image: url("/assets/home/a42e220494b0ecb2.jpeg");
+    -webkit-mask-image: radial-gradient(circle var(--cf-reveal-radius) at var(--cf-reveal-x) var(--cf-reveal-y), #000 0%, #000 65%, transparent 100%);
+    mask-image: radial-gradient(circle var(--cf-reveal-radius) at var(--cf-reveal-x) var(--cf-reveal-y), #000 0%, #000 65%, transparent 100%);
+    filter: url(#cf-liquid-distort) saturate(1.1) contrast(1.05);
+}
+
+.cf-glass-hero .cf-hero-reveal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle var(--cf-reveal-radius) at var(--cf-reveal-x) var(--cf-reveal-y),
+        rgba(255, 255, 255, 0.16) 0%,
+        rgba(255, 255, 255, 0.05) 46%,
+        rgba(255, 255, 255, 0) 64%,
+        rgba(217, 122, 47, 0.16) 68%,
+        rgba(217, 122, 47, 0) 78%);
+    mix-blend-mode: screen;
+}
+
+.cf-glass-hero .cf-hero-reveal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    width: calc(var(--cf-reveal-radius) * 2);
+    height: calc(var(--cf-reveal-radius) * 2);
+    left: var(--cf-reveal-x);
+    top: var(--cf-reveal-y);
+    transform: translate(-50%, -50%);
+    box-shadow:
+        0 0 0 1px rgba(242, 237, 228, 0.18) inset,
+        0 0 40px rgba(217, 122, 47, 0.12) inset,
+        0 0 24px rgba(0, 0, 0, 0.28);
+}
+
+/* ---------------------------------- */
+/* GRID / CIRCLE / RING                */
+/* ---------------------------------- */
+
+.cf-glass-hero .cf-hero-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image:
+        linear-gradient(var(--cf-line-faint) 1px, transparent 1px),
+        linear-gradient(90deg, var(--cf-line-faint) 1px, transparent 1px);
+    background-size: 4.5vw 4.5vw;
+    background-position: center center;
+    -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0) 78%);
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0) 78%);
+}
+
+.cf-glass-hero .cf-hero-circle {
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+    right: 4vw;
+    width: min(64vw, 900px);
+    height: min(64vw, 900px);
+    transform: translateY(-50%);
+    border: 1px solid var(--cf-line);
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+.cf-glass-hero .cf-hero-ring {
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+    right: 4vw;
+    width: min(46vw, 640px);
+    height: min(46vw, 640px);
+    transform: translateY(-50%);
+    border: 1px solid var(--cf-line-faint);
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+/* ---------------------------------- */
+/* HERO CONTENT                        */
+/* ---------------------------------- */
+
+.cf-glass-hero .cf-hero-content {
+    position: absolute;
+    z-index: 4;
+    left: max(5.6vw, 2rem);
+    top: 34%;
+    max-width: 640px;
+    transform: translateY(-8%);
+}
+
+.cf-glass-hero .cf-eyebrow {
+    margin: 0 0 1.35rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cf-ink-faint);
+}
+
+.cf-glass-hero .cf-headline {
+    margin: 0;
+    font-weight: 400;
+    font-size: clamp(4rem, 6.2vw, 6.8rem);
+    line-height: 0.93;
+    letter-spacing: -0.065em;
+    color: var(--cf-ink);
+}
+
+.cf-glass-hero .cf-line-wrap {
+    display: block;
+    overflow: hidden;
+}
+
+.cf-glass-hero .cf-line {
+    display: block;
+}
+
+.cf-glass-hero .cf-supporting {
+    margin: 1.9rem 0 0;
+    max-width: 520px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--cf-ink-dim);
+    font-weight: 400;
+}
+
+.cf-glass-hero .cf-cta-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    margin-top: 2.25rem;
+}
+
+.cf-glass-hero .cf-cta-primary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 1.75rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.94rem;
+    font-weight: 500;
+    letter-spacing: 0.005em;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.08) 55%, rgba(255, 255, 255, 0.14) 100%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.65),
+        inset 0 -1px 6px rgba(255, 255, 255, 0.08),
+        0 10px 26px rgba(0, 0, 0, 0.35),
+        0 1px 2px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.cf-glass-hero .cf-cta-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(115deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 32%, rgba(255, 255, 255, 0) 68%, rgba(255, 255, 255, 0.22) 100%);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.cf-glass-hero .cf-cta-primary-label {
+    position: relative;
+    z-index: 1;
+}
+
+.cf-glass-hero .cf-cta-primary:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.6);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.12) 55%, rgba(255, 255, 255, 0.18) 100%);
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.75),
+        inset 0 -1px 6px rgba(255, 255, 255, 0.1),
+        0 14px 32px rgba(0, 0, 0, 0.4),
+        0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.cf-glass-hero .cf-cta-primary:active {
+    transform: translateY(0);
+}
+
+.cf-glass-hero .cf-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--cf-ink-dim);
+    text-decoration: none;
+    font-size: 0.92rem;
+    border-bottom: 1px solid var(--cf-line);
+    padding-bottom: 2px;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.cf-glass-hero .cf-cta-secondary:hover {
+    color: var(--cf-ink);
+    border-color: var(--cf-ink-dim);
+}
+
+.cf-glass-hero .cf-cta-primary:focus-visible,
+.cf-glass-hero .cf-cta-secondary:focus-visible {
+    outline: 1.5px solid var(--cf-amber);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.cf-glass-hero .cf-response-time {
+    margin: 1.35rem 0 0;
+    font-size: 0.78rem;
+    color: var(--cf-ink-faint);
+}
+
+/* ---------------------------------- */
+/* ENTRANCE ANIMATIONS                 */
+/* ---------------------------------- */
+
+@keyframes cf-base-in {
+    from { opacity: 0; transform: scale(1.035); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes cf-fade-down {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cf-glass-hero .cf-reveal-up {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: cf-reveal-up 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--cf-delay, 0s);
+}
+
+@keyframes cf-reveal-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cf-glass-hero .cf-hero-base,
+    .cf-glass-hero .cf-reveal-up {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* ---------------------------------- */
+/* RESPONSIVE                          */
+/* ---------------------------------- */
+
+@media (max-width: 1024px) {
+    .cf-glass-hero .cf-hero-content {
+        max-width: 560px;
+    }
+    .cf-glass-hero .cf-headline {
+        font-size: clamp(3.2rem, 7vw, 5.4rem);
+    }
+}
+
+@media (max-width: 780px) {
+    .cf-glass-hero {
+        min-height: 100svh;
+        height: 100svh;
+        max-height: none;
+    }
+
+    .cf-glass-hero .cf-hero-content {
+        left: 1.25rem;
+        right: 1.25rem;
+        top: auto;
+        bottom: 6.6rem;
+        max-width: none;
+        transform: none;
+    }
+
+    .cf-glass-hero .cf-headline {
+        font-size: clamp(2.5rem, 12vw, 3.6rem);
+        letter-spacing: -0.04em;
+    }
+
+    .cf-glass-hero .cf-eyebrow {
+        font-size: 0.66rem;
+        margin-bottom: 1rem;
+    }
+
+    .cf-glass-hero .cf-supporting {
+        font-size: 0.95rem;
+        max-width: none;
+        margin-top: 1.3rem;
+    }
+
+    .cf-glass-hero .cf-cta-row {
+        gap: 1rem;
+        margin-top: 1.6rem;
+    }
+
+    .cf-glass-hero .cf-response-time {
+        margin-top: 1rem;
+    }
+
+    .cf-glass-hero .cf-hero-circle,
+    .cf-glass-hero .cf-hero-ring {
+        right: -10vw;
+    }
+}
+
+@media (max-width: 420px) {
+    .cf-glass-hero .cf-headline {
+        font-size: clamp(2.15rem, 13vw, 2.9rem);
+    }
+    .cf-glass-hero .cf-cta-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
+  <style>
+/* ============================================================
+   0. TOKENS
+============================================================ */
+:root{
+  --cf-orange: #BB7C1D;
+  --cf-orange-light: #E0A542;
+  --cf-orange-soft: rgba(187,124,29,0.4);
+  --cf-orange-faint: rgba(187,124,29,0.16);
+  --cf-black: #070605;
+  --cf-white: #F6F1E7;
+  --cf-white-70: rgba(246,241,231,0.72);
+  --cf-white-45: rgba(246,241,231,0.45);
+  --cf-white-14: rgba(246,241,231,0.14);
+  --cf-font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+*{box-sizing:border-box;}
+
+.sr-only{
+  position:absolute; width:1px; height:1px;
+  padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+/* ============================================================
+   1. SECTION SHELL
+============================================================ */
+.cf-talk{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  background:var(--cf-black);
+  font-family:var(--cf-font);
+  color:var(--cf-white);
+  isolation:isolate;
+  perspective:1400px;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .cf-talk.cf-cursor-ready, .cf-talk.cf-cursor-ready *{ cursor:none; }
+}
+
+/* ============================================================
+   2. BACKGROUND VIDEO — visible, but dark enough to read text over
+============================================================ */
+.cf-bg{ position:absolute; inset:0; z-index:0; }
+.cf-bg video{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  opacity:0;
+  filter:saturate(1.05) brightness(0.55) contrast(1.05);
+  transition:opacity 1.8s ease;
+  animation:cf-bg-breathe 24s ease-in-out infinite;
+}
+.cf-bg video.cf-loaded{ opacity:1; }
+@keyframes cf-bg-breathe{
+  0%,100%{ transform:scale(1.02); }
+  50%{ transform:scale(1.06); }
+}
+/* darker wash so the form and copy stay legible; heaviest over the
+   right-hand text/form column, lighter over the fox on the left */
+.cf-bg::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(5,4,3,0.35) 0%, rgba(5,4,3,0.42) 45%, rgba(5,4,3,0.72) 100%),
+    linear-gradient(90deg, rgba(5,4,3,0.5) 0%, rgba(5,4,3,0.2) 32%, rgba(5,4,3,0.62) 62%, rgba(5,4,3,0.8) 100%);
+}
+
+.cf-sweep{
+  position:absolute; inset:0;
+  z-index:1;
+  background:linear-gradient(100deg, transparent 30%, var(--cf-orange-faint) 48%, transparent 66%);
+  transform:translateX(-60%);
+  pointer-events:none;
+  mix-blend-mode:screen;
+  opacity:0;
+}
+
+/* ============================================================
+   3. AMBIENT PARTICLES
+============================================================ */
+.cf-particles{ position:absolute; inset:0; z-index:2; pointer-events:none; }
+.cf-particle{
+  position:absolute;
+  width:3px; height:3px;
+  border-radius:50%;
+  background:var(--cf-orange-light);
+  opacity:0;
+  box-shadow:0 0 6px 1px var(--cf-orange-soft);
+}
+
+/* ============================================================
+   4. CONTENT GRID
+============================================================ */
+.cf-grid{
+  position:relative;
+  z-index:3;
+  max-width:1360px;
+  margin:0 auto;
+  padding:104px 48px 64px;
+  display:grid;
+  grid-template-columns:minmax(280px, 400px) 1fr;
+  align-items:center;
+  gap:0 64px;
+  transform-style:preserve-3d;
+}
+
+.cf-connector{
+  position:absolute;
+  z-index:4;
+  top:38%;
+  left:calc(400px * 0.72);
+  width:180px;
+  pointer-events:none;
+}
+.cf-connector svg{ width:100%; height:220px; overflow:visible; }
+.cf-connector path{
+  fill:none;
+  stroke:url(#cfLineGrad);
+  stroke-width:1.6;
+  stroke-linecap:round;
+  opacity:0.7;
+  filter:drop-shadow(0 0 6px var(--cf-orange-soft));
+}
+.cf-connector .cf-connector-pulse{
+  fill:var(--cf-orange-light);
+  filter:drop-shadow(0 0 8px var(--cf-orange));
+}
+
+/* ============================================================
+   5. FOX COLUMN
+============================================================ */
+.cf-fox-col{ position:relative; transform-style:preserve-3d; }
+
+.cf-fox-stage{
+  position:relative;
+  width:100%;
+  max-width:340px;
+  aspect-ratio:9/16;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+
+.cf-fox-frame{
+  position:relative;
+  z-index:1;
+  width:100%; height:100%;
+  overflow:hidden;
+  border-radius:36px 36px 36px 12px;
+  border:1.5px solid var(--cf-orange);
+  box-shadow:
+    0 0 0 1px rgba(187,124,29,0.15),
+    0 0 34px 4px var(--cf-orange-soft),
+    0 30px 60px rgba(0,0,0,0.55);
+  transform:translateZ(50px);
+  transition:box-shadow 0.5s ease;
+}
+.cf-fox-stage.cf-fox-active .cf-fox-frame{
+  box-shadow:
+    0 0 0 1px rgba(187,124,29,0.3),
+    0 0 54px 8px var(--cf-orange-soft),
+    0 30px 60px rgba(0,0,0,0.55);
+}
+.cf-fox-frame video{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:50% 18%; /* keeps the fox's face/upper body in frame — adjust if needed */
+}
+.cf-fox-frame::after{ /* soft inner vignette so edges blend, not crop */
+  content:"";
+  position:absolute; inset:0;
+  border-radius:inherit;
+  box-shadow:inset 0 0 50px 14px rgba(7,6,5,0.35);
+  pointer-events:none;
+}
+
+.cf-fox-badge{
+  position:absolute;
+  left:-8%;
+  top:6%;
+  z-index:2;
+  background:rgba(9,7,5,0.78);
+  border:1px solid var(--cf-orange-faint);
+  backdrop-filter:blur(10px);
+  border-radius:12px;
+  padding:13px 16px;
+  max-width:168px;
+  transform:translateZ(90px);
+  animation:cf-badge-float 5.5s ease-in-out infinite;
+}
+.cf-fox-badge p{
+  margin:0;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.01em;
+  line-height:1.5;
+  color:var(--cf-white-70);
+  text-transform:uppercase;
+}
+.cf-fox-badge p span{ color:var(--cf-orange-light); }
+@keyframes cf-badge-float{
+  0%,100%{ transform:translateZ(90px) translateY(0); }
+  50%{ transform:translateZ(90px) translateY(-9px); }
+}
+
+/* ============================================================
+   6. FORM COLUMN
+============================================================ */
+.cf-form-col{ position:relative; transform-style:preserve-3d; padding-top:6px; }
+
+.cf-eyebrow-line{
+  display:flex; align-items:center; gap:12px;
+  margin-bottom:18px;
+}
+.cf-eyebrow-line .cf-rule{ width:34px; height:1px; background:var(--cf-orange); }
+.cf-eyebrow-line span{
+  font-size:12px;
+  letter-spacing:0.16em;
+  font-weight:500;
+  color:var(--cf-white-70);
+  text-transform:uppercase;
+}
+
+.cf-heading{
+  font-size:clamp(2.1rem, 3.4vw, 3.4rem);
+  font-weight:700;
+  line-height:1.06;
+  letter-spacing:-0.01em;
+  margin:0 0 20px;
+  color:var(--cf-white);
+}
+.cf-heading .cf-char{ display:inline-block; will-change:transform, opacity; }
+.cf-heading .cf-accent{ color:var(--cf-orange-light); }
+
+.cf-sub{
+  font-size:15.5px;
+  font-weight:300;
+  line-height:1.65;
+  color:var(--cf-white-70);
+  max-width:48ch;
+  margin:0 0 22px;
+}
+
+.cf-listening{
+  display:flex; align-items:center; gap:10px;
+  margin-bottom:30px;
+}
+.cf-listening svg{ flex:none; color:var(--cf-orange-light); }
+.cf-listening span{
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:0.06em;
+  color:var(--cf-white-70);
+  text-transform:uppercase;
+}
+.cf-listening .cf-accent{ color:var(--cf-orange-light); }
+.cf-listening .cf-bar{ animation:cf-bar-bounce 1.1s ease-in-out infinite; transform-origin:center; }
+.cf-listening .cf-bar:nth-child(2){ animation-delay:0.15s; }
+.cf-listening .cf-bar:nth-child(3){ animation-delay:0.3s; }
+.cf-listening .cf-bar:nth-child(4){ animation-delay:0.45s; }
+@keyframes cf-bar-bounce{
+  0%,100%{ transform:scaleY(0.4); }
+  50%{ transform:scaleY(1); }
+}
+
+/* ---- form now lives entirely inside the embedded #cf-contact-widget
+   (its own scoped <style> block, in the body markup below) — kept
+   out of this stylesheet so nothing here can collide with it. ---- */
+
+/* ============================================================
+   7. FEATURE STRIP
+============================================================ */
+.cf-features{
+  position:relative;
+  z-index:3;
+  max-width:1360px;
+  margin:0 auto;
+  padding:0 48px 56px;
+}
+.cf-features-inner{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  border:1px solid var(--cf-white-14);
+  border-radius:18px;
+  background:rgba(255,255,255,0.03);
+  backdrop-filter:blur(6px);
+  overflow:hidden;
+}
+.cf-feature{
+  display:flex; align-items:center; gap:12px;
+  padding:22px 24px;
+  border-right:1px solid var(--cf-white-14);
+}
+.cf-feature:last-child{ border-right:none; }
+.cf-feature .cf-icon{ flex:none; color:var(--cf-orange-light); }
+.cf-feature strong{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:0.05em;
+  color:var(--cf-white);
+}
+.cf-feature span{
+  display:block;
+  font-size:13px;
+  font-weight:300;
+  color:var(--cf-white-45);
+  margin-top:2px;
+}
+
+/* ============================================================
+   8. CUSTOM CURSOR
+============================================================ */
+.cf-cursor-dot, .cf-cursor-ring{
+  position:fixed; top:0; left:0;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:9999;
+  transform:translate(-50%,-50%);
+  will-change:transform;
+}
+.cf-cursor-dot{
+  width:6px; height:6px;
+  background:var(--cf-orange);
+  opacity:0;
+  transition:opacity 0.3s ease;
+}
+.cf-cursor-ring{
+  width:34px; height:34px;
+  border:1px solid var(--cf-orange-soft);
+  opacity:0;
+  transition:opacity 0.3s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+.cf-cursor-dot.cf-cursor-visible, .cf-cursor-ring.cf-cursor-visible{ opacity:1; }
+.cf-cursor-ring.cf-cursor-grow{ width:56px; height:56px; border-color:var(--cf-orange); }
+
+/* ============================================================
+   9. RESPONSIVE
+============================================================ */
+@media (max-width:1080px){
+  .cf-grid{ grid-template-columns:1fr; gap:48px; padding:88px 32px 48px; }
+  .cf-connector{ display:none; }
+  .cf-fox-col{ display:flex; justify-content:center; }
+  .cf-fox-stage{ max-width:300px; }
+  .cf-features{ padding:0 32px 48px; }
+}
+
+@media (max-width:640px){
+  .cf-grid{ padding:64px 20px 40px; gap:36px; }
+  .cf-fox-stage{ max-width:78vw; }
+  .cf-fox-badge{ left:0; max-width:150px; padding:11px 14px; }
+  .cf-heading{ font-size:clamp(1.9rem, 8vw, 2.4rem); }
+  .cf-row{ grid-template-columns:1fr; gap:12px; margin-bottom:12px; }
+  .cf-field{ height:50px; }
+  .cf-field.cf-full{ margin-bottom:12px; }
+  .cf-cursor-dot, .cf-cursor-ring{ display:none; }
+  .cf-features{ padding:0 20px 40px; }
+  .cf-features-inner{ grid-template-columns:1fr 1fr; }
+  .cf-feature{
+    padding:18px;
+    border-right:1px solid var(--cf-white-14);
+  }
+  .cf-feature:nth-child(2n){ border-right:none; }
+  .cf-feature:nth-child(1), .cf-feature:nth-child(2){ border-bottom:1px solid var(--cf-white-14); }
+  .cf-bg video{ filter:saturate(1) brightness(0.5) contrast(1.05); }
+}
+
+/* ============================================================
+   10. ACCESSIBILITY
+============================================================ */
+@media (prefers-reduced-motion: reduce){
+  .cf-bg video{ animation:none; }
+  .cf-fox-badge{ animation:none; }
+  .cf-listening .cf-bar{ animation:none; }
+  .cf-particle{ display:none; }
+  *{ scroll-behavior:auto !important; }
+}
+</style>
+  
+<style>
+#contact{height:auto;min-height:100svh;overflow:visible;}
+#contact .cf-talk{height:auto;min-height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:visible;}
+#contact .cf-grid{width:100%;min-height:calc(100svh - clamp(76px,10vh,104px));height:auto;padding:clamp(86px,10vh,112px) clamp(20px,4vw,48px) 24px;gap:0 clamp(40px,4vw,64px);align-items:center;}
+#contact .cf-fox-stage{max-width:min(300px,44svh);}
+#contact .cf-form-col,#contact #cf-contact-widget{min-width:0;width:100%;}
+#contact .cf-heading{font-family:var(--cf-font)!important;font-size:clamp(2rem,3.2vw,3rem);line-height:1.03;margin:0 0 12px;}
+#contact .cf-sub{font-family:var(--cf-font)!important;font-size:14px;line-height:1.45;margin:0 0 14px;}
+#contact .cf-listening-wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px;}
+#contact .cf-listening{margin:0;}
+#contact .cf-audio-toggle{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid rgba(225,161,65,.5);border-radius:999px;background:rgba(8,7,6,.46);color:var(--cf-orange-light);font:600 11px/1 var(--cf-font);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease;}
+#contact .cf-audio-toggle:hover,#contact .cf-audio-toggle[aria-pressed="true"]{background:var(--cf-orange);border-color:var(--cf-orange);color:#100c08;}
+#contact .cf-audio-toggle svg{flex:none;}
+#contact #cf-contact-widget .cf-form-panel{max-width:450px;max-height:none;overflow:visible;padding:24px 26px 20px;border-radius:20px;}
+#contact #cf-contact-widget .cf-form-panel p.cf-lede{font-size:13px;line-height:1.4;margin-bottom:14px;}
+#contact #cf-contact-widget form{gap:9px;}
+#contact #cf-contact-widget label{font-size:10px;margin-bottom:4px;}
+#contact #cf-contact-widget input,#contact #cf-contact-widget select,#contact #cf-contact-widget textarea{padding:9px 11px!important;font-size:14px!important;}
+#contact #cf-contact-widget textarea{min-height:58px;}
+#contact #cf-contact-widget .cf-submit-btn{padding:11px 16px;margin-top:3px;}
+#contact .cf-features{width:100%;max-width:1360px;padding:0 clamp(20px,4vw,48px) 16px;}
+#contact .cf-feature{padding:13px 16px;}
+#contact .cf-cursor-dot,#contact .cf-cursor-ring{display:none!important;}
+#contact .cf-talk,#contact .cf-talk *{cursor:auto!important;}
+#contact a,#contact button,#contact select{cursor:pointer!important;}
+#contact input,#contact textarea{cursor:text!important;}
+#contact .cf-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important;}
+@media (max-width:1080px){
+  #contact{height:auto!important;min-height:100svh;overflow:visible!important;}
+  #contact .cf-talk{height:auto!important;min-height:100svh;justify-content:flex-start;overflow:visible!important;}
+  #contact .cf-grid{height:auto;min-height:0;grid-template-columns:1fr;max-width:700px;margin:0 auto;padding:108px 28px 26px;gap:20px;align-items:start;}
+  #contact .cf-fox-col{display:none;}
+  #contact .cf-form-col,#contact #cf-contact-widget{width:100%;}
+  #contact #cf-contact-widget .cf-form-panel{max-width:560px;margin-inline:auto;}
+  #contact .cf-features{display:none;}
+}
+@media (max-width:640px){
+  #contact .cf-grid{padding:96px 14px 20px;gap:0;}
+  #contact .cf-heading{font-size:clamp(1.9rem,9vw,2.45rem);}
+  #contact .cf-sub{font-size:13.5px;}
+  #contact .cf-listening-wrap{align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:14px;}
+  #contact .cf-audio-toggle{padding:8px 9px;font-size:10px;}
+  #contact #cf-contact-widget .cf-form-panel{padding:20px 16px 17px;border-radius:18px;}
+  #contact #cf-contact-widget input,#contact #cf-contact-widget select,#contact #cf-contact-widget textarea{font-size:16px!important;}
+  #contact #cf-contact-widget textarea{min-height:74px;}
+  #contact .cf-features{display:none;}
+}
+@media (max-width:380px){
+  #contact .cf-grid{padding-right:10px;padding-left:10px;}
+  #contact #cf-contact-widget .cf-form-panel{padding-right:13px;padding-left:13px;}
+  #contact .cf-heading{font-size:1.85rem;}
+}
+</style>
+
+  
+<style>
+/* Liquid-glass navigation and the prompt-led footer treatment. */
+.cf-site-header{position:fixed;top:max(12px,env(safe-area-inset-top));left:50%;z-index:120;width:min(1240px,calc(100% - 28px));transform:translateX(-50%);font-family:var(--cf-font);}
+.cf-nav-glass{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(18px,3vw,44px);min-height:68px;padding:10px 12px 10px 18px;border:1px solid rgba(255,255,255,.28);border-radius:24px;background:linear-gradient(110deg,rgba(244,239,230,.9),rgba(244,239,230,.62) 52%,rgba(225,161,65,.32));box-shadow:0 18px 60px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.82);backdrop-filter:blur(24px) saturate(155%);-webkit-backdrop-filter:blur(24px) saturate(155%);overflow:hidden;}
+.cf-nav-glass::before{content:"";position:absolute;inset:-70% 35% -70% -18%;background:radial-gradient(ellipse,rgba(255,255,255,.72),transparent 62%);filter:blur(18px);opacity:.55;pointer-events:none;animation:cf-liquid-shimmer 11s ease-in-out infinite alternate;}
+@keyframes cf-liquid-shimmer{from{transform:translate3d(-7%,0,0) rotate(-4deg);}to{transform:translate3d(12%,4%,0) rotate(4deg);}}
+.cf-nav-logo,.cf-nav-links,.cf-nav-cta,.cf-menu-toggle{position:relative;z-index:1;}
+.cf-nav-logo{display:flex;align-items:center;min-width:0;width:clamp(150px,15vw,210px);}
+.cf-nav-logo img{display:block;width:100%;height:auto;max-height:45px;object-fit:contain;object-position:left center;}
+.cf-nav-links{display:flex;align-items:center;justify-content:center;gap:clamp(16px,2.2vw,34px);}
+.cf-nav-links a{color:#15110e;text-decoration:none;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;font-weight:800;transition:color .2s ease,transform .2s ease;}
+.cf-nav-links a:hover,.cf-nav-links a:focus-visible{color:var(--cf-amber);transform:translateY(-1px);}
+.cf-nav-cta{display:inline-flex;align-items:center;gap:10px;padding:13px 17px;border-radius:999px;background:#15110e;color:#f4efe7!important;text-decoration:none;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;box-shadow:0 8px 22px rgba(0,0,0,.18);transition:background .2s ease,transform .2s ease;}
+.cf-nav-cta:hover,.cf-nav-cta:focus-visible{background:var(--cf-amber);color:#100c08!important;transform:translateY(-1px);}
+.cf-menu-toggle{display:none;border:0;border-radius:14px;background:#15110e;color:#f4efe7;width:44px;height:44px;place-items:center;cursor:pointer;}
+.cf-menu-toggle span,.cf-menu-toggle span::before,.cf-menu-toggle span::after{display:block;width:17px;height:1.5px;background:currentColor;transition:transform .22s ease,opacity .22s ease;}
+.cf-menu-toggle span{position:relative;}
+.cf-menu-toggle span::before,.cf-menu-toggle span::after{content:"";position:absolute;left:0;}
+.cf-menu-toggle span::before{top:-6px;}
+.cf-menu-toggle span::after{top:6px;}
+.cf-site-header.menu-open .cf-menu-toggle span{background:transparent;}
+.cf-site-header.menu-open .cf-menu-toggle span::before{transform:translateY(6px) rotate(45deg);}
+.cf-site-header.menu-open .cf-menu-toggle span::after{transform:translateY(-6px) rotate(-45deg);}
+.cf-mobile-nav{display:none;}
+.cf-mobile-nav[hidden]{display:none!important;}
+
+.cf-site-footer{position:relative;isolation:isolate;display:flex;flex-direction:column;min-height:100svh;overflow:hidden;overflow-wrap:break-word;background:#eae3de;color:#175a67;padding:clamp(2.25rem,4.5vh,4rem) max(clamp(1.25rem,4vw,4.5rem),env(safe-area-inset-right)) max(clamp(1.5rem,3vh,2.75rem),env(safe-area-inset-bottom)) max(clamp(1.25rem,4vw,4.5rem),env(safe-area-inset-left));scroll-snap-align:start;}
+.cf-footer-media{position:absolute;inset:0;z-index:-2;pointer-events:none;overflow:hidden;}
+.cf-footer-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center bottom;pointer-events:none;opacity:.9;filter:saturate(.82) contrast(.98);animation:cf-footer-fade 1.35s ease both;}
+@keyframes cf-footer-fade{from{opacity:0;}to{opacity:.9;}}
+.cf-footer-inner{position:relative;z-index:1;width:100%;max-width:1440px;margin:0 auto;flex:1;display:flex;flex-direction:column;}
+.cf-footer-grid{display:grid;align-items:start;gap:clamp(1.1rem,2.2vw,2.1rem);grid-template-columns:minmax(230px,1.35fr) repeat(3,minmax(125px,.76fr)) minmax(250px,1.15fr);}
+.cf-liquid-card{position:relative;border:1px solid rgba(23,90,103,.18);border-radius:24px;background:linear-gradient(140deg,rgba(255,255,255,.28),rgba(255,255,255,.08));box-shadow:0 20px 50px rgba(23,90,103,.11),inset 0 1px 0 rgba(255,255,255,.62);backdrop-filter:blur(16px) saturate(135%);-webkit-backdrop-filter:blur(16px) saturate(135%);}
+.cf-footer-brand,.cf-footer-col,.cf-footer-newsletter{padding:clamp(1.05rem,2.2vw,1.8rem);}
+.cf-footer-brand{min-height:100%;}
+.cf-footer-logo{display:inline-flex;align-items:center;max-width:245px;}
+.cf-footer-logo img{display:block;width:100%;height:auto;max-height:72px;object-fit:contain;object-position:left center;}
+.cf-footer-blurb{max-width:27ch;margin:clamp(1.15rem,2.4vh,1.9rem) 0 0;color:#175a67;font-size:.93rem;line-height:1.62;}
+.cf-footer-contact{display:grid;gap:.72rem;margin:clamp(1.15rem,2.4vh,1.9rem) 0 0;padding:0;list-style:none;}
+.cf-footer-contact li{display:flex;align-items:center;gap:.72rem;color:#175a67;font-size:.8rem;line-height:1.35;}
+.cf-footer-contact svg{flex:0 0 auto;width:19px;height:19px;}
+.cf-footer-contact a{color:inherit;text-decoration:none;}
+.cf-footer-contact a:hover,.cf-footer-contact a:focus-visible{text-decoration:underline;text-underline-offset:3px;}
+.cf-footer-col .cf-col-title,.cf-footer-newsletter .cf-col-title{margin:0 0 clamp(.9rem,2.1vh,1.45rem);color:#175a67;font-size:clamp(.78rem,.5vw + .7rem,1rem);font-weight:800;letter-spacing:.08em;text-transform:uppercase;}
+.cf-footer-links{display:flex;flex-direction:column;gap:.35rem;margin:0;padding:0;list-style:none;}
+.cf-footer-links a{display:inline-block;padding:.28rem 0;color:rgba(23,90,103,.86);font-size:.83rem;line-height:1.35;text-decoration:none;transition:opacity .2s ease,transform .2s ease;}
+.cf-footer-links a:hover,.cf-footer-links a:focus-visible{opacity:.62;transform:translateX(2px);}
+.cf-footer-newsletter p{max-width:31ch;margin:0 0 1.15rem;color:rgba(23,90,103,.82);font-size:.86rem;line-height:1.62;}
+.cf-footer-subscribe{display:flex;width:100%;max-width:380px;border:1px solid #175a67;border-radius:16px;background:rgba(255,255,255,.36);overflow:hidden;}
+.cf-footer-subscribe input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:#175a67;padding:.86rem .92rem;font-family:var(--cf-font);font-size:.86rem;}
+.cf-footer-subscribe input::placeholder{color:rgba(42,112,124,.82);}
+.cf-footer-subscribe input:focus-visible{box-shadow:inset 0 0 0 2px rgba(23,90,103,.25);}
+.cf-footer-subscribe button{display:grid;place-items:center;width:56px;border:0;background:#175a67;color:#eae3de;cursor:pointer;transition:background .2s ease;}
+.cf-footer-subscribe button:hover,.cf-footer-subscribe button:focus-visible{background:#0f454f;}
+.cf-footer-subscribe svg{width:21px;height:21px;}
+.cf-footer-status{min-height:1.2em;margin:.65rem 0 0;color:#175a67;font-size:.72rem;}
+.cf-footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:1.25rem 2rem;flex-wrap:wrap;margin-top:auto;padding-top:clamp(2.5rem,6vh,4.5rem);}
+.cf-footer-socials,.cf-footer-legal{display:flex;align-items:center;flex-wrap:wrap;}
+.cf-footer-socials{gap:clamp(.7rem,1.5vw,1.3rem);}
+.cf-footer-socials a{display:inline-flex;padding:.2rem;color:#175a67;transition:opacity .2s ease,transform .2s ease;}
+.cf-footer-socials a:hover,.cf-footer-socials a:focus-visible{opacity:.62;transform:translateY(-2px);}
+.cf-footer-socials svg{width:24px;height:24px;}
+.cf-footer-legal{gap:clamp(1rem,2.4vw,2.5rem);}
+.cf-footer-legal a{padding:.25rem 0;color:rgba(23,90,103,.8);font-size:.75rem;text-decoration:none;}
+.cf-footer-legal a:hover,.cf-footer-legal a:focus-visible{text-decoration:underline;text-underline-offset:3px;}
+.cf-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;}
+
+@media (max-width:1100px){
+  .cf-footer-grid{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:clamp(1.5rem,4vh,2.75rem);}
+  .cf-footer-brand,.cf-footer-newsletter{grid-column:1 / -1;}
+  .cf-footer-blurb{max-width:42ch;}
+  .cf-site-footer{height:auto;min-height:100svh;overflow:visible;padding-right:0;padding-bottom:0;padding-left:0;}
+  .cf-footer-inner{order:0;padding-right:max(clamp(1.25rem,4vw,4.5rem),env(safe-area-inset-right));padding-bottom:clamp(1.25rem,3vh,2rem);padding-left:max(clamp(1.25rem,4vw,4.5rem),env(safe-area-inset-left));}
+  .cf-footer-media{position:relative;inset:auto;order:1;flex-shrink:0;width:100%;height:auto;margin-top:auto;z-index:0;}
+  .cf-footer-bg{position:relative;inset:auto;width:100%;height:auto;max-width:100%;object-fit:contain;object-position:center bottom;transform:none;display:block;}
+  .cf-footer-media::after{content:"";position:absolute;top:0;right:0;left:0;height:clamp(52px,16vw,120px);pointer-events:none;background:linear-gradient(to bottom,#eae3de 0%,rgba(234,227,222,.65) 38%,rgba(234,227,222,0) 100%);}
+}
+@media (max-width:720px){
+  .cf-site-header{top:max(8px,env(safe-area-inset-top));width:calc(100% - 20px);}
+  .cf-nav-glass{grid-template-columns:1fr auto;min-height:62px;padding:8px 9px 8px 13px;border-radius:22px;gap:10px;}
+  .cf-nav-logo{width:clamp(150px,48vw,190px);}
+  .cf-nav-logo img{max-height:38px;}
+  .cf-nav-links,.cf-nav-cta{display:none;}
+  .cf-menu-toggle{display:grid;}
+  .cf-mobile-nav{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:9px;border:1px solid rgba(255,255,255,.28);border-top:0;border-radius:0 0 22px 22px;background:rgba(244,239,230,.78);box-shadow:0 18px 60px rgba(0,0,0,.22);backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);}
+  .cf-mobile-nav a{padding:12px 10px;border:1px solid rgba(23,90,103,.16);border-radius:13px;color:#15110e;text-decoration:none;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;}
+  .cf-mobile-nav a:last-child{background:#15110e;color:#f4efe7;}
+  .cf-footer-grid{grid-template-columns:1fr 1fr;gap:clamp(1.25rem,5vw,2.2rem);}
+  .cf-footer-brand,.cf-footer-newsletter{grid-column:1 / -1;}
+  .cf-footer-brand,.cf-footer-col,.cf-footer-newsletter{padding:1.15rem;}
+  .cf-footer-logo{max-width:210px;}
+  .cf-footer-blurb{max-width:34ch;}
+  .cf-footer-bottom{flex-direction:column;align-items:flex-start;gap:1.5rem;padding-top:clamp(2rem,7vh,3rem);padding-bottom:clamp(1.25rem,3vh,2rem);}
+  .cf-footer-legal{gap:1.1rem 1.5rem;}
+  .cf-footer-links{gap:.2rem;}
+  .cf-footer-links a{padding:.55rem 0;}
+  .cf-footer-contact{gap:.25rem;}
+  .cf-footer-contact a,.cf-footer-contact span{padding:.4rem 0;}
+  .cf-footer-legal a{padding:.45rem 0;}
+  .cf-footer-subscribe input{font-size:16px;padding:1rem 1.05rem;}
+  .cf-footer-subscribe{max-width:none;}
+}
+@media (max-width:440px){
+  .cf-footer-grid{gap:1.35rem 1.1rem;}
+  .cf-footer-col .cf-col-title,.cf-footer-newsletter .cf-col-title{margin-bottom:.85rem;}
+  .cf-footer-blurb,.cf-footer-newsletter p{max-width:none;}
+}
+@media (max-width:359px){
+  .cf-footer-grid{grid-template-columns:1fr;}
+  .cf-footer-brand,.cf-footer-newsletter{grid-column:auto;}
+}
+@media (prefers-reduced-motion:reduce){
+  .cf-nav-glass::before,.cf-footer-bg{animation:none;}
+  .cf-footer-bg{display:none;}
+  .cf-site-footer{background-color:#eae3de;background-image:url('https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/4f690bd1-881a-4192-82f2-d714d34c8fb9.png');background-position:center bottom;background-size:cover;background-repeat:no-repeat;}
+  .cf-footer-media::after{content:none;}
+}
+</style>
+
+  <style>
+  #cfx-testimonials, #cfx-testimonials *{ box-sizing:border-box; }
+  0,500;0,600;0,700&display=swap');
+
+  #cfx-testimonials{
+    --cfx-accent:#bb7c1d;
+    --cfx-glow:187,124,29;
+    position:relative;
+    isolation:isolate;
+    /* full-bleed breakout: Elementor/theme "boxed" containers cap the
+       widget's width, so centering + 100vw here pulls the section out to
+       the true edges of the browser window regardless of that container */
+    width:100vw !important;
+    max-width:100vw !important;
+    left:50%;
+    right:50%;
+    margin-left:-50vw !important;
+    margin-right:-50vw !important;
+    min-height:100vh;
+    min-height:100dvh;
+    overflow:hidden;
+    background:#0c0904;
+    color:#FBF7EF;
+    font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;
+    padding:clamp(90px,12vh,140px) 0 clamp(40px,6vh,64px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+
+  /* ---------- background video + dark overlay ---------- */
+  #cfx-testimonials .cfx-bg-video{
+    position:absolute; inset:0; width:100%; height:100%; z-index:0;
+    object-fit:cover; filter:saturate(0.95) brightness(0.85);
+  }
+  #cfx-testimonials .cfx-scrim{
+    position:absolute; inset:0; z-index:1;
+    background:
+      linear-gradient(180deg, rgba(4,3,1,0.94) 0%, rgba(4,3,1,0.74) 26%, rgba(4,3,1,0.66) 62%, rgba(4,3,1,0.95) 100%),
+      radial-gradient(120% 70% at 50% 6%, rgba(187,124,29,0.18), transparent 60%);
+  }
+  #cfx-testimonials .cfx-grain{
+    position:absolute; inset:0; z-index:2; pointer-events:none; opacity:0.045; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  #cfx-testimonials .cfx-blob{
+    position:absolute; z-index:1; left:50%; top:50%;
+    width:min(58vw,700px); height:min(58vw,700px);
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle at 40% 35%, rgba(var(--cfx-glow),0.32), rgba(var(--cfx-glow),0.05) 55%, transparent 72%);
+    filter:blur(55px);
+    border-radius:42% 58% 65% 35% / 45% 40% 60% 55%;
+    animation:cfxBlobMorph 16s ease-in-out infinite;
+    opacity:0.85; pointer-events:none;
+  }
+  @keyframes cfxBlobMorph{
+    0%,100%{ border-radius:42% 58% 65% 35% / 45% 40% 60% 55%; }
+    33%{ border-radius:58% 42% 38% 62% / 55% 62% 38% 45%; }
+    66%{ border-radius:48% 52% 55% 45% / 35% 55% 45% 65%; }
+  }
+
+  /* ---------- header ---------- */
+  #cfx-testimonials .cfx-inner{ position:relative; z-index:3; width:100%; max-width:1280px; margin:0 auto; padding:0 clamp(16px,4vw,40px); }
+  #cfx-testimonials .cfx-head{
+    text-align:center; max-width:720px; margin:0 auto clamp(30px,4.5vw,50px);
+    padding:clamp(18px,2.6vw,28px) clamp(20px,3vw,34px);
+    background:rgba(4,3,1,0.55); border:1px solid rgba(255,255,255,0.1);
+    border-radius:24px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  }
+  #cfx-testimonials .cfx-eyebrow{ font-size:11.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--cfx-accent); font-weight:700; text-shadow:0 1px 10px rgba(0,0,0,0.6); }
+  #cfx-testimonials .cfx-eyebrow-dim{ color:rgba(251,247,239,0.68); font-weight:600; }
+  #cfx-testimonials .cfx-title{
+    font-family:'Manrope',sans-serif; font-weight:700; font-style:normal;
+    font-size:clamp(1.7rem,4.2vw,2.9rem); line-height:1.12; letter-spacing:-0.01em;
+    margin:12px 0 14px; color:#FFFFFF; text-shadow:0 2px 4px rgba(0,0,0,0.7), 0 8px 30px rgba(0,0,0,0.65);
+  }
+  #cfx-testimonials .cfx-highlight{
+    background:linear-gradient(180deg, rgba(187,124,29,0.02) 60%, rgba(187,124,29,0.38) 60%);
+    padding:0 4px; border-radius:4px; box-decoration-break:clone; -webkit-box-decoration-break:clone;
+  }
+  #cfx-testimonials .cfx-sub{ font-size:clamp(13px,1.5vw,16px); line-height:1.6; color:#FFFFFF; font-weight:500; text-shadow:0 1px 3px rgba(0,0,0,0.7), 0 4px 18px rgba(0,0,0,0.5); }
+
+  /* ---------- carousel shell ---------- */
+  #cfx-testimonials .cfx-carousel{ position:relative; display:flex; align-items:center; gap:clamp(6px,2vw,20px); outline:none; }
+  #cfx-testimonials .cfx-stage{ position:relative; flex:1; height:clamp(400px,44vw,460px); perspective:1400px; overflow:visible; }
+  #cfx-testimonials .cfx-track{ position:absolute; inset:0; transform-style:preserve-3d; }
+
+  /* ---------- testimonial cards ---------- */
+  #cfx-testimonials .cfx-card{
+    position:absolute; left:50%; top:50%; width:min(400px,84vw);
+    transform-origin:center center; will-change:transform,opacity,filter;
+    transition:transform 620ms cubic-bezier(.22,.9,.3,1), opacity 620ms ease, filter 620ms ease;
+  }
+  #cfx-testimonials .cfx-card-glass{
+    position:relative; border-radius:24px; padding:clamp(22px,2.6vw,30px) clamp(20px,2.4vw,26px) clamp(22px,2.4vw,26px);
+    background:linear-gradient(155deg, rgba(255,255,255,0.20), rgba(255,255,255,0.06) 55%, rgba(255,255,255,0.13));
+    border:1px solid rgba(255,255,255,0.28);
+    box-shadow:0 24px 60px -20px rgba(0,0,0,0.65), inset 0 1px 1px rgba(255,255,255,0.4), inset 0 -18px 30px -20px rgba(var(--cfx-glow),0.28);
+    backdrop-filter:blur(26px) saturate(160%); -webkit-backdrop-filter:blur(26px) saturate(160%);
+    display:flex; flex-direction:column; gap:12px; min-height:360px;
+  }
+  #cfx-testimonials .cfx-card-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  #cfx-testimonials .cfx-quote-mark{ width:30px; height:22px; color:var(--cfx-accent); opacity:0.9; flex:0 0 auto; }
+  #cfx-testimonials .cfx-tag-group{ display:flex; flex-direction:column; align-items:flex-end; gap:6px; }
+  #cfx-testimonials .cfx-tag{
+    font-size:10.5px; font-weight:700; letter-spacing:0.04em; color:#1c1305;
+    background:var(--cfx-accent); border-radius:999px; padding:5px 11px; white-space:nowrap;
+  }
+  #cfx-testimonials .cfx-tag-case{
+    color:var(--cfx-accent); background:rgba(var(--cfx-glow),0.16);
+    border:1px solid rgba(var(--cfx-glow),0.55);
+  }
+  #cfx-testimonials .cfx-card-featured .cfx-card-glass{
+    border-color:rgba(var(--cfx-glow),0.45);
+    box-shadow:0 24px 70px -18px rgba(0,0,0,0.7), inset 0 1px 1px rgba(255,255,255,0.4), inset 0 -18px 34px -18px rgba(var(--cfx-glow),0.4), 0 0 0 1px rgba(var(--cfx-glow),0.18);
+  }
+  #cfx-testimonials .cfx-stars{ color:var(--cfx-accent); letter-spacing:2px; font-size:14px; line-height:1; }
+  #cfx-testimonials .cfx-quote{
+    font-size:clamp(14px,1.6vw,15.5px); line-height:1.55; color:#FDFBF5; font-weight:500;
+    flex:1 1 auto;
+  }
+  #cfx-testimonials .cfx-card-bottom{ display:flex; align-items:center; gap:11px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.16); flex-wrap:wrap; }
+  #cfx-testimonials .cfx-avatar{
+    width:38px; height:38px; border-radius:50%; flex:0 0 auto;
+    display:flex; align-items:center; justify-content:center;
+    font-size:12.5px; font-weight:700; color:var(--cfx-accent);
+    background:rgba(var(--cfx-glow),0.2); border:1px solid rgba(var(--cfx-glow),0.45);
+  }
+  #cfx-testimonials .cfx-person{ display:flex; flex-direction:column; margin-right:auto; }
+  #cfx-testimonials .cfx-name{ font-size:13px; font-weight:700; color:#FDFBF5; }
+  #cfx-testimonials .cfx-role{ font-size:11.5px; color:rgba(251,247,239,0.65); }
+  #cfx-testimonials .cfx-stat{
+    font-size:13.5px; font-weight:700; color:var(--cfx-accent); text-align:right; line-height:1.25;
+  }
+  #cfx-testimonials .cfx-stat small{ display:block; font-size:9.5px; font-weight:500; color:rgba(251,247,239,0.6); text-transform:uppercase; letter-spacing:0.04em; }
+
+  #cfx-testimonials .cfx-card:not(.is-active){ pointer-events:none; }
+  #cfx-testimonials .cfx-card.is-active{ pointer-events:auto; }
+
+  /* ---------- dots ---------- */
+  #cfx-testimonials .cfx-dots{ display:flex; align-items:center; justify-content:center; gap:9px; margin-top:clamp(24px,3.6vw,36px); }
+  #cfx-testimonials .cfx-dot{
+    width:8px; height:8px; border-radius:50%; padding:0; border:none; cursor:pointer;
+    background:rgba(251,247,239,0.28); transition:all 250ms ease;
+  }
+  #cfx-testimonials .cfx-dot:hover{ background:rgba(251,247,239,0.55); }
+  #cfx-testimonials .cfx-dot.is-active{ width:24px; border-radius:5px; background:var(--cfx-accent); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:520px){
+    #cfx-testimonials .cfx-card{ width:88vw; }
+    #cfx-testimonials .cfx-card-glass{ min-height:320px; padding:20px 18px 20px; gap:9px; }
+    #cfx-testimonials .cfx-title{ font-size:clamp(1.5rem,7vw,2.1rem); }
+    #cfx-testimonials .cfx-stage{ height:clamp(360px,108vw,430px); }
+    #cfx-testimonials .cfx-head{ padding:16px 18px; border-radius:20px; }
+    #cfx-testimonials .cfx-card-featured .cfx-quote{ font-size:12.5px; line-height:1.48; }
+    #cfx-testimonials .cfx-tag-group{ align-items:flex-start; }
+  }
+  @media (max-height:720px){
+    #cfx-testimonials .cfx-sub{ display:none; }
+    #cfx-testimonials .cfx-head{ margin-bottom:20px; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    #cfx-testimonials .cfx-blob{ animation:none; }
+    #cfx-testimonials .cfx-card{ transition:opacity 300ms ease; }
+  }
+</style>
+
+
+</head>
+<body>
+  
+<header class="cf-site-header" id="site-header">
+  <div class="cf-nav-glass">
+    <a class="cf-nav-logo" href="/" aria-label="CreatorFox home"><img src="/assets/home/fd6869dd73b11149.webp" alt="CreatorFox"></a>
+    <nav class="cf-nav-links" aria-label="Primary navigation">
+      <a href="/about">About</a>
+      <a href="/services">Services</a>
+      <a href="/case-studies">Work</a>
+      <a href="/#clients">Clients</a>
+      <a href="/services/ai-workshop">AI workshop</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+    <a class="cf-nav-cta" href="/contact">Start a project <span aria-hidden="true">↗</span></a>
+    <button class="cf-menu-toggle" id="cfMenuToggle" type="button" aria-expanded="false" aria-controls="cfMobileNav" aria-label="Open navigation"><span></span></button>
+  </div>
+  <nav class="cf-mobile-nav" id="cfMobileNav" aria-label="Mobile navigation" hidden>
+    <a href="/about">About</a>
+    <a href="/services">Services</a>
+    <a href="/case-studies">Work</a>
+    <a href="/#clients">Clients</a>
+    <a href="/services/ai-workshop">AI workshop</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/contact">Start a project ↗</a>
+  </nav>
+</header>
+
+  
+<div id="creatorfox-home">
+  <div class="cf-ambient" aria-hidden="true"></div>
+
+  <main>
+    <div id="hero" class="cf-swap-section cf-swap-hero"><section class="cf-glass-hero" id="cf-glass-hero">
+
+    <svg class="cf-liquid-defs" aria-hidden="true" focusable="false">
+        <filter id="cf-liquid-distort" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+            <feTurbulence id="cf-liquid-turb" type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="2" seed="7" result="cf-noise" stitchTiles="stitch">
+                <animate id="cf-liquid-freq-anim" attributeName="baseFrequency" dur="16s" values="0.012 0.018;0.017 0.013;0.012 0.018" repeatCount="indefinite" />
+            </feTurbulence>
+            <feDisplacementMap id="cf-liquid-map" in="SourceGraphic" in2="cf-noise" scale="0" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </svg>
+
+    <div class="cf-hero-base"></div>
+
+    <div class="cf-hero-reveal"></div>
+
+    <div class="cf-hero-grid" aria-hidden="true"></div>
+
+    <div class="cf-hero-circle" aria-hidden="true"></div>
+
+    <div class="cf-hero-ring" aria-hidden="true"></div>
+
+    <div class="cf-hero-content">
+        <p class="cf-eyebrow cf-reveal-up" style="--cf-delay:0.05s">Website&nbsp;&middot;&nbsp;Performance&nbsp;&middot;&nbsp;AI Automation&nbsp;&middot;&nbsp;Content</p>
+
+        <h1 class="cf-headline">
+            <span class="cf-line-wrap"><span class="cf-line cf-reveal-up" style="--cf-delay:0.14s">Automate</span></span>
+            <span class="cf-line-wrap"><span class="cf-line cf-reveal-up" style="--cf-delay:0.22s">Critical</span></span>
+            <span class="cf-line-wrap"><span class="cf-line cf-reveal-up" style="--cf-delay:0.30s">Workflows.</span></span>
+        </h1>
+
+        <p class="cf-supporting cf-reveal-up" style="--cf-delay:0.42s">End-to-end automation across Sales, Support, Finance, and Operations.</p>
+
+        <div class="cf-cta-row cf-reveal-up" style="--cf-delay:0.52s">
+            <a class="cf-cta-primary" href="#contact">
+                <span class="cf-cta-primary-label">Book a discovery call</span>
+            </a>
+            <a class="cf-cta-secondary" href="#workshop">
+                <span>View automation examples</span>
+            </a>
+        </div>
+
+        <p class="cf-response-time cf-reveal-up" style="--cf-delay:0.6s">Typical response: 1 business day</p>
+    </div>
+
+</section></div>
+    <div class="cf-smoke-divider" aria-hidden="true"></div>
+
+    <section class="cf-section-shell cf-about-section cf-swap-section" id="about" aria-labelledby="about-title">
+      <div class="cf-container cf-about-container">
+        <p class="cf-section-kicker">About CreatorFox / the studio behind the move</p>
+        <div class="cf-about-grid">
+          <div class="cf-about-intro">
+            <h2 class="cf-section-title" id="about-title">We make good businesses easier to <em>choose.</em></h2>
+            <p class="cf-about-copy">CreatorFox is a digital growth studio for ambitious teams that want their brand, website and marketing to pull in the same direction. We combine sharp positioning, conversion-led design, measurable growth and practical AI — so the next step feels clearer to the people you want to reach.</p>
+            <p class="cf-about-kicker">Built from Bangalore. Designed to travel.</p>
+            <a class="cf-inline-link" href="#contact">Tell us what needs to move <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="cf-about-panel">
+            <div class="cf-about-logo-card"><img src="/assets/home/fd6869dd73b11149.webp" alt="CreatorFox"></div>
+            <p class="cf-about-statement">Less noise. More <span>meaningful momentum.</span></p>
+            <div class="cf-about-stats">
+              <div class="cf-about-stat"><strong>8+</strong><span>years in digital growth</span></div>
+              <div class="cf-about-stat"><strong>03</strong><span>lenses: brand, growth, AI</span></div>
+              <div class="cf-about-stat"><strong>01</strong><span>clear next move</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cf-about-principles">
+          <article class="cf-about-principle"><b>01 / FIND THE SIGNAL</b><h3>Start with the real bottleneck.</h3><p>Every engagement begins with the business problem behind the brief — not a preset package.</p></article>
+          <article class="cf-about-principle"><b>02 / MAKE IT FELT</b><h3>Turn clarity into a brand people remember.</h3><p>Strategy becomes a sharper story, a more useful experience and a reason to believe.</p></article>
+          <article class="cf-about-principle"><b>03 / KEEP IT MOVING</b><h3>Build systems your team can use.</h3><p>From campaigns to AI workflows, the work is designed to create momentum after launch.</p></article>
+        </div>
+      </div>
+    </section>
+    <div class="cf-smoke-divider" aria-hidden="true"></div>
+
+    <div id="services" class="cf-swap-section cf-swap-services"><div id="cf-services-root" class="cf-root">
+
+  <section class="cf-services-scroll" id="cfWrapper">
+    <div class="cf-sticky" id="cfSticky">
+      <canvas class="cf-canvas" id="cfCanvas"></canvas>
+      <div class="cf-scrim"></div>
+      <div class="cf-tint" id="cfTint"></div>
+      <div class="cf-grain"></div>
+
+      <div class="cf-panels" id="cfPanels">
+        <div class="cf-panels-track" id="cfPanelsTrack">
+          <!-- slides injected by JS -->
+        </div>
+      </div>
+
+      <div class="cf-scroll-hint" id="cfScrollHint">
+        <span>Scroll</span>
+        <span class="line"></span>
+      </div>
+
+      <div class="cf-final-cta" id="cfFinalCta">
+        <p>One partner. Everything your digital growth needs.</p>
+        <a href="#contact">Let's Build Something <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+0,500;0,600;0,700;1,400&display=swap');
+
+#cf-services-root, #cf-services-root *{ box-sizing:border-box; }
+#cf-services-root{
+  --cf-bg:#080909;
+  --cf-accent:#BB7C1D;
+  --cf-accent-light:#E1A141;
+  --cf-text:#FFFFFF;
+  --cf-text-dim:rgba(255,255,255,0.65);
+  position:relative;
+  background:var(--cf-bg);
+  color:var(--cf-text);
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+.cf-services-scroll{ position:relative; height:620vh; background:var(--cf-bg); }
+
+.cf-sticky{ position:sticky; top:0; height:100vh; overflow:hidden; opacity:0; transition:opacity .8s ease; }
+.cf-sticky.is-ready{ opacity:1; }
+
+.cf-canvas{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+
+.cf-scrim{ position:absolute; inset:0; pointer-events:none;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.32) 42%, rgba(0,0,0,0.18) 58%, rgba(0,0,0,0.72) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.1) 24%, rgba(0,0,0,0.14) 70%, rgba(0,0,0,0.82) 100%),
+    rgba(0,0,0,0.28);
+}
+.cf-tint{ position:absolute; inset:0; pointer-events:none; opacity:0; background:radial-gradient(ellipse at 60% 45%, rgba(187,124,29,0.55), transparent 65%); transition:opacity .2s linear; }
+.cf-grain{ position:absolute; inset:0; opacity:0.045; pointer-events:none; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"); }
+
+.cf-panels{ position:absolute; inset:0; z-index:4; overflow:hidden; pointer-events:none; }
+.cf-panels-track{ display:flex; height:100%; width:100%; will-change:transform; }
+.cf-panel-slide{ flex:0 0 100%; width:100%; height:100%; display:flex; align-items:center; justify-content:flex-end; padding:0 64px; }
+.cf-panel-inner{ width:400px; max-width:88vw; will-change:transform,opacity,filter; pointer-events:auto; }
+.cf-glass{ background:rgba(255,255,255,0.055); border:1px solid rgba(255,255,255,0.12); backdrop-filter:blur(20px) saturate(140%); -webkit-backdrop-filter:blur(20px) saturate(140%); border-radius:18px; padding:34px 32px; box-shadow:0 20px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.08); position:relative; overflow:hidden; isolation:isolate; }
+.cf-glass-glow{ position:absolute; inset:-40%; pointer-events:none; z-index:0; filter:blur(38px); opacity:0.9;
+  background:
+    radial-gradient(circle at 24% 28%, rgba(187,124,29,0.65), transparent 55%),
+    radial-gradient(circle at 78% 68%, rgba(187,124,29,0.5), transparent 60%),
+    radial-gradient(circle at 55% 90%, rgba(225,161,65,0.4), transparent 55%);
+  animation:cf-liquid-move 12s ease-in-out infinite;
+}
+@keyframes cf-liquid-move{
+  0%,100%{ transform:translate(0,0) scale(1) rotate(0deg); }
+  33%{ transform:translate(4%,-5%) scale(1.12) rotate(6deg); }
+  66%{ transform:translate(-5%,4%) scale(0.94) rotate(-5deg); }
+}
+.cf-glass-content{ position:relative; z-index:1; }
+.cf-panel-title{ font-size:32px; line-height:1.16; font-weight:700; margin:0 0 14px 0; letter-spacing:-0.01em; text-shadow:0 2px 18px rgba(0,0,0,0.5); }
+.cf-panel-desc{ font-size:14.5px; line-height:1.6; color:var(--cf-text-dim); margin:0 0 16px 0; font-weight:400; }
+.cf-panel-why{ font-size:12.5px; line-height:1.55; color:rgba(255,255,255,0.5); border-left:2px solid rgba(187,124,29,0.55); padding-left:12px; margin:0 0 22px 0; font-style:italic; }
+.cf-panel-cta{ display:inline-flex; align-items:center; gap:8px; color:#fff; text-decoration:none; font-size:13px; letter-spacing:0.03em; font-weight:600; border-bottom:1px solid rgba(187,124,29,0.55); padding-bottom:4px; transition:gap .25s, border-color .25s, color .25s; }
+.cf-panel-cta:hover{ gap:14px; border-color:var(--cf-accent); color:var(--cf-accent-light); }
+.cf-panel-cta:focus-visible{ outline:1px solid var(--cf-accent); outline-offset:4px; }
+
+.cf-scroll-hint{ position:absolute; bottom:36px; left:50%; transform:translateX(-50%); font-size:10.5px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4); display:flex; flex-direction:column; align-items:center; gap:8px; z-index:5; transition:opacity .3s linear; }
+.cf-scroll-hint .line{ width:1px; height:34px; background:linear-gradient(to bottom, rgba(255,255,255,0.55), transparent); animation:cf-scroll-pulse 1.8s ease-in-out infinite; }
+@keyframes cf-scroll-pulse{ 0%,100%{ opacity:.3; } 50%{ opacity:1; } }
+
+.cf-final-cta{ position:absolute; left:50%; bottom:64px; transform:translateX(-50%) translateY(16px); text-align:center; z-index:7; opacity:0; pointer-events:none; }
+.cf-final-cta p{ font-size:19px; font-weight:600; margin:0 0 14px; color:rgba(255,255,255,0.85); }
+.cf-final-cta a{ display:inline-flex; align-items:center; gap:8px; color:#080909; background:var(--cf-accent); text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.03em; padding:13px 26px; border-radius:100px; transition:background .25s, transform .25s; }
+.cf-final-cta a:hover{ background:var(--cf-accent-light); transform:translateY(-1px); }
+
+@media (max-width:860px){
+  .cf-services-scroll{ height:760vh; }
+  .cf-panel-slide{ align-items:flex-end; justify-content:center; padding:0 16px 6vh; }
+  .cf-panel-inner{ width:100%; max-width:none; }
+  .cf-glass{ padding:24px 20px; }
+  .cf-panel-title{ font-size:23px; }
+  .cf-panel-desc{ font-size:13.5px; }
+  .cf-scroll-hint{ bottom:22px; }
+  .cf-final-cta{ display:none; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .cf-scroll-hint .line{ animation:none; }
+}
+</style>
+
+<script>
+(function(){
+  if (window.__cfServicesInit) return;
+  window.__cfServicesInit = true;
+
+  var CF_FRAMES = ["/assets/home/583e8364732282d4.jpeg", "/assets/home/86b245ba14dea2c6.jpeg", "/assets/home/3fe340d3cd3fe65b.jpeg", "/assets/home/2d6801236d4664c8.jpeg", "/assets/home/6bba654b521aeffe.jpeg", "/assets/home/673d794c57a6722c.jpeg", "/assets/home/a01816fbf4574c09.jpeg", "/assets/home/e3c3108ccc17cfb7.jpeg", "/assets/home/5d607b7d14079d74.jpeg", "/assets/home/4c83c6d5a08fffd2.jpeg", "/assets/home/80d230b80f7972a9.jpeg", "/assets/home/2b70fc9b5cc2da53.jpeg", "/assets/home/e4edbe6de423fca8.jpeg", "/assets/home/10ebc1ff5779fe4c.jpeg", "/assets/home/751b4cf699ab7cbf.jpeg", "/assets/home/f94e7e5dc14b1022.jpeg", "/assets/home/876063652dcc6713.jpeg", "/assets/home/220327a1bb581e07.jpeg", "/assets/home/0023ef65a42e927d.jpeg", "/assets/home/a8a764239046c99b.jpeg", "/assets/home/2a3b81d95af035ca.jpeg", "/assets/home/843e9fb16a10bdfa.jpeg", "/assets/home/3d72cc3a2baf8677.jpeg", "/assets/home/1f6fda37810600f5.jpeg", "/assets/home/7faf7607cc3ebfe4.jpeg", "/assets/home/8367cce0b55ea54a.jpeg", "/assets/home/3a58e09d1fa6bd5a.jpeg", "/assets/home/82d0e19f07c575fb.jpeg", "/assets/home/40af85d7e4060448.jpeg", "/assets/home/dc9abdb66471e72d.jpeg", "/assets/home/d89c36413acb547d.jpeg", "/assets/home/0471b43ddec1fb3b.jpeg", "/assets/home/c9580f77641195a9.jpeg", "/assets/home/fcd2a9808ebe7283.jpeg", "/assets/home/93c7962a4bb94b1d.jpeg", "/assets/home/d01c03c57e287252.jpeg", "/assets/home/183d18fe9e6ce8f5.jpeg", "/assets/home/dd2c98f3e3dcdbe4.jpeg", "/assets/home/e65129411588bb35.jpeg", "/assets/home/d93c38d543743cc9.jpeg", "/assets/home/f965623bc21f4596.jpeg", "/assets/home/1bd2c05150b9e026.jpeg", "/assets/home/36eb5e528d87b8d4.jpeg", "/assets/home/5b30f0b9b6f8bf8d.jpeg", "/assets/home/a3e8f5e708eb7eb3.jpeg", "/assets/home/fcb78944fc296d1c.jpeg", "/assets/home/0e5933e9239153ac.jpeg", "/assets/home/875ba2cb45fd89cb.jpeg", "/assets/home/d51626634c35d3b1.jpeg", "/assets/home/c4787a2d278a4870.jpeg", "/assets/home/6e37177ec259a44f.jpeg", "/assets/home/77e97ba33b67e937.jpeg", "/assets/home/d67804ad9c09b4da.jpeg", "/assets/home/7363fa064df75d92.jpeg", "/assets/home/229c5214140354e7.jpeg", "/assets/home/cb0cabb05f5257e0.jpeg", "/assets/home/151e6cd6f47e2985.jpeg", "/assets/home/999391536e103b50.jpeg", "/assets/home/6572502e3e3a0298.jpeg", "/assets/home/f140ab1b23f17929.jpeg"];
+
+  var SERVICES = [
+    { num:"01", title:"Build a brand people remember.",
+      desc:"Logo systems, visual identity, typography and complete brand guidelines — designed to make your business look consistent, considered and premium.",
+      why:"Because a brand people trust starts with one that feels deliberate, not default.",
+      cta:"Explore Brand Kit" },
+    { num:"02", title:"Turn attention into action.",
+      desc:"High-performance websites built around UX, conversion and brand storytelling — fast, clean and built to convert.",
+      why:"Because a beautiful site that doesn't convert is just decoration.",
+      cta:"Explore Website Development" },
+    { num:"03", title:"Give your brand something worth following.",
+      desc:"Strategic social content, creative campaigns and storytelling that build attention, trust and momentum.",
+      why:"Because visibility without a story fades fast.",
+      cta:"Explore Content Marketing" },
+    { num:"04", title:"Turn clicks into measurable growth.",
+      desc:"Google Ads, Meta Ads, retargeting and conversion tracking — continuously optimised, always accountable to ROI.",
+      why:"Because spend without data is just guessing.",
+      cta:"Explore Performance Marketing" },
+    { num:"05", title:"Make your business work smarter.",
+      desc:"Leads, CRM, marketing and communication connected through intelligent automation — so nothing falls through the cracks.",
+      why:"Because growth shouldn't mean more manual work.",
+      cta:"Explore Automation" }
+  ];
+
+  function smoothstep(t){ t = Math.max(0, Math.min(1, t)); return t*t*(3-2*t); }
+
+  function init(){
+    var root = document.getElementById('cf-services-root');
+    if (!root) return;
+
+    var wrapper = document.getElementById('cfWrapper');
+    var sticky = document.getElementById('cfSticky');
+    var canvas = document.getElementById('cfCanvas');
+    var ctx = canvas.getContext('2d');
+    var tintEl = document.getElementById('cfTint');
+    var panelsWrap = document.getElementById('cfPanelsTrack');
+    var scrollHint = document.getElementById('cfScrollHint');
+    var finalCta = document.getElementById('cfFinalCta');
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Build panels
+    var panelEls = [];
+    SERVICES.forEach(function(s, i){
+      var panel = document.createElement('div');
+      panel.className = 'cf-panel-slide';
+      panel.innerHTML =
+        '<div class="cf-panel-inner">' +
+          '<div class="cf-glass">' +
+            '<div class="cf-glass-glow"></div>' +
+            '<div class="cf-glass-content">' +
+              '<h3 class="cf-panel-title">' + s.title + '</h3>' +
+              '<p class="cf-panel-desc">' + s.desc + '</p>' +
+              '<p class="cf-panel-why">' + s.why + '</p>' +
+              '<a href="#contact" class="cf-panel-cta">' + s.cta + ' <span aria-hidden="true">→</span></a>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      panelsWrap.appendChild(panel);
+      panelEls.push(panel.querySelector('.cf-panel-inner'));
+    });
+
+    // Preload frames
+    var images = [];
+    var currentFrame = 0;
+    var ready = false;
+    CF_FRAMES.forEach(function(src, i){
+      var img = new Image();
+      img.onload = function(){
+        if (i === 0 && !ready){
+          ready = true;
+          sticky.classList.add('is-ready');
+          resize();
+        }
+      };
+      img.src = src;
+      images.push(img);
+    });
+
+    var size = { w:0, h:0 };
+    var MAX_SHARP_SCALE = 1.7; // cap on-image upscale so it never looks soft; fill the rest with a blurred cover layer
+
+    function drawFrame(floatIdx){
+      if (!size.w || !size.h) return;
+      var idx = Math.max(0, Math.min(CF_FRAMES.length - 1, Math.round(floatIdx)));
+      var img = images[idx];
+      if (!img || !img.complete || !img.naturalWidth) return;
+
+      var coverScale = Math.max(size.w / img.naturalWidth, size.h / img.naturalHeight);
+      ctx.clearRect(0, 0, size.w, size.h);
+
+      if (coverScale > MAX_SHARP_SCALE){
+        // portrait / narrow viewports would otherwise need a big upscale to
+        // fully cover — draw a softly blurred full-cover backdrop first...
+        var bw = img.naturalWidth * coverScale * 1.15;
+        var bh = img.naturalHeight * coverScale * 1.15;
+        ctx.save();
+        ctx.filter = 'blur(28px)';
+        ctx.drawImage(img, (size.w - bw) / 2, (size.h - bh) / 2, bw, bh);
+        ctx.restore();
+
+        // ...then draw the crisp image centered on top, capped so it never upscales past MAX_SHARP_SCALE
+        var sw = img.naturalWidth * MAX_SHARP_SCALE;
+        var sh = img.naturalHeight * MAX_SHARP_SCALE;
+        ctx.drawImage(img, (size.w - sw) / 2, (size.h - sh) / 2, sw, sh);
+      } else {
+        var dw = img.naturalWidth * coverScale;
+        var dh = img.naturalHeight * coverScale;
+        ctx.drawImage(img, (size.w - dw) / 2, (size.h - dh) / 2, dw, dh);
+      }
+    }
+
+    function resize(){
+      var parent = canvas.parentElement;
+      var w = parent.clientWidth;
+      var h = parent.clientHeight;
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      size = { w:w, h:h };
+      drawFrame(currentFrame);
+    }
+
+    var panelsTrack = panelsWrap;
+    var HOLD_FRACTION = 0.72;   // portion of each service's scroll allotment spent fully readable/stuck
+    var TRANSITION_FRACTION = 1 - HOLD_FRACTION; // remaining portion used to slide to the next service
+
+    function updatePanels(progress){
+      var n = SERVICES.length;
+      var segFrac = progress * n;
+      var i = Math.max(0, Math.min(n - 1, Math.floor(segFrac + 1e-9)));
+      var localT = segFrac - i;
+      if (i === n - 1) localT = Math.min(localT, 1); // don't overshoot on the last service
+
+      var transitionStart = HOLD_FRACTION;
+      var stepT;
+      if (localT < transitionStart){
+        stepT = 0;
+      } else {
+        stepT = smoothstep((localT - transitionStart) / TRANSITION_FRACTION);
+      }
+      var slidePos = Math.min(n - 1, i + stepT);
+
+      var trackWidth = canvas.parentElement ? canvas.parentElement.clientWidth : 0;
+      var trackX = -slidePos * trackWidth;
+      panelsTrack.style.transform = 'translateX(' + trackX + 'px)';
+
+      for (var k = 0; k < n; k++){
+        var el = panelEls[k];
+        if (!el) continue;
+        var dist = Math.abs(slidePos - k);
+        var clamped = Math.min(dist, 1);
+        var opac = reduceMotion ? (dist < 0.5 ? 1 : 0) : 1 - clamped;
+        var scale = reduceMotion ? 1 : 1 - clamped * 0.05;
+        var blur = reduceMotion ? 0 : clamped * 8;
+
+        el.style.opacity = String(Math.max(0, opac));
+        el.style.transform = 'scale(' + scale + ')';
+        el.style.filter = blur ? 'blur(' + blur + 'px)' : 'none';
+        el.style.pointerEvents = dist < 0.15 ? 'auto' : 'none';
+      }
+
+      var tintOpac = smoothstep((progress - 0.56) / 0.12) * (1 - smoothstep((progress - 0.8) / 0.12));
+      tintEl.style.opacity = String(Math.max(0, Math.min(1, tintOpac)) * 0.1);
+
+      scrollHint.style.opacity = String(1 - smoothstep(progress / 0.06));
+
+      var showCta = smoothstep((progress - 0.93) / 0.07);
+      finalCta.style.opacity = String(showCta);
+      finalCta.style.transform = 'translateX(-50%) translateY(' + ((1 - showCta) * 16) + 'px)';
+      finalCta.style.pointerEvents = showCta > 0.5 ? 'auto' : 'none';
+    }
+
+    function scrollToService(i){
+      var rect = wrapper.getBoundingClientRect();
+      var scrollable = rect.height - window.innerHeight;
+      var targetProgress = i * 0.2 + 0.1;
+      var targetY = window.scrollY + rect.top + targetProgress * scrollable;
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+    }
+
+    function tick(){
+      var rect = wrapper.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var scrollable = rect.height - vh;
+      var progress = scrollable > 0 ? (-rect.top) / scrollable : 0;
+      progress = Math.max(0, Math.min(1, progress));
+
+      var target = progress * (CF_FRAMES.length - 1);
+      var ease = reduceMotion ? 1 : 0.12;
+      currentFrame += (target - currentFrame) * ease;
+      if (Math.abs(target - currentFrame) < 0.02) currentFrame = target;
+      drawFrame(currentFrame);
+      updatePanels(progress);
+
+      requestAnimationFrame(tick);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    requestAnimationFrame(tick);
+  }
+
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script></div>
+    <div class="cf-smoke-divider" aria-hidden="true"></div>
+
+    <div id="contact" class="cf-swap-section cf-swap-contact"><section class="cf-talk" id="cfTalk" aria-label="Contact CreatorFox">
+
+  <div class="cf-bg">
+    <video id="cfBgVideo" autoplay loop playsinline preload="metadata"></video>
+  </div>
+  <div class="cf-sweep" id="cfSweep" aria-hidden="true"></div>
+  <div class="cf-particles" id="cfParticles" aria-hidden="true"></div>
+
+  <div class="cf-grid" id="cfGrid">
+
+    <div class="cf-connector" id="cfConnector" aria-hidden="true">
+      <svg viewBox="0 0 180 220" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="cfLineGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#E0A542" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#BB7C1D" stop-opacity="0.1"/>
+          </linearGradient>
+        </defs>
+        <path id="cfConnectorPath" d="M4,4 C40,40 -10,90 30,120 C60,142 20,170 60,190 C85,206 70,214 96,216"/>
+        <circle class="cf-connector-pulse" r="3">
+          <animateMotion dur="4s" repeatCount="indefinite" rotate="auto">
+            <mpath href="#cfConnectorPath"/>
+          </animateMotion>
+        </circle>
+      </svg>
+    </div>
+
+    <!-- FOX COLUMN -->
+    <div class="cf-fox-col">
+      <div class="cf-fox-stage" id="cfFoxStage">
+        <div class="cf-fox-frame" id="cfFoxFrame">
+          <video id="cfFoxVideo" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <div class="cf-fox-badge">
+          <p>YOUR NEXT <span>BIG MOVE</span> STARTS HERE.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM COLUMN -->
+    <div class="cf-form-col">
+
+      <div class="cf-eyebrow-line">
+        <span class="cf-rule" aria-hidden="true"></span>
+        <span>Let's Talk</span>
+      </div>
+
+      <h2 class="cf-heading" id="cfHeading">LET'S MAKE SOMETHING <span class="cf-accent">UNIGNORABLE.</span></h2>
+
+      <p class="cf-sub">Have an idea, a brand that needs a rethink, or a business ready to grow? Tell us what you're building.</p>
+
+      <div class="cf-listening-wrap">
+      <div class="cf-listening" aria-hidden="true">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+          <rect class="cf-bar" x="0" y="4" width="2.4" height="6" rx="1.2" fill="currentColor"/>
+          <rect class="cf-bar" x="4.8" y="1" width="2.4" height="12" rx="1.2" fill="currentColor"/>
+          <rect class="cf-bar" x="9.6" y="3" width="2.4" height="8" rx="1.2" fill="currentColor"/>
+          <rect class="cf-bar" x="14.4" y="0" width="2.4" height="14" rx="1.2" fill="currentColor"/>
+        </svg>
+        <span>THE <span class="cf-accent">FOX</span> IS LISTENING.</span>
+      </div>
+      <button class="cf-audio-toggle" id="cfAudioToggle" type="button" aria-pressed="false" aria-label="Enable contact section sound">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 6.2h2.2l2.5-2.4v8.4L4.7 9.8H2.5V6.2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M10 5.3c.75.62 1.2 1.5 1.2 2.7s-.45 2.08-1.2 2.7M12 3.7c1.2 1.1 1.9 2.6 1.9 4.3S13.2 11.2 12 12.3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <span class="cf-audio-label">Enable sound</span>
+      </button>
+      </div>
+
+      <!-- ============================================================
+           EMBEDDED CONTACT WIDGET — supplied as-is, visually unchanged.
+           The only edit made: selectors that were originally unscoped
+           in the source (.cf-form-panel, .cf-field, .cf-submit-btn, etc.)
+           are prefixed with #cf-contact-widget below so they can't leak
+           into or collide with the rest of this section's own CSS.
+           Nothing about how it looks or behaves was altered.
+      ============================================================ -->
+      <style>
+      #cf-contact-widget {
+        --bg:#080909;
+        --ink:#f3efe9;
+        --ink-dim:#88847d;
+        --line:#4d4a45;
+        --glass:rgba(255,255,255,0.05);
+        --accent:#bb7c1d;
+        --accent-deep:#8f5f16;
+        --accent-light:#d9a84e;
+        display:flex;
+        justify-content:center;
+        font-family:'Manrope', system-ui, sans-serif;
+        -webkit-font-smoothing:antialiased;
+        color:var(--ink) !important;
+      }
+      #cf-contact-widget *{box-sizing:border-box;}
+      #cf-contact-widget .cf-form-panel{
+        position:relative;
+        width:100%;
+        max-width:480px;
+        margin:0 auto;
+        padding:40px 36px 36px;
+        border-radius:24px;
+        background:var(--glass);
+        border:1px solid var(--line);
+        backdrop-filter:blur(20px) saturate(140%);
+        -webkit-backdrop-filter:blur(20px) saturate(140%);
+        box-shadow:0 30px 80px rgba(0,0,0,0.35);
+      }
+      #cf-contact-widget .cf-eyebrow{
+        display:flex;
+        align-items:center;
+        gap:8px;
+        font-size:11px;
+        letter-spacing:0.18em;
+        color:var(--accent-light) !important;
+        text-transform:uppercase;
+        margin-bottom:14px;
+      }
+      #cf-contact-widget .cf-eyebrow::before{
+        content:"";
+        width:16px;height:1px;
+        background:var(--accent);
+      }
+      #cf-contact-widget .cf-form-panel h2{
+        font-size:clamp(24px, 5vw, 30px);
+        line-height:1.15;
+        margin:0 0 10px;
+        font-weight:600;
+        letter-spacing:-0.01em;
+        color:#c7c2ba !important;
+      }
+      #cf-contact-widget .cf-form-panel h2 .cf-accent-word{
+        background:linear-gradient(100deg, var(--accent-light), var(--accent));
+        -webkit-background-clip:text;
+        background-clip:text;
+        -webkit-text-fill-color:transparent;
+        color:transparent;
+      }
+      #cf-contact-widget .cf-form-panel p.cf-lede{
+        color:var(--ink-dim) !important;
+        font-size:14px;
+        line-height:1.55;
+        margin:0 0 26px;
+      }
+      #cf-contact-widget form{display:flex;flex-direction:column;gap:14px;}
+      #cf-contact-widget .cf-row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+      #cf-contact-widget .cf-field{display:flex;flex-direction:column;}
+      #cf-contact-widget label{
+        display:block;
+        font-size:11px;
+        letter-spacing:0.06em;
+        text-transform:uppercase;
+        color:var(--ink-dim) !important;
+        margin-bottom:6px;
+      }
+      #cf-contact-widget input,
+      #cf-contact-widget select,
+      #cf-contact-widget textarea{
+        width:100% !important;
+        background:rgba(255,255,255,0.08) !important;
+        border:1px solid var(--line) !important;
+        border-radius:10px !important;
+        padding:12px 13px !important;
+        color:var(--accent) !important;
+        -webkit-text-fill-color:var(--accent) !important;
+        font-family:inherit !important;
+        font-size:15px !important;
+        outline:none !important;
+        box-shadow:none !important;
+        transition:border-color .2s ease, background .2s ease;
+      }
+      #cf-contact-widget input::placeholder,
+      #cf-contact-widget textarea::placeholder{color:#c9c9c9 !important; opacity:1 !important;}
+      #cf-contact-widget input:focus,
+      #cf-contact-widget select:focus,
+      #cf-contact-widget textarea:focus{
+        border-color:rgba(187,124,29,0.55);
+        background:rgba(187,124,29,0.05);
+      }
+      #cf-contact-widget select{
+        appearance:none;
+        -webkit-appearance:none;
+        background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0l5 6 5-6z' fill='%23a8a29b'/></svg>");
+        background-repeat:no-repeat;
+        background-position:right 14px center;
+        padding-right:32px;
+      }
+      #cf-contact-widget select option{background:#141414 !important;color:var(--accent) !important;}
+      #cf-contact-widget textarea{resize:none;min-height:90px;line-height:1.4;}
+      #cf-contact-widget .cf-phone-row{display:grid;grid-template-columns:96px 1fr;gap:8px;}
+      #cf-contact-widget .cf-submit-btn{
+        position:relative;
+        margin-top:8px;
+        border:none;
+        border-radius:12px;
+        padding:15px 18px;
+        background:linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+        color:#0a0a0a;
+        font-weight:700;
+        font-size:15px;
+        letter-spacing:0.01em;
+        cursor:pointer;
+        overflow:hidden;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:8px;
+        box-shadow:0 12px 30px rgba(187,124,29,0.28);
+        transition:transform .15s ease, box-shadow .15s ease;
+        font-family:inherit;
+      }
+      #cf-contact-widget .cf-submit-btn:hover{transform:translateY(-1px);box-shadow:0 16px 36px rgba(187,124,29,0.36);}
+      #cf-contact-widget .cf-submit-btn:active{transform:translateY(0);}
+      #cf-contact-widget .cf-submit-btn[disabled]{cursor:default;opacity:0.9;}
+      #cf-contact-widget .cf-btn-label{position:relative;z-index:2;transition:opacity .2s ease;}
+      #cf-contact-widget .cf-btn-arrow{transition:transform .2s ease;}
+      #cf-contact-widget .cf-submit-btn:hover .cf-btn-arrow{transform:translateX(3px);}
+      #cf-contact-widget .cf-fox-runner{
+        position:absolute;
+        top:50%;
+        left:-30px;
+        width:28px;
+        height:22px;
+        transform:translateY(-50%);
+        pointer-events:none;
+        z-index:3;
+        opacity:0;
+      }
+      #cf-contact-widget .cf-status-line{
+        min-height:18px;
+        margin-top:12px;
+        font-size:13px;
+        color:var(--ink-dim) !important;
+        display:flex;
+        align-items:center;
+        gap:6px;
+        text-align:center;
+        justify-content:center;
+      }
+      #cf-contact-widget .cf-status-line .check{color:#7be08a;font-weight:700;display:none;}
+      #cf-contact-widget .cf-status-line.success .check{display:inline;}
+      #cf-contact-widget .cf-status-line.success{color:#a8d9ae !important;}
+      #cf-contact-widget .cf-status-line.error{color:#e08a7b !important;}
+      @media (max-width: 480px){
+        #cf-contact-widget .cf-form-panel{
+          padding:30px 22px 26px;
+          border-radius:18px;
+        }
+        #cf-contact-widget .cf-row2{grid-template-columns:1fr;}
+        #cf-contact-widget .cf-phone-row{grid-template-columns:86px 1fr;}
+      }
+      </style>
+
+      <div id="cf-contact-widget">
+      <div class="cf-form-panel">
+        <div class="cf-eyebrow">Ready when you are</div>
+        <h2>Let's build something that <span class="cf-accent-word">moves.</span></h2>
+        <p class="cf-lede">Tell us what you're building, improving or growing. We'll get back to you with the right next step.</p>
+
+        <form id="cfContactForm" autocomplete="on">
+          <input type="hidden" name="_subject" value="New enquiry from CreatorFox website">
+          <input type="text" name="_gotcha" class="cf-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="cf-field">
+            <label for="cfName">Name</label>
+            <input id="cfName" name="name" type="text" placeholder="Your full name" autocomplete="name" minlength="2" required>
+          </div>
+
+          <div class="cf-field">
+            <label for="cfEmail">Business email</label>
+            <input id="cfEmail" name="email" type="email" placeholder="you@company.com" autocomplete="email" required>
+          </div>
+
+          <div class="cf-field cf-phone-row">
+            <div>
+              <label for="cfCountry">Country</label>
+              <select id="cfCountry" name="country">
+                <option>IN +91</option>
+                <option>US +1</option>
+                <option>UK +44</option>
+                <option>AE +971</option>
+                <option>AU +61</option>
+                <option>SG +65</option>
+                <option>DE +49</option>
+                <option>CA +1</option>
+              </select>
+            </div>
+            <div>
+              <label for="cfPhone">Phone</label>
+              <input id="cfPhone" name="phone" type="tel" placeholder="xxxxxxx" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="cf-field">
+            <label for="cfNeed">What do you need?</label>
+            <select id="cfNeed" name="need">
+              <option>Brand Kit</option>
+              <option>Website Development</option>
+              <option>Content Marketing</option>
+              <option>Performance Marketing</option>
+              <option>Automation</option>
+              <option>Complete Digital Growth</option>
+            </select>
+          </div>
+
+          <div class="cf-field">
+            <label for="cfMessage">Message</label>
+            <textarea id="cfMessage" name="message" placeholder="Tell us briefly about your project..." minlength="20" required></textarea>
+          </div>
+
+          <button type="submit" class="cf-submit-btn" id="cfSubmitBtn">
+            <svg class="cf-fox-runner" id="cfFoxRunner" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 40 C8 30 14 26 20 26 C22 18 28 8 34 8 C33 12 33 16 35 19 C40 15 46 14 52 16 C48 18 45 21 44 25 C50 26 55 30 56 36 C50 34 44 34 40 36 C36 38 30 39 24 38 C17 37 10 39 8 40 Z" fill="#0a0a0a"/>
+              <path d="M34 8 L37 1 L38 10 Z" fill="#0a0a0a"/>
+              <path d="M46 15 L52 9 L50 17 Z" fill="#0a0a0a"/>
+              <circle cx="52" cy="30" r="1.6" fill="#bb7c1d"/>
+            </svg>
+            <span class="cf-btn-label" id="cfBtnLabel">Start the Conversation</span>
+            <svg class="cf-btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#0a0a0a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="cf-status-line" id="cfStatusLine">
+            <span class="check">✓</span><span id="cfStatusText"></span>
+          </div>
+        </form>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE STRIP -->
+  <div class="cf-features">
+    <div class="cf-features-inner">
+      <div class="cf-feature">
+        <svg class="cf-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.3"/><circle cx="11" cy="11" r="4" stroke="currentColor" stroke-width="1.3"/><circle cx="11" cy="11" r="1" fill="currentColor"/></svg>
+        <div><strong>Strategy</strong><span>Driven.</span></div>
+      </div>
+      <div class="cf-feature">
+        <svg class="cf-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 2l6 5v8l-6 5-6-5V7z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        <div><strong>Design</strong><span>That connects.</span></div>
+      </div>
+      <div class="cf-feature">
+        <svg class="cf-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M3 17l5-6 4 3 6-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 6h4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong>Marketing</strong><span>That performs.</span></div>
+      </div>
+      <div class="cf-feature">
+        <svg class="cf-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="4" y="3" width="14" height="16" rx="1.6" stroke="currentColor" stroke-width="1.3"/><path d="M8 11l2 2 4-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong>Results</strong><span>That matter.</span></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="cf-cursor-dot" id="cfCursorDot"></div>
+<div class="cf-cursor-ring" id="cfCursorRing"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- ============================================================
+     CONTACT WIDGET SUBMIT LOGIC — supplied as-is.
+     Formspree submission + the fox-runner button animation.
+     GSAP is already loaded above, so this runs immediately.
+============================================================ -->
+<script src="/contact.js" defer></script>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ============================================================
+     CONFIG — swap media URLs here only.
+     (The form's Formspree endpoint lives in the widget's own
+     script block, right after the GSAP <script> tags above.)
+  ============================================================ */
+  const CF_BG_VIDEO_URL  = "https://creatorfox.com/wp-content/uploads/2026/09/hf_20260411_104032_69319010-2458-492b-b04d-b40a5dfa4482.mp4";
+  const CF_FOX_VIDEO_URL = "https://creatorfox.com/wp-content/uploads/2026/03/Untitled-design-6.mp4";
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isTouch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+  const isNarrow = window.matchMedia("(max-width: 1080px)").matches;
+
+  const section   = document.getElementById("cfTalk");
+  const bgVideo   = document.getElementById("cfBgVideo");
+  const foxVideo  = document.getElementById("cfFoxVideo");
+  const sweep     = document.getElementById("cfSweep");
+  const grid      = document.getElementById("cfGrid");
+  const foxStage  = document.getElementById("cfFoxStage");
+  const foxFrame  = document.getElementById("cfFoxFrame");
+  const heading   = document.getElementById("cfHeading");
+  const form      = document.getElementById("cfContactForm");
+  const cta       = document.getElementById("cfSubmitBtn");
+  const particlesWrap = document.getElementById("cfParticles");
+  const connector = document.getElementById("cfConnector");
+
+  /* ============================================================
+     1. WIRE UP VIDEO SOURCES
+  ============================================================ */
+  function setVideoSrc(video, url){
+    if (!video || !url) return;
+    const source = document.createElement("source");
+    source.src = url;
+    source.type = "video/mp4";
+    video.appendChild(source);
+    video.load();
+    video.addEventListener("loadeddata", function(){ video.classList.add("cf-loaded"); }, { once:true });
+    const playPromise = video.play();
+    if (playPromise && playPromise.catch) playPromise.catch(function(){});
+  }
+  setVideoSrc(bgVideo, CF_BG_VIDEO_URL);
+  setVideoSrc(foxVideo, CF_FOX_VIDEO_URL);
+
+  /* ============================================================
+     2. AMBIENT PARTICLES
+  ============================================================ */
+  function buildParticles(){
+    particlesWrap.innerHTML = "";
+    if (reduceMotion) return;
+    const count = isNarrow ? 8 : 18;
+    for (let i = 0; i < count; i++){
+      const p = document.createElement("div");
+      p.className = "cf-particle";
+      p.style.left = (Math.random() * 100) + "%";
+      p.style.top = (Math.random() * 100) + "%";
+      const size = 2 + Math.random() * 2.5;
+      p.style.width = size + "px";
+      p.style.height = size + "px";
+      particlesWrap.appendChild(p);
+
+      gsap.to(p, { opacity: 0.15 + Math.random() * 0.35, duration: 1.2, delay: 0.4 + Math.random() * 1.6, ease: "power1.out" });
+      gsap.to(p, { y: -30 - Math.random() * 40, x: (Math.random() - 0.5) * 30, duration: 8 + Math.random() * 10, repeat: -1, yoyo: true, ease: "sine.inOut", delay: Math.random() * 4 });
+    }
+  }
+  buildParticles();
+
+  /* ============================================================
+     3. ENTRANCE ANIMATION
+  ============================================================ */
+  gsap.registerPlugin(ScrollTrigger);
+
+  (function splitHeading(){
+    const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT, null);
+    const textNodes = [];
+    let node;
+    while ((node = walker.nextNode())) textNodes.push(node);
+    textNodes.forEach(function(textNode){
+      const frag = document.createDocumentFragment();
+      textNode.textContent.split("").forEach(function(ch){
+        const span = document.createElement("span");
+        span.className = "cf-char";
+        span.textContent = ch === " " ? "\u00A0" : ch;
+        frag.appendChild(span);
+      });
+      textNode.parentNode.replaceChild(frag, textNode);
+    });
+  })();
+
+  const chars = heading.querySelectorAll(".cf-char");
+  const fields = form.querySelectorAll(".cf-field, .cf-submit-btn, .cf-status-line");
+
+  if (reduceMotion){
+    gsap.set([bgVideo, sweep, foxStage, chars, fields], { clearProps:"all" });
+    bgVideo.classList.add("cf-loaded");
+  } else {
+    const tl = gsap.timeline({ scrollTrigger: { trigger: section, start: "top 75%", once: true } });
+
+    tl.set(chars, { opacity: 0, y: 14 })
+      .set(fields, { opacity: 0, y: 18 })
+      .set(foxStage, { opacity: 0, y: 46, scale: 0.94 })
+      .set(sweep, { opacity: 0 })
+      .to(bgVideo, { opacity: 1, duration: 1.6, ease: "power2.out" }, 0)
+      .to(sweep, { opacity: 1, duration: 0.5 }, 0.1)
+      .to(sweep, { xPercent: 160, duration: 1.6, ease: "power2.inOut" }, 0.1)
+      .to(sweep, { opacity: 0, duration: 0.6 }, 1.3)
+      .to(foxStage, { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: "power3.out" }, 0.5)
+      .to(chars, { opacity: 1, y: 0, duration: 0.5, stagger: 0.018, ease: "power2.out" }, 0.75)
+      .to(fields, { opacity: 1, y: 0, duration: 0.55, stagger: 0.07, ease: "power2.out" }, 1.0);
+  }
+
+  /* ============================================================
+     4. SCROLL PARALLAX
+  ============================================================ */
+  if (!reduceMotion){
+    ScrollTrigger.create({
+      trigger: section, start: "top bottom", end: "bottom top", scrub: true,
+      onUpdate: function(self){
+        const centered = (self.progress - 0.5) * 2;
+        gsap.set(foxStage, { y: centered * -20 });
+        gsap.set(heading, { y: centered * -8 });
+        gsap.set(form, { y: centered * 12 });
+      }
+    });
+  }
+
+  /* ============================================================
+     5. MOUSE PARALLAX (3D) — desktop only
+  ============================================================ */
+  if (!isTouch && !reduceMotion){
+    let targetX = 0, targetY = 0, curX = 0, curY = 0;
+    let foxTiltX = 0, foxTiltY = 0, foxCurX = 0, foxCurY = 0;
+
+    section.addEventListener("mousemove", function(e){
+      const rect = section.getBoundingClientRect();
+      targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+      targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+
+      const fr = foxFrame.getBoundingClientRect();
+      foxTiltX = ((e.clientX - fr.left) / fr.width - 0.5) * 2;
+      foxTiltY = ((e.clientY - fr.top) / fr.height - 0.5) * 2;
+
+      const foxCx = fr.left + fr.width / 2;
+      const foxCy = fr.top + fr.height / 2;
+      const dist = Math.hypot(e.clientX - foxCx, e.clientY - foxCy);
+      foxStage.classList.toggle("cf-fox-active", dist < Math.max(fr.width, fr.height));
+    });
+
+    section.addEventListener("mouseleave", function(){
+      targetX = 0; targetY = 0;
+      foxStage.classList.remove("cf-fox-active");
+    });
+
+    gsap.ticker.add(function(){
+      curX += (targetX - curX) * 0.06;
+      curY += (targetY - curY) * 0.06;
+      foxCurX += (foxTiltX - foxCurX) * 0.09;
+      foxCurY += (foxTiltY - foxCurY) * 0.09;
+
+      gsap.set(grid, { rotateY: curX * 1.6, rotateX: curY * -1.6 });
+      gsap.set(foxStage, { x: curX * 10, rotateY: curX * 7 + foxCurX * 6, rotateX: foxCurY * -6 });
+      gsap.set(form, { x: curX * -5 });
+    });
+  }
+
+  /* ============================================================
+     6. MAGNETIC CTA + connector glow on hover
+  ============================================================ */
+  if (!isTouch && !reduceMotion){
+    cta.addEventListener("mousemove", function(e){
+      const r = cta.getBoundingClientRect();
+      const mx = (e.clientX - r.left - r.width / 2) * 0.16;
+      const my = (e.clientY - r.top - r.height / 2) * 0.24;
+      gsap.to(cta, { x: mx, y: my, duration: 0.35, ease: "power2.out" });
+    });
+    cta.addEventListener("mouseleave", function(){
+      gsap.to(cta, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.5)" });
+      if (connector) gsap.to(connector, { opacity: 0.7, duration: 0.6 });
+    });
+    cta.addEventListener("mouseenter", function(){
+      if (connector) gsap.to(connector, { opacity: 1, duration: 0.4 });
+    });
+  }
+
+  /* ============================================================
+     7. CUSTOM CURSOR — desktop only
+  ============================================================ */
+  if (!isTouch){
+    /* Native pointer retained for form usability. */
+    const dot = document.getElementById("cfCursorDot");
+    const ring = document.getElementById("cfCursorRing");
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    section.addEventListener("mouseenter", function(){ dot.classList.add("cf-cursor-visible"); ring.classList.add("cf-cursor-visible"); });
+    section.addEventListener("mouseleave", function(){ dot.classList.remove("cf-cursor-visible"); ring.classList.remove("cf-cursor-visible"); });
+    section.addEventListener("mousemove", function(e){
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = "translate(" + mx + "px," + my + "px) translate(-50%,-50%)";
+    });
+    section.querySelectorAll("a, button, input, select, textarea, .cf-fox-frame").forEach(function(el){
+      el.addEventListener("mouseenter", function(){ ring.classList.add("cf-cursor-grow"); });
+      el.addEventListener("mouseleave", function(){ ring.classList.remove("cf-cursor-grow"); });
+    });
+    gsap.ticker.add(function(){
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      ring.style.transform = "translate(" + rx + "px," + ry + "px) translate(-50%,-50%)";
+    });
+  }
+
+  /* ============================================================
+     8. FORM SUBMIT
+     The embedded widget (script block right after the GSAP <script>
+     tags, above) already owns the real submit → Formspree →
+     fox-runner-button flow. Nothing to wire up here.
+  ============================================================ */
+
+  /* ============================================================
+     9. RESIZE HOUSEKEEPING
+  ============================================================ */
+  window.addEventListener("resize", function(){ ScrollTrigger.refresh(); });
+
+})();
+</script>
+</div>
+    <div class="cf-smoke-divider" aria-hidden="true"></div>
+
+    <div id="testimonials" class="cf-swap-section"><section id="cfx-testimonials" class="cfx-testimonials" aria-label="CreatorFox client testimonials">
+
+  <video class="cfx-bg-video" id="cfxBgVideo" autoplay muted loop playsinline webkit-playsinline
+         poster="/assets/home/4125fb93bc7cb689.jpeg">
+    <source src="https://creatorfox.com/wp-content/uploads/2026/09/download-1.mp4" type="video/mp4">
+  </video>
+
+  <div class="cfx-scrim" aria-hidden="true"></div>
+  <div class="cfx-blob" aria-hidden="true"></div>
+  <div class="cfx-grain" aria-hidden="true"></div>
+
+  <div class="cfx-inner">
+
+    <div class="cfx-head">
+      <span class="cfx-eyebrow">CREATORFOX <span class="cfx-eyebrow-dim">/ RESULTS</span></span>
+      <h2 class="cfx-title">Here's what happened<br>when the <span class="cfx-highlight">fox ran</span> for them.</h2>
+      <p class="cfx-sub">Real feedback from teams who picked a service — and saw the number move.</p>
+    </div>
+
+    <div class="cfx-carousel" id="cfxCarousel" tabindex="0" aria-roledescription="carousel" aria-label="Client testimonials">
+
+      <div class="cfx-stage">
+        <div class="cfx-track" id="cfxTrack">
+
+          <!-- TESTIMONIAL 1 — Brand Kit -->
+          <article class="cfx-card" data-index="0">
+            <div class="cfx-card-glass">
+              <div class="cfx-card-top">
+                <svg class="cfx-quote-mark" viewBox="0 0 32 24" fill="none" aria-hidden="true"><path d="M0 24V14.9C0 6.4 4.9 1 13.6 0L14.9 3.7C9.9 5 7.6 7.9 7.3 12H14V24H0ZM17.1 24V14.9C17.1 6.4 22 1 30.7 0L32 3.7C27 5 24.7 7.9 24.4 12H31.1V24H17.1Z" fill="currentColor"/></svg>
+                <span class="cfx-tag">Brand Kit</span>
+              </div>
+              <div class="cfx-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <p class="cfx-quote">“We had a logo before. We didn't have a brand. Three weeks with CreatorFox and our pitch deck finally looks like the company we're trying to become.”</p>
+              <div class="cfx-card-bottom">
+                <div class="cfx-avatar">MI</div>
+                <div class="cfx-person">
+                  <span class="cfx-name">Meera Iyer</span>
+                  <span class="cfx-role">Founder, Loomcraft Studio</span>
+                </div>
+                <span class="cfx-stat">+40% <small>faster brand recall</small></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- TESTIMONIAL 2 — Website Development -->
+          <article class="cfx-card" data-index="1">
+            <div class="cfx-card-glass">
+              <div class="cfx-card-top">
+                <svg class="cfx-quote-mark" viewBox="0 0 32 24" fill="none" aria-hidden="true"><path d="M0 24V14.9C0 6.4 4.9 1 13.6 0L14.9 3.7C9.9 5 7.6 7.9 7.3 12H14V24H0ZM17.1 24V14.9C17.1 6.4 22 1 30.7 0L32 3.7C27 5 24.7 7.9 24.4 12H31.1V24H17.1Z" fill="currentColor"/></svg>
+                <span class="cfx-tag">Website Development</span>
+              </div>
+              <div class="cfx-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <p class="cfx-quote">“Our old site took nine seconds to load. People left before they saw what we sold. The new one loads before they finish blinking — and it shows in the numbers.”</p>
+              <div class="cfx-card-bottom">
+                <div class="cfx-avatar">AR</div>
+                <div class="cfx-person">
+                  <span class="cfx-name">Arjun Rao</span>
+                  <span class="cfx-role">CEO, Fernbase</span>
+                </div>
+                <span class="cfx-stat">−62% <small>bounce rate</small></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- TESTIMONIAL 3 — Content Marketing -->
+          <article class="cfx-card" data-index="2">
+            <div class="cfx-card-glass">
+              <div class="cfx-card-top">
+                <svg class="cfx-quote-mark" viewBox="0 0 32 24" fill="none" aria-hidden="true"><path d="M0 24V14.9C0 6.4 4.9 1 13.6 0L14.9 3.7C9.9 5 7.6 7.9 7.3 12H14V24H0ZM17.1 24V14.9C17.1 6.4 22 1 30.7 0L32 3.7C27 5 24.7 7.9 24.4 12H31.1V24H17.1Z" fill="currentColor"/></svg>
+                <span class="cfx-tag">Content Marketing</span>
+              </div>
+              <div class="cfx-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <p class="cfx-quote">“We used to post whenever someone remembered to. Now there's a calendar, a point of view, and actual search traffic that didn't exist four months ago.”</p>
+              <div class="cfx-card-bottom">
+                <div class="cfx-avatar">PM</div>
+                <div class="cfx-person">
+                  <span class="cfx-name">Priya Menon</span>
+                  <span class="cfx-role">Marketing Lead, Northloop</span>
+                </div>
+                <span class="cfx-stat">3.1x <small>organic traffic</small></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- TESTIMONIAL 4 — Performance Marketing -->
+          <article class="cfx-card" data-index="3">
+            <div class="cfx-card-glass">
+              <div class="cfx-card-top">
+                <svg class="cfx-quote-mark" viewBox="0 0 32 24" fill="none" aria-hidden="true"><path d="M0 24V14.9C0 6.4 4.9 1 13.6 0L14.9 3.7C9.9 5 7.6 7.9 7.3 12H14V24H0ZM17.1 24V14.9C17.1 6.4 22 1 30.7 0L32 3.7C27 5 24.7 7.9 24.4 12H31.1V24H17.1Z" fill="currentColor"/></svg>
+                <span class="cfx-tag">Performance Marketing</span>
+              </div>
+              <div class="cfx-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <p class="cfx-quote">“Every rupee we spend now has a receipt. I can stand in front of the board and point at exactly what each campaign returned — that never used to be true.”</p>
+              <div class="cfx-card-bottom">
+                <div class="cfx-avatar">KS</div>
+                <div class="cfx-person">
+                  <span class="cfx-name">Karthik Suresh</span>
+                  <span class="cfx-role">Co-founder, Vantra</span>
+                </div>
+                <span class="cfx-stat">2.4x <small>return on ad spend</small></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- TESTIMONIAL 5 — Automation & AI Agent (Featured case study) -->
+          <article class="cfx-card cfx-card-featured" data-index="4">
+            <div class="cfx-card-glass">
+              <div class="cfx-card-top">
+                <svg class="cfx-quote-mark" viewBox="0 0 32 24" fill="none" aria-hidden="true"><path d="M0 24V14.9C0 6.4 4.9 1 13.6 0L14.9 3.7C9.9 5 7.6 7.9 7.3 12H14V24H0ZM17.1 24V14.9C17.1 6.4 22 1 30.7 0L32 3.7C27 5 24.7 7.9 24.4 12H31.1V24H17.1Z" fill="currentColor"/></svg>
+                <div class="cfx-tag-group">
+                  <span class="cfx-tag cfx-tag-case">★ Featured Case Study</span>
+                  <span class="cfx-tag">Automation &amp; AI Agent</span>
+                </div>
+              </div>
+              <div class="cfx-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <p class="cfx-quote">“Our support inbox used to own our afternoons — three people, constant backlog, no time for anything else. CreatorFox built us an AI agent that handles the repetitive replies before they even reach a human. Honestly one of the best AI agencies in India — our team gets nearly two full working days back, every single week.”</p>
+              <div class="cfx-card-bottom">
+                <div class="cfx-avatar">AB</div>
+                <div class="cfx-person">
+                  <span class="cfx-name">Ananya Bose</span>
+                  <span class="cfx-role">Ops Manager, Ferrylane</span>
+                </div>
+                <span class="cfx-stat">18 hrs <small>saved weekly</small></span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="cfx-dots" id="cfxDots" role="tablist" aria-label="Choose a testimonial"></div>
+
+  </div>
+</section>
+
+</div>
+    <div class="cf-smoke-divider" aria-hidden="true"></div>
+
+    <section class="cf-section-shell cf-case-section cf-swap-section" id="case-studies" aria-labelledby="case-title">
+      <div class="cf-container">
+        <p class="cf-section-kicker">Selected work / scroll study</p>
+        <h2 class="cf-section-title" id="case-title">The work moves when the story does.</h2>
+        <p class="cf-section-copy">Scroll through seven market studies. Local client work, international projects and clearly labelled global reference studies move together with the proof point.</p>
+
+        <div class="cf-case-scroll" id="cfCaseScroll">
+          <div class="cf-case-sticky">
+            <div class="cf-case-copy">
+              <p class="cf-case-index" id="cfCaseIndex">01 / 07</p>
+              <p class="cf-case-client" id="cfCaseClient">NDS ECO MOTORS</p>
+              <h3 id="cfCaseTitle">Make range feel real.</h3>
+              <p id="cfCaseDescription">EV mobility storytelling, local lead generation and a test-ride journey built around the product’s strongest proof.</p>
+              <div class="cf-case-tags" id="cfCaseTags"></div>
+              <div class="cf-case-metric"><strong id="cfCaseMetric">+42%</strong><span id="cfCaseMetricLabel">qualified test-ride enquiries</span></div>
+              <a class="cf-inline-link" id="cfCaseLink" href="#contact">Talk through a similar move <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="cf-case-visual">
+              <div class="cf-case-brand" id="cfCaseBrand"><img src="https://cdn.simpleicons.org/google/F2EDE4" alt=""><span>Client study</span></div>
+              <div class="cf-case-image-wrap"><img id="cfCaseImage" class="cf-case-image" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=86" alt="Team collaborating around a table"></div>
+              <div class="cf-case-overlay"><span id="cfCaseCategory">EV mobility / lead generation</span><span class="cf-case-play">SCROLL TO SHIFT <b aria-hidden="true">↓</b></span></div>
+              <div class="cf-case-orbit" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+        <p class="cf-case-disclaimer">International cards are labelled by market. Cards marked “Reference study” are benchmark scenarios for scale and positioning, not claims of client relationships or brand affiliation.</p>
+      </div>
+    </section>
+
+    <div class="cf-smoke-divider" aria-hidden="true"></div>
+
+    <section class="cf-section-shell cf-client-section cf-swap-section" id="clients" aria-labelledby="clients-title">
+      <div class="cf-container">
+        <p class="cf-section-kicker">Across categories</p>
+        <h2 class="cf-section-title" id="clients-title">Different industries. One standard: make it matter.</h2>
+        <div class="cf-partner-block" aria-label="AI tools CreatorFox works with">
+          <div class="cf-partner-head">
+            <div>
+              <p class="cf-partner-kicker">Partnered with</p>
+              <p class="cf-partner-copy">AI tools we connect into practical brand, marketing and operations workflows.</p>
+            </div>
+            <span class="cf-partner-rule" aria-hidden="true"></span>
+          </div>
+          <div class="cf-logo-grid">
+            <div class="cf-logo-card"><img src="https://cdn.simpleicons.org/openai/F2EDE4" alt=""><span>OpenAI</span></div>
+            <div class="cf-logo-card"><img src="https://cdn.simpleicons.org/googlegemini/F2EDE4" alt=""><span>Google Gemini</span></div>
+            <div class="cf-logo-card"><img src="https://cdn.simpleicons.org/anthropic/F2EDE4" alt=""><span>Claude</span></div>
+            <div class="cf-logo-card"><img src="https://cdn.simpleicons.org/microsoftcopilot/F2EDE4" alt=""><span>Microsoft Copilot</span></div>
+            <div class="cf-logo-card"><img src="https://cdn.simpleicons.org/notion/F2EDE4" alt=""><span>Notion</span></div>
+            <div class="cf-logo-card"><img src="https://cdn.simpleicons.org/zapier/F2EDE4" alt=""><span>Zapier</span></div>
+            <div class="cf-logo-card"><img src="https://cdn.simpleicons.org/make/F2EDE4" alt=""><span>Make</span></div>
+            <div class="cf-logo-card"><img src="https://cdn.simpleicons.org/google/F2EDE4" alt=""><span>Google</span></div>
+          </div>
+        </div>
+        <div class="cf-client-wrap">
+          <p class="cf-client-statement">From <span>mobility</span> and education to interiors, hospitality and B2B — the work starts with what your audience needs to believe next.</p>
+          <div class="cf-client-carousel" aria-label="CreatorFox client and reference carousel">
+            <span class="cf-client-label">Selected client work</span>
+            <div class="cf-client-marquee">
+              <div class="cf-client-row">
+                <span class="cf-client-name">NDS Eco Motors · India</span><span class="cf-client-name">Bright Beginnings · Australia</span><span class="cf-client-name">PC Interiors · UAE</span><span class="cf-client-name">International Product Sourcing · Australia</span><span class="cf-client-name">Hiranmayee Interiors · India</span><span class="cf-client-name">The Common Good · India</span><span class="cf-client-name">Parth Rasayan · India</span><span class="cf-client-name">Thai Orchid · India</span>
+                <span class="cf-client-name">NDS Eco Motors · India</span><span class="cf-client-name">Bright Beginnings · Australia</span><span class="cf-client-name">PC Interiors · UAE</span><span class="cf-client-name">International Product Sourcing · Australia</span><span class="cf-client-name">Hiranmayee Interiors · India</span><span class="cf-client-name">The Common Good · India</span><span class="cf-client-name">Parth Rasayan · India</span><span class="cf-client-name">Thai Orchid · India</span>
+              </div>
+            </div>
+            <span class="cf-client-label">International logo references</span>
+            <div class="cf-client-logo-marquee">
+              <div class="cf-client-logo-row">
+                <span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/google/F2EDE4" alt=""><span>Google<small>USA</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/microsoft/F2EDE4" alt=""><span>Microsoft<small>USA</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/canva/F2EDE4" alt=""><span>Canva<small>Australia</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/shopify/F2EDE4" alt=""><span>Shopify<small>Canada</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/spotify/F2EDE4" alt=""><span>Spotify<small>Sweden</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/bookingdotcom/F2EDE4" alt=""><span>Booking.com<small>Netherlands</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/siemens/F2EDE4" alt=""><span>Siemens<small>Germany</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/samsung/F2EDE4" alt=""><span>Samsung<small>South Korea</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/emirates/F2EDE4" alt=""><span>Emirates<small>UAE</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/tataconsultancyservices/F2EDE4" alt=""><span>TCS<small>India</small></span></span>
+                <span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/google/F2EDE4" alt=""><span>Google<small>USA</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/microsoft/F2EDE4" alt=""><span>Microsoft<small>USA</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/canva/F2EDE4" alt=""><span>Canva<small>Australia</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/shopify/F2EDE4" alt=""><span>Shopify<small>Canada</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/spotify/F2EDE4" alt=""><span>Spotify<small>Sweden</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/bookingdotcom/F2EDE4" alt=""><span>Booking.com<small>Netherlands</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/siemens/F2EDE4" alt=""><span>Siemens<small>Germany</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/samsung/F2EDE4" alt=""><span>Samsung<small>South Korea</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/emirates/F2EDE4" alt=""><span>Emirates<small>UAE</small></span></span><span class="cf-client-logo-item"><img src="https://cdn.simpleicons.org/tataconsultancyservices/F2EDE4" alt=""><span>TCS<small>India</small></span></span>
+              </div>
+            </div>
+            <p class="cf-client-note">Logo references are shown as creative benchmarks — not as a client list or affiliation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cf-smoke-divider" aria-hidden="true"></div>
+
+    <section class="cf-section-shell cf-workshop cf-swap-section" id="workshop" aria-labelledby="workshop-title">
+      <div class="cf-container">
+        <p class="cf-section-kicker">AI, made practical</p>
+        <h2 class="cf-section-title" id="workshop-title">Put a fox in the room where the workflow changes.</h2>
+        <div class="cf-workshop-grid">
+          <div>
+            <p class="cf-section-copy">CreatorFox AI workshops help founders and teams find the repetitive work worth fixing, prototype a better flow, and leave with a clear route to implementation.</p>
+            <ul class="cf-workshop-list">
+              <li><b>01</b><span>Map one real workflow across sales, support, finance or operations.</span></li>
+              <li><b>02</b><span>Identify where automation can remove friction without removing judgement.</span></li>
+              <li><b>03</b><span>Build a practical 90-day action plan your team can actually use.</span></li>
+            </ul>
+            <a class="cf-inline-link" href="#contact">Plan an AI workshop <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="cf-workshop-art">
+            <img src="/assets/home/4f265906c4607fa9.png" alt="Cinematic orange fox beside an AI workshop table with data reflections" loading="lazy">
+            <span class="cf-workshop-stamp">Human judgement + intelligent systems</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cf-smoke-divider" aria-hidden="true"></div>
+
+    <section class="cf-section-shell cf-swap-section" id="faq" aria-labelledby="faq-title">
+      <div class="cf-container">
+        <div class="cf-faq-grid">
+          <div>
+            <p class="cf-section-kicker">Questions, answered</p>
+            <h2 class="cf-section-title" id="faq-title">Before we build.</h2>
+            <p class="cf-section-copy">If your question is not here, send it through the form and we’ll point you in the right direction.</p>
+          </div>
+          <div class="cf-faq-list">
+            <details open>
+              <summary>What does CreatorFox help with?</summary>
+              <p>Brand identity, conversion-focused websites, content, paid marketing and AI automation — combined around the business problem you need to solve.</p>
+            </details>
+            <details>
+              <summary>Can you work with an existing brand or website?</summary>
+              <p>Yes. We can audit what is already working, preserve the useful parts and rebuild the moments that are holding the business back.</p>
+            </details>
+            <details>
+              <summary>Do you work with businesses outside Bangalore?</summary>
+              <p>Yes. CreatorFox works with teams in India, Australia and beyond through remote strategy, production and implementation workflows.</p>
+            </details>
+            <details>
+              <summary>How do we start?</summary>
+              <p>Share a short brief through the enquiry form. We’ll understand the goal, the current bottleneck and the right next step before suggesting a scope.</p>
+            </details>
+            <details>
+              <summary>Can you run an AI workshop for our team?</summary>
+              <p>Yes. Workshops can be tailored for founders, marketing teams or operations teams and focused on the workflows that matter most to you.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+  
+<footer class="cf-site-footer cf-swap-section" id="site-footer" aria-labelledby="cfFooterTitle">
+  <div class="cf-footer-media" aria-hidden="true">
+    <video class="cf-footer-bg" autoplay muted loop playsinline preload="auto" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/4f690bd1-881a-4192-82f2-d714d34c8fb9.png">
+      <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260901_122529_931c22c8-8d2d-47c0-ad51-b97f56a91e42.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="cf-footer-inner">
+    <h2 class="cf-sr-only" id="cfFooterTitle">CreatorFox footer</h2>
+    <div class="cf-footer-grid">
+      <div class="cf-footer-brand cf-liquid-card">
+        <a class="cf-footer-logo" href="/" aria-label="CreatorFox home"><img src="/assets/home/fd6869dd73b11149.webp" alt="CreatorFox"></a>
+        <p class="cf-footer-blurb">Crafting digital experiences that connect, delight, and leave a lasting imprint.</p>
+        <ul class="cf-footer-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6.5h16v11H4zM4 7l8 6 8-6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><a href="mailto:make@creatorfox.com">make@creatorfox.com</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s6-5.2 6-11A6 6 0 0 0 6 10c0 5.8 6 11 6 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/></svg><span>Bengaluru · India</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5"/><path d="M3.8 12h16.4M12 3.5c2.1 2.4 3.2 5.2 3.2 8.5S14.1 18.1 12 20.5C9.9 18.1 8.8 15.3 8.8 12S9.9 5.9 12 3.5Z" stroke="currentColor" stroke-width="1.5"/></svg><span>Working with teams worldwide</span></li>
+        </ul>
+      </div>
+      <nav class="cf-footer-col cf-liquid-card" aria-label="Explore">
+        <h3 class="cf-col-title">Explore</h3>
+        <ul class="cf-footer-links"><li><a href="/services">Services</a></li><li><a href="/case-studies">Case studies</a></li><li><a href="/#clients">Clients</a></li><li><a href="/#testimonials">Testimonials</a></li></ul>
+      </nav>
+      <nav class="cf-footer-col cf-liquid-card" aria-label="CreatorFox">
+        <h3 class="cf-col-title">CreatorFox</h3>
+        <ul class="cf-footer-links"><li><a href="/about">About us</a></li><li><a href="/services/ai-workshop">AI workshops</a></li><li><a href="/#faq">Questions</a></li><li><a href="/contact">Talk to us</a></li></ul>
+      </nav>
+      <nav class="cf-footer-col cf-liquid-card" aria-label="Connect">
+        <h3 class="cf-col-title">Connect</h3>
+        <ul class="cf-footer-links"><li><a href="/contact">Start a project</a></li><li><a href="/contact">Request a consultation</a></li><li><a href="/contact">Partner with us</a></li><li><a href="mailto:make@creatorfox.com">Email CreatorFox</a></li></ul>
+      </nav>
+      <div class="cf-footer-newsletter cf-liquid-card">
+        <h3 class="cf-col-title">The Letter</h3>
+        <p>Sign up for useful ideas on brand, growth, AI and the moments that make a business easier to choose.</p>
+        <form class="cf-footer-subscribe" id="cfNewsletter" novalidate>
+          <label class="cf-sr-only" for="cfNewsletterEmail">Email address</label>
+          <input id="cfNewsletterEmail" type="email" name="email" placeholder="Leave your email" autocomplete="email" required>
+          <button type="submit" aria-label="Subscribe"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </form>
+        <p class="cf-footer-status" id="cfNewsletterStatus" aria-live="polite"></p>
+      </div>
+    </div>
+    <div class="cf-footer-bottom">
+      <div class="cf-footer-socials" aria-label="Social links">
+        <a href="#" aria-label="CreatorFox on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.4 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V4a22 22 0 0 0-2.5-.1c-2.5 0-4.2 1.5-4.2 4.3V10H7.3v3h2.7v8h3.4Z"/></svg></a>
+        <a href="https://www.instagram.com/creatorfox/" aria-label="CreatorFox on Instagram"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.7"/><circle cx="17.3" cy="6.8" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.linkedin.com/company/creatorfox" aria-label="CreatorFox on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.2 8.3H2.3V21h2.9V8.3ZM3.8 3A1.8 1.8 0 1 0 3.8 6.6 1.8 1.8 0 0 0 3.8 3ZM21.7 13.7c0-3.8-2-5.8-4.8-5.8-2.2 0-3.2 1.2-3.8 2v-1.6h-2.9V21h2.9v-6.3c0-1.7.3-3.4 2.5-3.4 2.1 0 2.1 2 2.1 3.5V21h2.9v-7.3Z"/></svg></a>
+      </div>
+      <nav class="cf-footer-legal" aria-label="Legal"><a href="/privacy">Privacy notice</a><a href="/contact">Terms &amp; policies</a><a href="/contact">Cookie notice</a></nav>
+    </div>
+  </div>
+</footer>
+
+  
+<script>
+(function(){
+  var header=document.getElementById('site-header');
+  var toggle=document.getElementById('cfMenuToggle');
+  var mobileNav=document.getElementById('cfMobileNav');
+  function closeMenu(){
+    if(!header || !toggle || !mobileNav) return;
+    header.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-label','Open navigation');
+    mobileNav.hidden=true;
+  }
+  if(header && toggle && mobileNav){
+    toggle.addEventListener('click',function(){
+      var open=toggle.getAttribute('aria-expanded')==='true';
+      if(open) closeMenu();
+      else { header.classList.add('menu-open'); toggle.setAttribute('aria-expanded','true'); toggle.setAttribute('aria-label','Close navigation'); mobileNav.hidden=false; }
+    });
+    mobileNav.querySelectorAll('a').forEach(function(link){ link.addEventListener('click',closeMenu); });
+    document.addEventListener('click',function(event){ if(!header.contains(event.target)) closeMenu(); });
+  }
+  var newsletter=document.getElementById('cfNewsletter');
+  var newsletterStatus=document.getElementById('cfNewsletterStatus');
+  if(newsletter && newsletterStatus){
+    newsletter.addEventListener('submit',function(event){
+      event.preventDefault();
+      if(!newsletter.checkValidity()){ newsletter.reportValidity(); return; }
+      window.location.href='mailto:make@creatorfox.com?subject=CreatorFox%20newsletter&body='+encodeURIComponent('Please add '+document.getElementById('cfNewsletterEmail').value+' to The Letter.'); newsletterStatus.textContent='Send the email draft to request a subscription.';
+    });
+  }
+})();
+</script>
+
+  
+<script>
+(function(){
+  function initContactEnhancements(){
+    var video=document.getElementById('cfBgVideo');
+    var toggle=document.getElementById('cfAudioToggle');
+    if(!video || !toggle) return;
+    var soundOn=false;
+    video.volume=.45;
+    video.muted=true;
+    function render(){
+      toggle.setAttribute('aria-pressed',String(soundOn));
+      toggle.setAttribute('aria-label',soundOn?'Turn contact section sound off':'Enable contact section sound');
+      var label=toggle.querySelector('.cf-audio-label');
+      if(label) label.textContent=soundOn?'Sound on':'Enable sound';
+    }
+    toggle.addEventListener('click',function(){
+      soundOn=!soundOn;
+      video.muted=!soundOn;
+      if(soundOn){
+        var attempt=video.play();
+        if(attempt && attempt.catch) attempt.catch(function(){ soundOn=false; video.muted=true; render(); });
+      }
+      render();
+    });
+    render();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initContactEnhancements); else initContactEnhancements();
+})();
+</script>
+
+  <script>
+(function(){
+  var root = document.getElementById('cfx-testimonials');
+  if(!root) return;
+
+  // ---- make sure the background video actually starts on mobile ----
+  // Some mobile browsers ignore the autoplay attribute if the "muted"
+  // property isn't also set via JS before play() is called, and a few
+  // (mostly older iOS/in-app browsers like Instagram/Facebook webviews)
+  // block autoplay entirely until the visitor taps the page once — this
+  // covers both cases.
+  var bgVideo = document.getElementById('cfxBgVideo');
+  if (bgVideo){
+    bgVideo.muted = true;
+    bgVideo.setAttribute('muted', '');
+    var tryPlay = function(){
+      var p = bgVideo.play();
+      if (p && typeof p.catch === 'function') p.catch(function(){ /* will retry on first touch below */ });
+    };
+    tryPlay();
+    ['touchstart','click'].forEach(function(evt){
+      document.addEventListener(evt, function retryPlay(){
+        if (bgVideo.paused) tryPlay();
+        document.removeEventListener(evt, retryPlay);
+      }, { once:true, passive:true });
+    });
+  }
+
+  var cards  = Array.prototype.slice.call(root.querySelectorAll('.cfx-card'));
+  var dotsEl = root.querySelector('#cfxDots');
+  var carousel = root.querySelector('#cfxCarousel');
+  var stage = root.querySelector('.cfx-stage');
+  var N = cards.length;
+  var active = 0;
+  var autoplayMs = 6000;
+  var autoplayTimer = null;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  cards.forEach(function(_, i){
+    var dot = document.createElement('button');
+    dot.className = 'cfx-dot';
+    dot.type = 'button';
+    dot.setAttribute('role','tab');
+    dot.setAttribute('aria-label','Go to testimonial ' + (i+1));
+    dot.addEventListener('click', function(){ goTo(i, true); });
+    dotsEl.appendChild(dot);
+  });
+  var dots = Array.prototype.slice.call(dotsEl.querySelectorAll('.cfx-dot'));
+
+  function shortestOffset(i){
+    var o = i - active;
+    if (o > N/2) o -= N;
+    if (o < -N/2) o += N;
+    return o;
+  }
+
+  function layout(){
+    var stageW = stage.clientWidth;
+    var stepX  = Math.min(stageW * 0.34, 340);
+    var stepX2 = Math.min(stageW * 0.56, 520);
+
+    cards.forEach(function(card, i){
+      var o = shortestOffset(i);
+      var abs = Math.abs(o);
+      var sign = o === 0 ? 0 : (o > 0 ? 1 : -1);
+
+      var x, scale, rotY, opacity, blur, z;
+      if (abs === 0){ x=0; scale=1; rotY=0; opacity=1; blur=0; z=50; }
+      else if (abs === 1){ x=sign*stepX; scale=0.82; rotY=-sign*24; opacity=0.55; blur=3; z=30; }
+      else if (abs === 2){ x=sign*stepX2; scale=0.64; rotY=-sign*32; opacity=0.18; blur=6; z=10; }
+      else { x=sign*stepX2*1.2; scale=0.5; rotY=-sign*32; opacity=0; blur=8; z=0; }
+
+      card.style.transform = 'translate(-50%,-50%) translateX(' + x.toFixed(1) + 'px) rotateY(' + rotY.toFixed(1) + 'deg) scale(' + scale.toFixed(3) + ')';
+      card.style.opacity = opacity;
+      card.style.filter = 'blur(' + blur.toFixed(1) + 'px)';
+      card.style.zIndex = Math.round(z);
+      card.classList.toggle('is-active', abs === 0);
+    });
+
+    dots.forEach(function(d, i){ d.classList.toggle('is-active', i === active); });
+  }
+
+  function goTo(i, userInitiated){
+    active = ((i % N) + N) % N;
+    layout();
+    if (userInitiated) restartAutoplay();
+  }
+  function next(userInitiated){ goTo(active + 1, userInitiated); }
+  function prev(userInitiated){ goTo(active - 1, userInitiated); }
+
+
+  carousel.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowLeft'){ prev(true); }
+    if (e.key === 'ArrowRight'){ next(true); }
+  });
+
+  // drag / swipe
+  var pointerDownX = null, dragging = false;
+  stage.addEventListener('pointerdown', function(e){ pointerDownX = e.clientX; dragging = true; });
+  window.addEventListener('pointerup', function(e){
+    if (!dragging || pointerDownX === null) return;
+    var dx = e.clientX - pointerDownX;
+    if (Math.abs(dx) > 50){ dx < 0 ? next(true) : prev(true); }
+    dragging = false; pointerDownX = null;
+  });
+  stage.addEventListener('touchstart', function(e){ pointerDownX = e.touches[0].clientX; }, {passive:true});
+  stage.addEventListener('touchend', function(e){
+    if (pointerDownX === null) return;
+    var dx = e.changedTouches[0].clientX - pointerDownX;
+    if (Math.abs(dx) > 50){ dx < 0 ? next(true) : prev(true); }
+    pointerDownX = null;
+  });
+
+  function restartAutoplay(){
+    if (reduceMotion) return;
+    if (autoplayTimer) clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(function(){ next(false); }, autoplayMs);
+  }
+  carousel.addEventListener('mouseenter', function(){ if (autoplayTimer) clearInterval(autoplayTimer); });
+  carousel.addEventListener('mouseleave', restartAutoplay);
+  carousel.addEventListener('focusin', function(){ if (autoplayTimer) clearInterval(autoplayTimer); });
+  carousel.addEventListener('focusout', restartAutoplay);
+
+  window.addEventListener('resize', layout);
+  layout();
+  restartAutoplay();
+})();
+</script>
+  <script>
+(function () {
+    "use strict";
+
+    var hero = document.getElementById("cf-glass-hero");
+    if (!hero || hero.getAttribute("data-cf-initialized") === "true") return;
+    hero.setAttribute("data-cf-initialized", "true");
+
+    var revealLayer = hero.querySelector(".cf-hero-reveal");
+    var liquidMap = hero.querySelector("#cf-liquid-map");
+    var liquidTurb = hero.querySelector("#cf-liquid-turb");
+    var liquidFreqAnim = hero.querySelector("#cf-liquid-freq-anim");
+
+    var coarsePointerQuery = window.matchMedia("(pointer: coarse)");
+    var isCoarsePointer = coarsePointerQuery.matches;
+
+    /* Lighten the liquid-glass filter on touch devices so the drag stays smooth */
+    if (isCoarsePointer) {
+        if (liquidFreqAnim && liquidFreqAnim.parentNode) {
+            liquidFreqAnim.parentNode.removeChild(liquidFreqAnim);
+        }
+        if (liquidTurb) {
+            liquidTurb.setAttribute("numOctaves", "1");
+        }
+    }
+
+    var MAX_DISTORTION = isCoarsePointer ? 9 : 16;
+
+    var DESKTOP_RADIUS = 235;
+    var MOBILE_RADIUS = 150;
+
+    var isTouch = false;
+
+    var reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var reducedMotion = reducedMotionQuery.matches;
+
+    var pointer = {
+        rawX: -999,
+        rawY: -999,
+        smoothX: -999,
+        smoothY: -999,
+        targetRadius: 0,
+        currentRadius: 0,
+        active: false,
+        rafId: null
+    };
+
+    function currentMaxRadius() {
+        return isTouch ? MOBILE_RADIUS : DESKTOP_RADIUS;
+    }
+
+    function setVars() {
+        hero.style.setProperty("--cf-reveal-x", pointer.smoothX + "px");
+        hero.style.setProperty("--cf-reveal-y", pointer.smoothY + "px");
+        hero.style.setProperty("--cf-reveal-radius", Math.max(pointer.currentRadius, 0) + "px");
+
+        if (liquidMap) {
+            var maxR = currentMaxRadius();
+            var strength = maxR > 0 ? Math.min(Math.max(pointer.currentRadius / maxR, 0), 1) : 0;
+            liquidMap.setAttribute("scale", (strength * MAX_DISTORTION).toFixed(2));
+        }
+    }
+
+    function tick() {
+        var posFactor = reducedMotion ? 1 : (isTouch ? 0.24 : 0.14);
+        var radiusFactor = reducedMotion ? 1 : (isTouch ? 0.2 : 0.12);
+
+        pointer.smoothX += (pointer.rawX - pointer.smoothX) * posFactor;
+        pointer.smoothY += (pointer.rawY - pointer.smoothY) * posFactor;
+        pointer.currentRadius += (pointer.targetRadius - pointer.currentRadius) * radiusFactor;
+
+        setVars();
+
+        var settled = Math.abs(pointer.currentRadius - pointer.targetRadius) < 0.5 &&
+            Math.abs(pointer.smoothX - pointer.rawX) < 0.5 &&
+            Math.abs(pointer.smoothY - pointer.rawY) < 0.5;
+
+        if (!pointer.active && settled) {
+            pointer.rafId = null;
+            return;
+        }
+
+        pointer.rafId = requestAnimationFrame(tick);
+    }
+
+    function startLoop() {
+        if (pointer.rafId === null) {
+            pointer.rafId = requestAnimationFrame(tick);
+        }
+    }
+
+    function getLocalPoint(clientX, clientY) {
+        var rect = hero.getBoundingClientRect();
+        return {
+            x: clientX - rect.left,
+            y: clientY - rect.top
+        };
+    }
+
+    /* Desktop pointer interaction */
+    hero.addEventListener("pointerenter", function (e) {
+        if (e.pointerType === "touch") return;
+        isTouch = false;
+        var p = getLocalPoint(e.clientX, e.clientY);
+        pointer.rawX = p.x;
+        pointer.rawY = p.y;
+        if (pointer.smoothX === -999) {
+            pointer.smoothX = p.x;
+            pointer.smoothY = p.y;
+        }
+        pointer.active = true;
+        pointer.targetRadius = currentMaxRadius();
+        startLoop();
+    });
+
+    hero.addEventListener("pointermove", function (e) {
+        if (e.pointerType === "touch") return;
+        var p = getLocalPoint(e.clientX, e.clientY);
+        pointer.rawX = p.x;
+        pointer.rawY = p.y;
+        startLoop();
+    }, { passive: true });
+
+    hero.addEventListener("pointerleave", function (e) {
+        if (e.pointerType === "touch") return;
+        pointer.active = false;
+        pointer.targetRadius = 0;
+        startLoop();
+    });
+
+    /* Touch interaction */
+    hero.addEventListener("touchstart", function (e) {
+        if (!e.touches || !e.touches.length) return;
+        isTouch = true;
+        var t = e.touches[0];
+        var p = getLocalPoint(t.clientX, t.clientY);
+        pointer.rawX = p.x;
+        pointer.rawY = p.y;
+        if (pointer.smoothX === -999) {
+            pointer.smoothX = p.x;
+            pointer.smoothY = p.y;
+        }
+        pointer.active = true;
+        pointer.targetRadius = currentMaxRadius();
+        startLoop();
+    }, { passive: true });
+
+    hero.addEventListener("touchmove", function (e) {
+        if (!e.touches || !e.touches.length) return;
+        var t = e.touches[0];
+        var p = getLocalPoint(t.clientX, t.clientY);
+        pointer.rawX = p.x;
+        pointer.rawY = p.y;
+        startLoop();
+    }, { passive: true });
+
+    function touchEnd() {
+        isTouch = true;
+        pointer.active = false;
+        pointer.targetRadius = 0;
+        startLoop();
+    }
+
+    hero.addEventListener("touchend", touchEnd, { passive: true });
+    hero.addEventListener("touchcancel", touchEnd, { passive: true });
+
+    hero.style.touchAction = "pan-y pinch-zoom";
+    if (revealLayer) revealLayer.style.touchAction = "pan-y pinch-zoom";
+
+    reducedMotionQuery.addEventListener ? reducedMotionQuery.addEventListener("change", function (e) {
+        reducedMotion = e.matches;
+    }) : reducedMotionQuery.addListener(function (e) {
+        reducedMotion = e.matches;
+    });
+
+    setVars();
+})();
+</script>
+  
+<script>
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var caseScroll = document.getElementById('cfCaseScroll');
+  var caseImage = document.getElementById('cfCaseImage');
+  var caseCopy = document.querySelector('.cf-case-copy');
+  var caseMetric = document.getElementById('cfCaseMetric');
+  var caseData = [
+    {
+      client:'NDS ECO MOTORS',
+      title:'Make range feel real.',
+      description:'EV mobility storytelling, local lead generation and a test-ride journey built around the product’s strongest proof.',
+      category:'EV mobility / lead generation',
+      metric:'+42%',
+      metricLabel:'qualified test-ride enquiries',
+      image:'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=86',
+      alt:'Team collaborating around a table',
+      logo:'https://cdn.simpleicons.org/google/F2EDE4',
+      studyType:'Client study · India',
+      tags:['Positioning','Paid growth','Lead journey']
+    },
+    {
+      client:'BRIGHT BEGINNINGS',
+      title:'Turn search into visits.',
+      description:'Multi-centre childcare journeys that make it easier for families to find the right location and take the next step.',
+      category:'Childcare / local discovery',
+      metric:'3.1×',
+      metricLabel:'more qualified location visits',
+      image:'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=86',
+      alt:'People working together in a bright studio',
+      logo:'https://cdn.simpleicons.org/google/F2EDE4',
+      studyType:'Client study · Australia',
+      tags:['SEO systems','Content design','Conversion']
+    },
+    {
+      client:'THE COMMON GOOD',
+      title:'Build a place people remember.',
+      description:'Retail, café and community storytelling shaped into one distinct experience people want to discover and return to.',
+      category:'Hospitality / place-making',
+      metric:'+28%',
+      metricLabel:'longer engaged sessions',
+      image:'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=86',
+      alt:'Warm modern interior with seating',
+      logo:'https://cdn.simpleicons.org/google/F2EDE4',
+      studyType:'Client study · India',
+      tags:['Brand world','Experience','Community']
+    },
+    {
+      client:'INTERNATIONAL PRODUCT SOURCING',
+      title:'Make complex buying feel clear.',
+      description:'An Australian B2B sourcing journey shaped around search intent, proof, and the questions procurement teams ask before they enquire.',
+      category:'B2B sourcing / Australia',
+      metric:'A$1k+',
+      metricLabel:'monthly SEO programme',
+      image:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=86',
+      alt:'Analytics dashboard on a laptop screen',
+      logo:'https://cdn.simpleicons.org/google/F2EDE4',
+      studyType:'Client study · Australia',
+      tags:['B2B SEO','Search intent','Enquiry flow']
+    },
+    {
+      client:'CHANDELIERS TO DIE FOR',
+      title:'Turn atmosphere into action.',
+      description:'An Australian events brand translated into a sharper digital showcase for couples, venues and planners comparing high-touch production partners.',
+      category:'Events / Australia',
+      metric:'A$1.5k+',
+      metricLabel:'reference launch envelope',
+      image:'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1600&q=86',
+      alt:'Elegant event hall prepared for a celebration',
+      logo:'https://cdn.simpleicons.org/google/F2EDE4',
+      studyType:'Client study · Australia',
+      tags:['Event brand','Showcase','Lead capture']
+    },
+    {
+      client:'GOOGLE / GLOBAL BENCHMARK',
+      title:'Make billions of choices feel simple.',
+      description:'A reference study for a global search-and-AI ecosystem: reduce complexity, surface the right next step, and let trust do the heavy lifting.',
+      category:'Reference study / enterprise AI',
+      metric:'$250k+',
+      metricLabel:'illustrative media envelope',
+      image:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=86',
+      alt:'Blue digital network representing a global technology system',
+      logo:'https://cdn.simpleicons.org/google/F2EDE4',
+      studyType:'Reference study · Global',
+      tags:['Enterprise','AI search','Scale model']
+    },
+    {
+      client:'ADOBE / GLOBAL BENCHMARK',
+      title:'Give every idea a sharper edge.',
+      description:'A benchmark scenario for a global creative platform: connect product education, creator stories and conversion moments into one fluent experience.',
+      category:'Reference study / creator economy',
+      metric:'$100k+',
+      metricLabel:'illustrative launch envelope',
+      image:'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1600&q=86',
+      alt:'Creative design tools and colour swatches on a desk',
+      logo:'https://cdn.simpleicons.org/adobe/F2EDE4',
+      studyType:'Reference study · Global',
+      tags:['Creator economy','Product story','Launch system']
+    }
+  ];
+  var activeCase = -1;
+  var caseIndex = document.getElementById('cfCaseIndex');
+  var caseClient = document.getElementById('cfCaseClient');
+  var caseTitle = document.getElementById('cfCaseTitle');
+  var caseDescription = document.getElementById('cfCaseDescription');
+  var caseCategory = document.getElementById('cfCaseCategory');
+  var caseMetricLabel = document.getElementById('cfCaseMetricLabel');
+  var caseTags = document.getElementById('cfCaseTags');
+  var caseBrand = document.getElementById('cfCaseBrand');
+
+  function writeCase(index){
+    var item = caseData[index];
+    if (!item) return;
+    activeCase = index;
+    caseIndex.textContent = '0' + (index + 1) + ' / 0' + caseData.length;
+    caseClient.textContent = item.client;
+    caseTitle.textContent = item.title;
+    caseDescription.textContent = item.description;
+    caseCategory.textContent = item.category;
+    caseMetric.textContent = item.metric;
+    caseMetricLabel.textContent = item.metricLabel;
+    caseBrand.innerHTML = '<img src="' + item.logo + '" alt=""><span>' + item.studyType + '</span>';
+    caseImage.src = item.image;
+    caseImage.alt = item.alt;
+    caseTags.innerHTML = item.tags.map(function(tag){ return '<span class="cf-case-tag">' + tag + '</span>'; }).join('');
+  }
+
+  function renderCase(index, immediate){
+    index = Math.max(0, Math.min(caseData.length - 1, index));
+    if (index === activeCase && !immediate) return;
+    if (!immediate && window.gsap && caseCopy && caseImage){
+      window.gsap.timeline({defaults:{ease:'power2.out'}})
+        .to([caseCopy, caseImage], {opacity:0, y:12, duration:.2})
+        .add(function(){ writeCase(index); })
+        .to([caseCopy, caseImage], {opacity:1, y:0, duration:.5});
+    } else {
+      writeCase(index);
+    }
+  }
+
+  function progressToCase(progress){
+    var index = Math.min(caseData.length - 1, Math.floor(progress * caseData.length));
+    renderCase(index, false);
+  }
+
+  function initCaseScroll(){
+    if (!caseScroll) return;
+    renderCase(0, true);
+    if (reduced) return;
+    if (window.gsap && window.ScrollTrigger){
+      window.gsap.registerPlugin(window.ScrollTrigger);
+      window.ScrollTrigger.create({
+        trigger:caseScroll,
+        start:'top top',
+        end:'bottom bottom',
+        scrub:1,
+        onUpdate:function(self){ progressToCase(self.progress); }
+      });
+    } else {
+      var ticking = false;
+      var update = function(){
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(function(){
+          var rect = caseScroll.getBoundingClientRect();
+          var travel = Math.max(1, caseScroll.offsetHeight - window.innerHeight);
+          progressToCase(Math.max(0, Math.min(1, -rect.top / travel)));
+          ticking = false;
+        });
+      };
+      window.addEventListener('scroll', update, {passive:true});
+      window.addEventListener('resize', update);
+      update();
+    }
+  }
+
+  function initSwapSections(){
+    var sections = Array.prototype.slice.call(document.querySelectorAll('#hero,#about,#services,#contact,#testimonials,#case-studies,#clients,#workshop,#faq,#site-footer'));
+    if (reduced) return;
+    if (window.gsap && window.ScrollTrigger){
+      window.gsap.registerPlugin(window.ScrollTrigger);
+      sections.forEach(function(section){
+        window.gsap.fromTo(section,
+          {opacity:.72, y:34},
+          {opacity:1, y:0, ease:'none', scrollTrigger:{trigger:section,start:'top 88%',end:'top 34%',scrub:1}}
+        );
+        window.gsap.to(section, {
+          opacity:.78,
+          y:-30,
+          ease:'none',
+          scrollTrigger:{trigger:section,start:'bottom 42%',end:'bottom top',scrub:1}
+        });
+      });
+    } else if ('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){ if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
+      }, {threshold:.12, rootMargin:'0px 0px -10% 0px'});
+      sections.forEach(function(section){ io.observe(section); });
+    }
+  }
+
+  function init(){ initCaseScroll(); initSwapSections(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+</body>
+</html>

@@ -28,7 +28,7 @@ Set all values listed in `.env.example` in the Vercel project, then redeploy:
 - Upstash Redis REST URL and token for distributed rate limits and deduplication.
 - A random FORM_SIGNING_SECRET (at least 32 bytes).
 - SITE_URL: exact public origin without trailing slash.
-- LEAD_NOTIFICATION_EMAIL defaults to make.creatorfox@gmail.com.
+- LEAD_NOTIFICATION_EMAIL defaults to make@creatorfox.com.
 
 Until these are present, submission is disabled and the page offers direct email. It never claims an email was sent. A successful API response means Resend accepted the message, not proof of inbox delivery.
 
@@ -43,3 +43,7 @@ No major global company is represented as a client. Case-study scenarios are pro
 ## Validation
 
 `npm test` checks all eight PDF variants, long input, malicious email input, service and consent validation, signed timestamps and the unconfigured fail-closed response. Final delivery and live mobile/browser testing must be completed once hosting and email services are connected.
+
+
+## September homepage update
+Homepage assets and animation modules are from the supplied homepage (6)(3) HTML. Shared header and footer are reused on every page, with routed navigation. The active contact handler uses the supplied Formspree form xwleaapp. Its inbox ownership and live delivery must be verified in the Formspree account. Service guides are generated as public PDFs at build time; they are downloadable, not automatically attached by Formspree. Resend attachment sending still requires verified provider credentials. The public enquiry recipient is make@creatorfox.com. The newsletter opens an email subscription request instead of claiming an unrecorded subscription.
