@@ -1,0 +1,146 @@
+{
+  "brand-kit": [
+    [
+      "Slack identity",
+      "Pentagram",
+      "https://www.pentagram.com/work/slack",
+      null,
+      "A recognisable identity system that works from a small app icon to larger brand applications.",
+      "Study how a consistent set of shapes and colours makes everyday brand decisions easier."
+    ],
+    [
+      "Old Spice campaign",
+      "Old Spice",
+      "https://www.youtube.com/watch?v=owGykVbfgUE",
+      "owGykVbfgUE",
+      "A distinctive brand voice carried through a memorable video execution.",
+      "Consider the connection between personality, script, art direction and the offer."
+    ]
+  ],
+  "3d-website-development": [
+    [
+      "Bruno Simon\u2019s interactive portfolio",
+      "Bruno Simon",
+      "https://bruno-simon.com/",
+      null,
+      "Explore a portfolio built as a driveable 3D world, with desktop and mobile controls.",
+      "A reference for purposeful interaction. Your own project would have its own visual language and a clear enquiry path."
+    ],
+    [
+      "Creative web design collection",
+      "Awwwards",
+      "https://www.awwwards.com/websites/3d/",
+      null,
+      "Browse published 3D website references and the teams behind them.",
+      "Choose the ideas that support your story, then balance them against loading speed and mobile usability."
+    ]
+  ],
+  "content-marketing": [
+    [
+      "Dollar Shave Club launch film",
+      "Dollar Shave Club",
+      "https://www.youtube.com/watch?v=ZUG9qYTJMsI",
+      "ZUG9qYTJMsI",
+      "A founder-led product story with a direct offer and a distinctive tone. Contains strong language.",
+      "Notice the clear opening, product explanation and call to action. Those principles can guide your own shoot brief."
+    ],
+    [
+      "Inside Google: first-week stories",
+      "Google",
+      "https://www.youtube.com/watch?v=9No-FiEInLA",
+      "9No-FiEInLA",
+      "A people-led look inside a company, used here as an employer storytelling reference.",
+      "Interview real people and capture useful behind-the-scenes footage that can become several shorter stories."
+    ]
+  ],
+  "performance-marketing": [
+    [
+      "Old Spice: creative reference",
+      "Old Spice",
+      "https://www.youtube.com/watch?v=owGykVbfgUE",
+      "owGykVbfgUE",
+      "A public campaign film to study for its opening hook and product association.",
+      "Use creative references to shape testable ideas. This example is not a promise of advertising returns."
+    ],
+    [
+      "Search & video insights",
+      "Think with Google",
+      "https://business.google.com/us/think/search-and-video/",
+      null,
+      "Explore Google\u2019s published search and video marketing resources.",
+      "Connect the creative idea to your audience, landing page, conversion tracking and lead quality."
+    ]
+  ],
+  "influencer-marketing": [
+    [
+      "Large-format creator storytelling",
+      "MrBeast",
+      "https://www.youtube.com/watch?v=0e3GPea1Tyg",
+      "0e3GPea1Tyg",
+      "A public creator production illustrating audience-first pacing and a clear premise.",
+      "Use it to discuss format and storytelling. Creator selection, paid partnerships and campaign rights require a separate brief."
+    ],
+    [
+      "Explore CreatorFox Influencers",
+      "CreatorFox",
+      "https://influencers.creatorfox.com/",
+      null,
+      "Explore our dedicated influencer platform for your next creator campaign.",
+      "Start with your category, location and audience before comparing creators."
+    ]
+  ],
+  "aeo-geo": [
+    [
+      "AI search: the source guidance",
+      "Google Search Central",
+      "https://developers.google.com/search/docs/appearance/ai-features",
+      null,
+      "Read Google\u2019s guidance about websites appearing in AI search features.",
+      "Build useful, accessible pages and clear answers. No agency can guarantee a placement in an AI response."
+    ],
+    [
+      "Content that explains the business",
+      "Google",
+      "https://www.youtube.com/watch?v=9No-FiEInLA",
+      "9No-FiEInLA",
+      "A video reference for showing real people and first-hand experience.",
+      "Support important claims with original expertise, useful detail and identifiable sources."
+    ]
+  ],
+  "ai-workshop": [
+    [
+      "How a language model is built",
+      "Andrej Karpathy",
+      "https://www.youtube.com/watch?v=kCc8FmEb1nY",
+      "kCc8FmEb1nY",
+      "An optional technical deep dive for curious participants who want to understand language models.",
+      "Our business workshop starts with everyday tasks; this advanced reference is for further learning."
+    ],
+    [
+      "Automation in real organisations",
+      "Zapier",
+      "https://zapier.com/customer-stories",
+      null,
+      "Browse published customer stories from an automation platform.",
+      "Bring one repetitive workflow to the session and evaluate what can be simplified, automated and reviewed."
+    ]
+  ],
+  "digital-ai-consulting": [
+    [
+      "Automation customer stories",
+      "Zapier",
+      "https://zapier.com/customer-stories",
+      null,
+      "Explore examples published by Zapier about organisations using automation.",
+      "Map triggers, decisions and ownership before selecting tools or estimating value."
+    ],
+    [
+      "Understanding the technology",
+      "Andrej Karpathy",
+      "https://www.youtube.com/watch?v=kCc8FmEb1nY",
+      "kCc8FmEb1nY",
+      "An advanced educational reference explaining the foundations of a language model.",
+      "Use technical understanding to ask better questions about suitability, limitations and human review."
+    ]
+  ]
+}

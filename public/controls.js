@@ -1,0 +1,1 @@
+document.querySelectorAll('.button,.cf-nav-cta,.cf-submit-btn,.cf-btn,.cf-btn-primary').forEach(button=>{for(const node of [...button.childNodes]){if(node.nodeType===3&&node.textContent.trim()){const label=document.createElement('span');label.className='cf-control-label';node.replaceWith(label);label.append(node)}}});
