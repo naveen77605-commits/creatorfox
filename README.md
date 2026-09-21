@@ -21,16 +21,15 @@ Set SITE_URL to the actual production origin and rebuild for correct canonicals,
 
 ## Enable proposal email
 
-Set all values listed in `.env.example` in the Vercel project, then redeploy:
+Set the Resend values listed below in the Vercel project, then redeploy:
 
 - Resend API key and a verified sender address (domain verification required).
-- Cloudflare Turnstile site key and secret for the deployed hostname.
-- Upstash Redis REST URL and token for distributed rate limits and deduplication.
-- A random FORM_SIGNING_SECRET (at least 32 bytes).
+- Cloudflare Turnstile site key and secret for stronger abuse protection (recommended).
+- Upstash Redis REST URL and token for distributed rate limits and deduplication (recommended).
 - SITE_URL: exact public origin without trailing slash.
 - LEAD_NOTIFICATION_EMAIL defaults to make@creatorfox.com.
 
-Until these are present, submission is disabled and the page offers direct email. It never claims an email was sent. A successful API response means Resend accepted the message, not proof of inbox delivery.
+Until Resend is configured, the site uses its supplied Formspree fallback and provides a service guide download. It never claims a PDF was emailed. A successful Resend response means the provider accepted the message, not proof of inbox delivery.
 
 Proposals are service-specific initial scope outlines with the user's brief, budget preference, indicative timeline and next steps. Prices are intentionally not invented; the final priced quote requires scope review. Generated PDFs currently use embedded Latin PDF fonts; non-Latin characters are transliterated where possible and otherwise omitted. The original brief is preserved in the email body. Embed a suitable Unicode font before using this with predominantly non-Latin briefs.
 
@@ -47,3 +46,15 @@ No major global company is represented as a client. Case-study scenarios are pro
 
 ## September homepage update
 Homepage assets and animation modules are from the supplied homepage (6)(3) HTML. Shared header and footer are reused on every page, with routed navigation. The active contact handler uses the supplied Formspree form xwleaapp. Its inbox ownership and live delivery must be verified in the Formspree account. Service guides are generated as public PDFs at build time; they are downloadable, not automatically attached by Formspree. Resend attachment sending still requires verified provider credentials. The public enquiry recipient is make@creatorfox.com. The newsletter opens an email subscription request instead of claiming an unrecorded subscription.
+## Enabling automatic proposal emails
+
+The contact flow is ready to send a service-specific PDF to the person who enquires and a copy to `make@creatorfox.com`. To enable delivery, create a Resend account, add and verify the sending domain, then add the following Production environment variables in Vercel:
+
+```text
+RESEND_API_KEY=re_...
+PROPOSAL_FROM_EMAIL=CreatorFox <proposals@your-verified-domain.com>
+LEAD_NOTIFICATION_EMAIL=make@creatorfox.com
+SITE_URL=https://creatorfox-ai-agency.vercel.app
+```
+
+In Resend, verify the domain by adding the displayed SPF, DKIM and (if requested) DMARC DNS records at your domain provider. Redeploy after saving the variables. The site keeps a Formspree fallback, a honeypot field and rate limits so a missing email configuration does not pretend that a PDF was delivered. For stronger abuse protection, also add Cloudflare Turnstile and Upstash credentials from `.env.example`.

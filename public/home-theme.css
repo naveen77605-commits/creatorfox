@@ -7,8 +7,8 @@
   --cf-black:#080706;
   --cf-black-2:#0e0b08;
   --cf-panel:#17110c;
-  --cf-amber:#bb7c1d;
-  --cf-amber-light:#e1a141;
+  --cf-amber:#BC6F10;
+  --cf-amber-light:#BC6F10;
   --cf-line:rgba(242,237,228,.14);
   --cf-font:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
@@ -671,7 +671,7 @@ body{margin:0;background:var(--cf-black);color:var(--cf-ink);font-family:var(--c
    0. TOKENS
 ============================================================ */
 :root{
-  --cf-orange: #BB7C1D;
+  --cf-orange: #BC6F10;
   --cf-orange-light: #E0A542;
   --cf-orange-soft: rgba(187,124,29,0.4);
   --cf-orange-faint: rgba(187,124,29,0.16);
@@ -1223,7 +1223,7 @@ body{margin:0;background:var(--cf-black);color:var(--cf-ink);font-family:var(--c
   0,500;0,600;0,700&display=swap');
 
   #cfx-testimonials{
-    --cfx-accent:#bb7c1d;
+    --cfx-accent:#BC6F10;
     --cfx-glow:187,124,29;
     position:relative;
     isolation:isolate;
@@ -1392,8 +1392,8 @@ body{margin:0;background:var(--cf-black);color:var(--cf-ink);font-family:var(--c
 #cf-services-root, #cf-services-root *{ box-sizing:border-box; }
 #cf-services-root{
   --cf-bg:#080909;
-  --cf-accent:#BB7C1D;
-  --cf-accent-light:#E1A141;
+  --cf-accent:#BC6F10;
+  --cf-accent-light:#BC6F10;
   --cf-text:#FFFFFF;
   --cf-text-dim:rgba(255,255,255,0.65);
   position:relative;
@@ -1476,7 +1476,7 @@ body{margin:0;background:var(--cf-black);color:var(--cf-ink);font-family:var(--c
         --ink-dim:#88847d;
         --line:#4d4a45;
         --glass:rgba(255,255,255,0.05);
-        --accent:#bb7c1d;
+        --accent:#BC6F10;
         --accent-deep:#8f5f16;
         --accent-light:#d9a84e;
         display:flex;
