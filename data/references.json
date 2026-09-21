@@ -142,5 +142,23 @@
       "An advanced educational reference explaining the foundations of a language model.",
       "Use technical understanding to ask better questions about suitability, limitations and human review."
     ]
+  ],
+  "automation-ai-agents": [
+    [
+      "Automation customer stories",
+      "Zapier",
+      "https://zapier.com/customer-stories",
+      null,
+      "Explore examples published by Zapier about organisations using automation.",
+      "Map triggers, decisions and ownership before selecting tools or estimating value."
+    ],
+    [
+      "Understanding the technology",
+      "Andrej Karpathy",
+      "https://www.youtube.com/watch?v=kCc8FmEb1nY",
+      "kCc8FmEb1nY",
+      "An advanced educational reference explaining the foundations of a language model.",
+      "Use technical understanding to ask better questions about suitability, limitations and human review."
+    ]
   ]
 }
