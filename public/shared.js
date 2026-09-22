@@ -25,7 +25,7 @@
     newsletter.addEventListener('submit',function(event){
       event.preventDefault();
       if(!newsletter.checkValidity()){ newsletter.reportValidity(); return; }
-      window.location.href='mailto:make@creatorfox.com?subject=CreatorFox%20newsletter&body='+encodeURIComponent('Please add '+document.getElementById('cfNewsletterEmail').value+' to The Letter.'); newsletterStatus.textContent='Send the email draft to request a subscription.';
+      window.location.href='mailto:make.creatorfox@gmail.com?subject=CreatorFox%20newsletter&body='+encodeURIComponent('Please add '+document.getElementById('cfNewsletterEmail').value+' to The Letter.'); newsletterStatus.textContent='Send the email draft to request a subscription.';
     });
   }
 })();
