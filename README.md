@@ -17,7 +17,9 @@ npm test
 
 Import the `ai-agency-website` branch from the CreatorFox repository. Build command: `npm run build`. Output: `dist`. Framework: Other. Node functions are in `api/`. Set production branch to `ai-agency-website` for this separate project, or deploy that branch explicitly. Existing main-branch site is preserved.
 
-Set SITE_URL to the actual production origin and rebuild for correct canonicals, sitemap and origin checks. The build also uses VERCEL_PROJECT_PRODUCTION_URL when SITE_URL is absent. The contact API requires an explicit SITE_URL.
+Set SITE_URL to `https://creatorfox-ai-agency.vercel.app` (or the final custom domain) for correct canonicals, sitemap and origin checks. The build also uses VERCEL_PROJECT_PRODUCTION_URL when SITE_URL is absent. The contact API requires an explicit SITE_URL.
+
+The chat uses Vercel AI Gateway when `AI_GATEWAY_API_KEY` or a valid Vercel OIDC runtime token is available. If the gateway is unavailable, the API returns a service-aware local guide instead of showing a disconnected error, so visitors can still get a useful next step. `AI_CHAT_MODEL` defaults to `openai/gpt-5.4-mini`.
 
 ## Enable proposal email
 

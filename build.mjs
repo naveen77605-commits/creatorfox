@@ -3,7 +3,7 @@ import {enrich} from './lib/pages.mjs';
 import {makeProposal} from './lib/proposal.mjs';
 import services from './data/services.json' with {type:'json'};
 const root='dist';fs.mkdirSync(root,{recursive:true});fs.cpSync('public',root,{recursive:true});
-const base=(process.env.SITE_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`:'https://creatorfox.com')).replace(/\/$/,'');
+const base=(process.env.SITE_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`:'https://creatorfox-ai-agency.vercel.app')).replace(/\/$/,'');
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const paths=[];
 const button=(label,url='/contact',kind='')=>`<a class="button ${kind}" href="${url}">${label}<span aria-hidden="true">↗</span></a>`;
