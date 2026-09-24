@@ -30,10 +30,13 @@ page('/404','Page not found','Find your way back to CreatorFox services and proj
 fs.copyFileSync(root+'/404/index.html',root+'/404.html');
 fs.writeFileSync(root+'/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${paths.filter(p=>p!='/404').map(p=>`<url><loc>${base}${p==='/'?'':p}</loc></url>`).join('')}</urlset>`);
 fs.writeFileSync(root+'/robots.txt',`User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: ${base}/sitemap.xml\n`);
+fs.rmSync(root+'/case-studies',{recursive:true,force:true});
+fs.writeFileSync(root+'/sitemap.xml',fs.readFileSync(root+'/sitemap.xml','utf8').replace(/<url><loc>[^<]*\/case-studies[^<]*<\/loc><\/url>/g,''));
 console.log(`Built ${paths.length} pages. Canonical origin: ${base}`);
 
 // Use the supplied homepage and its original animation modules.
 let home=fs.readFileSync('templates/home.html','utf8');
+home=home.replace(/<a href="\/case-studies">Work<\/a>/g,'').replace(/<li><a href="\/case-studies">Case studies<\/a><\/li>/g,'').replace('Open Work for credited project films and practical takeaways.','Continue below for illustrative project scenarios and practical takeaways.');
 home=home.replace('</head>',`<link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png"><meta name="keywords" content="AI agency, AI marketing agency, digital marketing agency, branding agency, 3D website development, performance marketing, content marketing, influencer marketing, AEO GEO, AI workshop, digital AI consulting, Bengaluru"><meta name="robots" content="index,follow,max-image-preview:large"><meta property="og:site_name" content="CreatorFox AI agency"><meta property="og:image" content="${base}/assets/asset-3.webp"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${base}/assets/asset-3.webp"><link rel="canonical" href="${base}/"><link rel="stylesheet" href="/home-bridge.css"><link rel="stylesheet" href="/controls.css"><script src="/controls.js" defer></script><link rel="stylesheet" href="/experience.css"><script src="/experience.js" defer></script><link rel="stylesheet" href="/redesign.css"><script src="/contact-media.js" defer></script><script src="/newsletter.js" defer></script></head>`);
 fs.writeFileSync(root+'/index.html',home);
 fs.mkdirSync(root+'/proposals',{recursive:true});
