@@ -19,13 +19,4 @@
     mobileNav.querySelectorAll('a').forEach(function(link){ link.addEventListener('click',closeMenu); });
     document.addEventListener('click',function(event){ if(!header.contains(event.target)) closeMenu(); });
   }
-  var newsletter=document.getElementById('cfNewsletter');
-  var newsletterStatus=document.getElementById('cfNewsletterStatus');
-  if(newsletter && newsletterStatus){
-    newsletter.addEventListener('submit',function(event){
-      event.preventDefault();
-      if(!newsletter.checkValidity()){ newsletter.reportValidity(); return; }
-      window.location.href='mailto:make.creatorfox@gmail.com?subject=CreatorFox%20newsletter&body='+encodeURIComponent('Please add '+document.getElementById('cfNewsletterEmail').value+' to The Letter.'); newsletterStatus.textContent='Send the email draft to request a subscription.';
-    });
-  }
 })();

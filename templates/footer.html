@@ -31,9 +31,9 @@
       <div class="cf-footer-newsletter cf-liquid-card">
         <h3 class="cf-col-title">The Letter</h3>
         <p>Sign up for useful ideas on brand, growth, AI and the moments that make a business easier to choose.</p>
-        <form class="cf-footer-subscribe" id="cfNewsletter" novalidate>
+        <form class="cf-footer-subscribe" id="cfNewsletter" action="https://formsubmit.co/make.creatorfox@gmail.com" method="POST">
           <label class="cf-sr-only" for="cfNewsletterEmail">Email address</label>
-          <input id="cfNewsletterEmail" type="email" name="email" placeholder="Leave your email" autocomplete="email" required>
+          <input type="hidden" name="_subject" value="CreatorFox newsletter subscription"><input type="text" name="_honey" class="cf-newsletter-trap" tabindex="-1" autocomplete="off" aria-hidden="true"><input id="cfNewsletterEmail" type="email" name="email" placeholder="Your email for newsletter updates" autocomplete="email" required>
           <button type="submit" aria-label="Subscribe"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </form>
         <p class="cf-footer-status" id="cfNewsletterStatus" aria-live="polite"></p>

@@ -2527,9 +2527,9 @@ body{margin:0;background:var(--cf-black);color:var(--cf-ink);font-family:var(--c
       <div class="cf-footer-newsletter cf-liquid-card">
         <h3 class="cf-col-title">The Letter</h3>
         <p>Sign up for useful ideas on brand, growth, AI and the moments that make a business easier to choose.</p>
-        <form class="cf-footer-subscribe" id="cfNewsletter" novalidate>
+        <form class="cf-footer-subscribe" id="cfNewsletter" action="https://formsubmit.co/make.creatorfox@gmail.com" method="POST">
           <label class="cf-sr-only" for="cfNewsletterEmail">Email address</label>
-          <input id="cfNewsletterEmail" type="email" name="email" placeholder="Leave your email" autocomplete="email" required>
+          <input type="hidden" name="_subject" value="CreatorFox newsletter subscription"><input type="text" name="_honey" class="cf-newsletter-trap" tabindex="-1" autocomplete="off" aria-hidden="true"><input id="cfNewsletterEmail" type="email" name="email" placeholder="Your email for newsletter updates" autocomplete="email" required>
           <button type="submit" aria-label="Subscribe"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </form>
         <p class="cf-footer-status" id="cfNewsletterStatus" aria-live="polite"></p>
@@ -2566,15 +2566,6 @@ body{margin:0;background:var(--cf-black);color:var(--cf-ink);font-family:var(--c
     });
     mobileNav.querySelectorAll('a').forEach(function(link){ link.addEventListener('click',closeMenu); });
     document.addEventListener('click',function(event){ if(!header.contains(event.target)) closeMenu(); });
-  }
-  var newsletter=document.getElementById('cfNewsletter');
-  var newsletterStatus=document.getElementById('cfNewsletterStatus');
-  if(newsletter && newsletterStatus){
-    newsletter.addEventListener('submit',function(event){
-      event.preventDefault();
-      if(!newsletter.checkValidity()){ newsletter.reportValidity(); return; }
-      window.location.href='mailto:make.creatorfox@gmail.com?subject=CreatorFox%20newsletter&body='+encodeURIComponent('Please add '+document.getElementById('cfNewsletterEmail').value+' to The Letter.'); newsletterStatus.textContent='Send the email draft to request a subscription.';
-    });
   }
 })();
 </script>
