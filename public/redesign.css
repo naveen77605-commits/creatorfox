@@ -24,3 +24,18 @@
 .workshop-campaign-image{display:none!important}
 @media(max-width:800px){.workshop-campaign{min-height:720px;padding:130px 6% 80px!important;background-position:64% center!important;background-image:linear-gradient(90deg,rgba(8,7,6,.96),rgba(8,7,6,.70)),url('/assets/ai-workshop-hero.jpg')!important}.workshop-campaign-copy{max-width:100%}}
 .cf-newsletter-trap{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
+
+/* Contact fields must grow with their labels; the old mobile 50px height overlapped inputs. */
+#creatorfox-home #cf-contact-widget #cfContactForm{display:flex;flex-direction:column;gap:20px!important}
+#creatorfox-home #cf-contact-widget .cf-field{height:auto!important;min-height:0!important;flex:0 0 auto;position:relative}
+#creatorfox-home #cf-contact-widget .cf-field label{display:block;position:static;line-height:1.5!important;margin:0 0 8px!important}
+#creatorfox-home #cf-contact-widget .cf-phone-row{display:grid!important;grid-template-columns:96px minmax(0,1fr);gap:12px!important}
+#creatorfox-home #cf-contact-widget .cf-field input,#creatorfox-home #cf-contact-widget .cf-field select{height:auto!important;min-height:48px;line-height:1.5!important}
+#creatorfox-home #cf-contact-widget .cf-field textarea{height:auto!important;min-height:112px!important;line-height:1.6!important}
+@media(max-width:800px){
+#creatorfox-home #cf-contact-widget .cf-form-panel h2{font-size:26px!important;line-height:1.3!important;letter-spacing:-.015em!important;overflow-wrap:break-word}
+#creatorfox-home #cf-contact-widget .cf-form-panel .cf-lede{font-size:14px!important;line-height:1.65!important;margin-bottom:24px!important}
+#creatorfox-home #contact .cf-grid{padding-bottom:130px!important}
+#creatorfox-home #cf-contact-widget .cf-field label{font-size:12px!important}
+#creatorfox-home #cf-contact-widget .cf-phone-row{grid-template-columns:90px minmax(0,1fr)}
+}
