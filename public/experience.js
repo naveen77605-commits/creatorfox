@@ -18,10 +18,12 @@ window.Cal.config=window.Cal.config||{};
 window.Cal.config.forwardQueryParams=true;
 window.Cal.ns["30min"]("ui",{hideEventTypeDetails:false,layout:"month_view"});
 const bookLink=panel.querySelector('[href="#cf-booking"]');
-bookLink.setAttribute('data-cal-link','creator-ai/30min');
-bookLink.setAttribute('data-cal-namespace','30min');
-bookLink.setAttribute('data-cal-config',JSON.stringify({layout:"month_view",useSlotsViewOnSmallScreen:"true"}));
-bookLink.addEventListener('click',event=>{event.preventDefault();panel.hidden=true;toggle.setAttribute('aria-expanded','false');});
+bookLink.addEventListener('click',event=>{
+event.preventDefault();
+window.Cal.ns["30min"]("modal",{calLink:"creator-ai/30min",config:{layout:"month_view",useSlotsViewOnSmallScreen:"true"}});
+panel.hidden=true;
+toggle.setAttribute('aria-expanded','false');
+});
 
 const section=document.querySelector('#case-studies');
 if(section){
