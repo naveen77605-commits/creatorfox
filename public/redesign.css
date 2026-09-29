@@ -39,3 +39,19 @@
 #creatorfox-home #cf-contact-widget .cf-field label{font-size:12px!important}
 #creatorfox-home #cf-contact-widget .cf-phone-row{grid-template-columns:90px minmax(0,1fr)}
 }
+
+/* Contact launcher and readable service content */
+.cf-discuss-bar{left:auto!important;right:22px!important;bottom:22px!important;transform:none!important;width:auto!important;padding:6px!important}
+.cf-discuss-bar>button{display:flex;align-items:center;gap:12px;background:#BC6F10!important;color:#fff!important;min-height:58px;padding:12px 26px!important;border-radius:999px!important;border:0;font-weight:700;font-size:17px;cursor:pointer}
+.cf-fox-wave{display:inline-block;font-size:32px;animation:cf-fox-hello 4s ease-in-out infinite;transform-origin:bottom center}
+@keyframes cf-fox-hello{0%,80%,100%{transform:rotate(0)}85%{transform:rotate(-12deg)}92%{transform:rotate(12deg)}}
+.cf-discuss-panel{position:fixed;z-index:1000;right:22px;bottom:105px;width:min(390px,calc(100vw - 32px));box-sizing:border-box;padding:25px;background:#19130e;color:#f8f1e8;border:1px solid #b58b5066;border-radius:26px;box-shadow:0 20px 70px #0008;font-family:inherit}
+.cf-discuss-panel[hidden]{display:none!important}.cf-discuss-panel header{display:flex;align-items:center;gap:16px;justify-content:space-between}.cf-discuss-panel header button{background:transparent;color:#fff;border:0;font-size:28px;min-width:44px;min-height:44px;cursor:pointer}.cf-discuss-panel p{font-size:15px;line-height:1.6;color:#cfc3b4}
+.cf-discuss-option{display:block;padding:18px;margin-top:12px;border:1px solid #c2944b66;border-radius:17px;background:#ffffff08;color:#fff!important;text-decoration:none;transition:background .2s,transform .2s}.cf-discuss-option:hover{background:#BC6F1033;transform:translateY(-2px)}.cf-discuss-option span{display:block;font-size:13px;line-height:1.5;color:#cfc3b4;margin-top:7px}
+.cf-discuss-panel a:focus-visible,.cf-discuss-bar button:focus-visible{outline:3px solid #edba78;outline-offset:4px}
+.cf-studies-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:38px}.cf-study-card{display:flex;flex-direction:column;padding:30px;border:1px solid #ffffff28;border-radius:24px;background:#18120d;color:#f2ede4}.cf-study-card h3{font-size:28px;line-height:1.2;margin:20px 0 12px;color:#f2ede4}.cf-study-card p{font-size:16px;line-height:1.75;color:#c7beb1}.cf-study-card small,.cf-study-number{font-size:12px;color:#e3b678}.cf-study-card a{margin-top:auto;padding-top:20px;color:#edba78;text-decoration:none}.cf-study-note{max-width:850px;font-size:13px;line-height:1.65;color:#bdb2a3}
+.cf-inner .section:not(.amber) :is(h2,h3,h4,li,summary),.cf-inner :is(.package-card,.work-reference-card,.scope-display,.automation-card,.engagement) :is(h2,h3,h4,li){color:#f2ede4}
+.cf-inner .section:not(.amber) :is(.intro,.section-top p,.card p,.step p){color:#c7beb1}
+@media(max-width:850px){.cf-studies-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.cf-studies-grid{grid-template-columns:1fr}.cf-discuss-bar{right:16px!important;bottom:calc(14px + env(safe-area-inset-bottom))!important}.cf-discuss-panel{right:16px;bottom:calc(100px + env(safe-area-inset-bottom));max-height:70svh;overflow:auto}.cf-study-card{padding:25px}}
+@media(prefers-reduced-motion:reduce){.cf-fox-wave{animation:none}.cf-discuss-option{transition:none}}
