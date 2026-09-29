@@ -55,3 +55,11 @@
 @media(max-width:850px){.cf-studies-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.cf-studies-grid{grid-template-columns:1fr}.cf-discuss-bar{right:16px!important;bottom:calc(14px + env(safe-area-inset-bottom))!important}.cf-discuss-panel{right:16px;bottom:calc(100px + env(safe-area-inset-bottom));max-height:70svh;overflow:auto}.cf-study-card{padding:25px}}
 @media(prefers-reduced-motion:reduce){.cf-fox-wave{animation:none}.cf-discuss-option{transition:none}}
+
+/* Restore the cinematic scrolling case study scene. */
+#case-studies .cf-case-scroll{height:950svh}
+#case-studies .cf-case-sticky{top:110px;height:calc(100svh - 125px);min-height:0}
+#case-studies .cf-case-copy{opacity:1!important;transform:none!important}
+#case-studies #cfCaseDescription{font-size:clamp(14px,1.2vw,17px);line-height:1.65}
+#case-studies .cf-case-brand{font-size:12px}
+@media(max-width:720px){#case-studies .cf-case-sticky{top:92px;height:calc(100svh - 175px);grid-template-rows:auto minmax(110px,1fr);gap:16px}#case-studies #cfCaseTitle{font-size:25px;margin:8px 0}#case-studies #cfCaseDescription{font-size:13px;line-height:1.5}#case-studies .cf-case-metric{margin-top:10px}#case-studies .cf-case-metric strong{font-size:21px}#case-studies .cf-case-tags{display:none}#case-studies .cf-case-visual{min-height:110px;height:100%}}
