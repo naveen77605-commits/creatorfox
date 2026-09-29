@@ -3,11 +3,22 @@ const form=document.querySelector('#cfContactForm,#enquiry');
 const bar=document.createElement('div');bar.className='cf-bottom-bar cf-discuss-bar';
 bar.innerHTML='<button type="button" aria-expanded="false" aria-controls="cf-discuss"><span class="cf-fox-wave" aria-hidden="true">🦊</span> Let’s discuss <span aria-hidden="true">↗</span></button>';document.body.append(bar);
 const panel=document.createElement('section');panel.id='cf-discuss';panel.hidden=true;panel.className='cf-discuss-panel';panel.setAttribute('aria-label','Contact CreatorFox');
-panel.innerHTML='<header><strong>Your next move starts here.</strong><button type="button" aria-label="Close contact options">×</button></header><p>Have a brief or prefer a conversation? Choose what works for you.</p><a class="cf-discuss-option" href="'+(form?'#'+form.id:'/contact')+'"><strong>Submit a form ↗</strong><span>Tell us about your business and what you need.</span></a><a class="cf-discuss-option" href="https://cal.com/creatorfox" target="_blank" rel="noopener noreferrer"><strong>Book a meet ↗</strong><span>Choose an available time on our booking calendar.</span></a>';document.body.append(panel);
+panel.innerHTML='<header><strong>Your next move starts here.</strong><button type="button" aria-label="Close contact options">×</button></header><p>Have a brief or prefer a conversation? Choose what works for you.</p><a class="cf-discuss-option" href="'+(form?'#'+form.id:'/contact')+'"><strong>Submit a form ↗</strong><span>Tell us about your business and what you need.</span></a><a class="cf-discuss-option" href="#cf-booking" aria-haspopup="dialog"><strong>Book a meet ↗</strong><span>Choose a time and book right here.</span></a>';document.body.append(panel);
 const toggle=bar.querySelector('button');function open(value){panel.hidden=!value;toggle.setAttribute('aria-expanded',String(value));(value?panel.querySelector('a'):toggle).focus();}
 toggle.onclick=()=>open(panel.hidden);panel.querySelector('header button').onclick=()=>open(false);panel.querySelector('a').addEventListener('click',()=>open(false));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden)open(false)});
 document.addEventListener('click',e=>{if(!panel.hidden&&!panel.contains(e.target)&&!bar.contains(e.target))open(false)});
+
+
+const booking=document.createElement('dialog');booking.id='cf-booking';booking.className='cf-booking-modal';booking.setAttribute('aria-labelledby','cf-booking-title');
+booking.innerHTML='<div class="cf-booking-header"><div><h2 id="cf-booking-title">Book a meet with CreatorFox</h2><p>Choose a meeting and a time that works for you.</p></div><button type="button" aria-label="Close booking calendar">×</button></div><iframe title="CreatorFox meeting booking calendar" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+document.body.append(booking);
+let previousOverflow='';
+const bookLink=panel.querySelector('[href="#cf-booking"]');
+bookLink.addEventListener('click',event=>{event.preventDefault();panel.hidden=true;toggle.setAttribute('aria-expanded','false');previousOverflow=document.documentElement.style.overflow;document.documentElement.style.overflow='hidden';const frame=booking.querySelector('iframe');if(!frame.getAttribute('src'))frame.src='https://cal.com/creatorfox?embed=true&theme=light';booking.showModal();booking.querySelector('button').focus();});
+booking.querySelector('button').addEventListener('click',()=>booking.close());
+booking.addEventListener('click',event=>{if(event.target===booking){const r=booking.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)booking.close();}});
+booking.addEventListener('close',()=>{document.documentElement.style.overflow=previousOverflow;toggle.focus();});
 
 const section=document.querySelector('#case-studies');
 if(section){
