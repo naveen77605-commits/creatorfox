@@ -10,15 +10,18 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden)open(
 document.addEventListener('click',e=>{if(!panel.hidden&&!panel.contains(e.target)&&!bar.contains(e.target))open(false)});
 
 
-const booking=document.createElement('dialog');booking.id='cf-booking';booking.className='cf-booking-modal';booking.setAttribute('aria-labelledby','cf-booking-title');
-booking.innerHTML='<div class="cf-booking-header"><div><h2 id="cf-booking-title">Book a meet with CreatorFox</h2><p>Choose a meeting and a time that works for you.</p></div><button type="button" aria-label="Close booking calendar">×</button></div><iframe title="CreatorFox meeting booking calendar" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>';
-document.body.append(booking);
-let previousOverflow='';
+
+// Cal.com element-click embed supplied by CreatorFox.
+(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace])}else p(cal,ar);return}p(cal,ar)}})(window,"https://app.cal.com/embed/embed.js","init");
+window.Cal("init","30min",{origin:"https://app.cal.com"});
+window.Cal.config=window.Cal.config||{};
+window.Cal.config.forwardQueryParams=true;
+window.Cal.ns["30min"]("ui",{hideEventTypeDetails:false,layout:"month_view"});
 const bookLink=panel.querySelector('[href="#cf-booking"]');
-bookLink.addEventListener('click',event=>{event.preventDefault();panel.hidden=true;toggle.setAttribute('aria-expanded','false');previousOverflow=document.documentElement.style.overflow;document.documentElement.style.overflow='hidden';const frame=booking.querySelector('iframe');if(!frame.getAttribute('src'))frame.src='https://cal.com/creatorfox?embed=true&theme=light';booking.showModal();booking.querySelector('button').focus();});
-booking.querySelector('button').addEventListener('click',()=>booking.close());
-booking.addEventListener('click',event=>{if(event.target===booking){const r=booking.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)booking.close();}});
-booking.addEventListener('close',()=>{document.documentElement.style.overflow=previousOverflow;toggle.focus();});
+bookLink.setAttribute('data-cal-link','creator-ai/30min');
+bookLink.setAttribute('data-cal-namespace','30min');
+bookLink.setAttribute('data-cal-config',JSON.stringify({layout:"month_view",useSlotsViewOnSmallScreen:"true"}));
+bookLink.addEventListener('click',event=>{event.preventDefault();panel.hidden=true;toggle.setAttribute('aria-expanded','false');});
 
 const section=document.querySelector('#case-studies');
 if(section){
