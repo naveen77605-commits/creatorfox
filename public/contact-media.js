@@ -6,7 +6,7 @@
    video.muted=true;
    video.defaultMuted=true;
    video.playsInline=true;
-   ['muted','playsinline','webkit-playsinline'].forEach(attr=>video.setAttribute(attr,''));
+   ['autoplay','loop','muted','playsinline','webkit-playsinline'].forEach(attr=>video.setAttribute(attr,''));
    const play=()=>{
      if(document.visibilityState==='hidden') return;
      const promise=video.play();
@@ -29,7 +29,7 @@
  if(section){
    fox=section.querySelector('#cfFoxVideo');
    const bg=section.querySelector('#cfBgVideo');
-   const sources=[[fox,'https://creatorfox.com/wp-content/uploads/2026/03/Untitled-design-6.mp4'],[bg,'https://creatorfox.com/wp-content/uploads/2026/09/hf_20260411_104032_69319010-2458-492b-b04d-b40a5dfa4482.mp4']];
+   const sources=[[fox,'/assets/CreatorFox%20(4).mp4'],[bg,'https://creatorfox.com/wp-content/uploads/2026/09/hf_20260411_104032_69319010-2458-492b-b04d-b40a5dfa4482.mp4']];
    sources.forEach(([video,url])=>{
      if(!video) return;
      const play=playWhenAllowed(video);
