@@ -3,7 +3,7 @@ import {enrich} from './lib/pages.mjs';
 import {makeProposal} from './lib/proposal.mjs';
 import services from './data/services.json' with {type:'json'};
 const root='dist';fs.mkdirSync(root,{recursive:true});fs.cpSync('public',root,{recursive:true});
-const base=(process.env.SITE_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`:'https://creatorfox-ai-agency.vercel.app')).replace(/\/$/,'');
+const base='https://www.creatorfox.com';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const paths=[];
 const button=(label,url='/contact',kind='')=>`<a class="button ${kind}" href="${url}">${label}<span aria-hidden="true">↗</span></a>`;
@@ -41,3 +41,6 @@ home=home.replace('</head>',`<link rel="icon" type="image/png" href="/favicon.pn
 fs.writeFileSync(root+'/index.html',home);
 fs.mkdirSync(root+'/proposals',{recursive:true});
 for(const service of services){fs.writeFileSync(root+'/proposals/'+service.slug+'.pdf',await makeProposal({service:service.slug,name:'Your team',company:'Your business',goal:service.outcome,budget:'To be agreed after discovery'}));}
+
+const {applySEO}=await import('./lib/seo.mjs');
+applySEO(root);
